@@ -163,10 +163,24 @@ a.Custom
     width: 100%;
     height: 1050px;
     top: 0px;
+    display: inline;
     z-index: 5;
     position: relative;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    margin-top: 140px;
+    
 }
 
+img.Customyourown
+{
+    width: 650px;
+    padding-left: 10px;
+}
+
+h1
+{
+}
 .Banner
 {
     top: 0;
