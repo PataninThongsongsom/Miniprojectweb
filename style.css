@@ -182,34 +182,37 @@ h1
     top: 0;
     left: 0;
     position: relative;
-    width: 100%;
     height: 800px;
     z-index: 4;
     bottom: 0;
     background-image: url(img/bg-blurry.png);
-    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     padding-left: 60px;
     padding-top: 60px;
+
 }
 
 .bgblur
 {
-    width: 100%;
+
     height: 100%;
+
 }
 
 .cyo
 {
-    height: 390px;
+    display: inline;
+    height: 360px;
     position: relative;
-    display: flex;
     top: 180px;
-    left:180px
+    left:120px;
     
 }
-
+.Info
+{
+    display: inline;
+}
 
 
 
