@@ -9,19 +9,23 @@
         <script src="./js/regscript.js"></script>
 </head>
 <body>
-    <form id="Regform" method="post" action="login.php">
+    <form id="Regform" method="post" action="php/login.php">
         Username:
         <input type="text"><br>
         Password:
         <input type="password" id="pass1" pattern="[a-zA-Z0-9@_]{6,}"><br>
         ConfPass:
         <input type="password" id="pass2"><br>
+        Name:
+        <input type="text" name="txtName"><br>
+        Surname:
+        <input type="text" name="txtsurname"><br>
         Email:
-        <input type="email"><br>
+        <input type="email" name="txtEmail"><br>
         Tel:
-        <input type="tel"><br>
+        <input type="tel" name="txtPhone"><br>
         Address:
-        <textarea>
+        <textarea name="txtAddress">
 
         </textarea><br>
         <input type="submit" value="Register" id="btnreg">

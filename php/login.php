@@ -6,7 +6,7 @@ $con = mysqli_connect('localhost', 'root', ' ','’webdevtest’');
 
 // get the post records
 $txtName = $_POST['txtName'];
-$txtSurname = $_POST['txtsurnaem'];
+$txtSurname = $_POST['txtsurname'];
 $txtEmail = $_POST['txtEmail'];
 $txtPhone = $_POST['txtPhone'];
 $txtAddress = $_POST['$txtAddress'];
