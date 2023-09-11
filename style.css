@@ -182,7 +182,7 @@ h1
     top: 0;
     left: 0;
     position: relative;
-    height: 800px;
+    height: 500px;
     z-index: 4;
     bottom: 0;
     background-image: url(img/bg-blurry.png);
@@ -205,13 +205,15 @@ h1
     display: inline;
     height: 360px;
     position: relative;
-    top: 180px;
+    top: 40px;
     left:120px;
-    
 }
+
 .Info
 {
+    position: relative;
     display: inline;
+    
 }
 
 
