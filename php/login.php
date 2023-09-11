@@ -10,6 +10,7 @@ $txtSurname = $_POST['txtsurname'];
 $txtEmail = $_POST['txtEmail'];
 $txtPhone = $_POST['txtPhone'];
 $txtAddress = $_POST['$txtAddress'];
+
 $txtPassword = $_POST['$txtPassword'];
 
 // database insert SQL code
