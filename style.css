@@ -121,7 +121,6 @@ a.Custom
     margin-right: 10px;
 }
 
-/* Shadow behind Menu */
 .Shadow
 {
     display:block;
@@ -131,26 +130,6 @@ a.Custom
     top:0%;
 
 }
-/* Banner */
-.Parallax1
-{
-    width: 100%;
-    z-index: 1;
-    display: block;
-    position: absolute;
-    /* transform: translateY(0px); */
-}
-/* Recommand
-.Parallax2
-{
-    width: 100%;
-    z-index: 2;
-    display: block;
-    position: absolute;
-    transform: translateY(0px);
-} */
-
-
 
 .img-title
 {
@@ -172,11 +151,10 @@ a.Custom
     top: 0;
     left: 0;
     position: relative;
+    width: 100%;
+    height: var(--doc-height, 100vh);
     z-index: 4;
     bottom: 0;
-    /* min-width: 100%; 
-    min-height: 100%; */
-    
 }
 
 .VdoBanner
@@ -185,6 +163,31 @@ a.Custom
     height: var(--doc-height, 100vh);
     object-fit: cover;
 }
+
+.bgblur
+{
+
+    height: 100%;
+
+}
+
+.cyo
+{
+    display: inline;
+    height: 360px;
+    position: relative;
+    top: 40px;
+    left:120px;
+}
+
+.Info
+{
+    position: relative;
+    display: inline;
+    
+}
+
+
 
 Shop
 {
