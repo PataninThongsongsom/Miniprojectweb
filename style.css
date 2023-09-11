@@ -121,7 +121,6 @@ a.Custom
     margin-right: 10px;
 }
 
-/* Shadow behind Menu */
 .Shadow
 {
     display:block;
@@ -131,26 +130,6 @@ a.Custom
     top:0%;
 
 }
-/* Banner */
-.Parallax1
-{
-    width: 100%;
-    z-index: 1;
-    display: block;
-    position: absolute;
-    /* transform: translateY(0px); */
-}
-/* Recommand
-.Parallax2
-{
-    width: 100%;
-    z-index: 2;
-    display: block;
-    position: absolute;
-    transform: translateY(0px);
-} */
-
-
 
 .img-title
 {
@@ -158,39 +137,23 @@ a.Custom
     display: block;
 }
 
-.Recommand
-{
-    width: 100%;
-    height: 1050px;
-    top: 0px;
-    display: inline;
-    z-index: 5;
-    position: relative;
-    padding-left: 5rem;
-    padding-right: 5rem;
-    margin-top: 140px;
-    
-}
-
-img.Customyourown
-{
-    width: 650px;
-    padding-left: 10px;
-}
 
 h1
 {
+    font-size: large;
 }
+
+/* Banner */
+
 .Banner
 {
     top: 0;
     left: 0;
     position: relative;
+    width: 100%;
+    height: var(--doc-height, 100vh);
     z-index: 4;
     bottom: 0;
-    /* min-width: 100%; 
-    min-height: 100%; */
-    
 }
 
 .VdoBanner
@@ -201,6 +164,8 @@ h1
     z-index: 6;
 }
 
+
+
 .black_effect
 {
     background-color: rgba(0, 0, 0, 0.074);
@@ -209,9 +174,49 @@ h1
     z-index: 5;
     object-fit: cover;
     position: absolute;
+}
 
+/* Recommand */
+.Recommand
+{
+    top: 0;
+    left: 0;
+    position: relative;
+    height: 500px;
+    z-index: 4;
+    bottom: 0;
+    background-image: url(img/bg-blurry.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-left: 60px;
+    padding-top: 60px;
 
 }
+
+.bgblur
+{
+
+    height: 100%;
+
+}
+
+.cyo
+{
+    display: inline;
+    height: 360px;
+    position: relative;
+    top: 40px;
+    left:120px;
+}
+
+.Info
+{
+    position: relative;
+    display: inline;
+    
+}
+
+
 
 Shop
 {
