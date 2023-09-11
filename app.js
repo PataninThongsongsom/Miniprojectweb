@@ -15,9 +15,23 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+
+window.onload = function(){
+    let btnreg = document.getElementById("btnreg");
+    btnnreg.onclick = checkPassword;
+}
+
+
+
+
+
+
+
+
 window.onload = function(){
     // let vdo = document.getElementById("VDO");
     let vdo = document.querySelector("video");
     vdo.load();
+    
 
 }
