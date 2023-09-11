@@ -9,11 +9,11 @@
         <script src="./js/regscript.js"></script>
 </head>
 <body>
-    <form id="Regform">
+    <form id="Regform" method="post" action="login.php">
         Username:
         <input type="text"><br>
         Password:
-        <input type="password" id="pass1"><br>
+        <input type="password" id="pass1" pattern="[a-zA-Z0-9@_]{6,}"><br>
         ConfPass:
         <input type="password" id="pass2"><br>
         Email:
@@ -27,6 +27,7 @@
         <input type="submit" value="Register" id="btnreg">
         <a href="index.html">Home </a>
         <div id="errormsg"></div>
+        <p>**Password (รหัสผ่าน 6 ตัวขึ้นไป)</p>
     </form>
 </body>
 </html>
