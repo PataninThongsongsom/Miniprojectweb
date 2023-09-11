@@ -189,8 +189,26 @@ h1
     background-repeat: no-repeat;
     background-size: cover;
     padding-left: 60px;
+    padding-right: 60px;
     padding-top: 60px;
+    font-family: "Kanit", Arial, sans-serif;
+    
 
+}
+
+.Info
+{
+   
+    position: relative;
+    display: inline;
+}
+
+.Rec-Header
+{
+    color: #676767;
+    text-decoration: underline;
+    font-weight:700;
+    font-size: 38px;
 }
 
 .bgblur
@@ -202,21 +220,12 @@ h1
 
 .cyo
 {
-    display: inline;
-    height: 360px;
+    display: inline-block;
+    height: 300px;
     position: relative;
     top: 40px;
-    left:120px;
+    left:60px;
 }
-
-.Info
-{
-    position: relative;
-    display: inline;
-    
-}
-
-
 
 Shop
 {
