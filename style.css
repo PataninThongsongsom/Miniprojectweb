@@ -182,7 +182,7 @@ h1
     top: 0;
     left: 0;
     position: relative;
-    height: 400px;
+    height: 700px;
     z-index: 4;
     bottom: 0;
     background-image: url(img/bg-blurry.png);
@@ -201,9 +201,21 @@ h1
     padding-inline: 1rem;
 }
 
+.cyo
+{
+    display: inline-block;
+    height: 400px;
+    position: relative;
+    top: 20%;
+    left: 4rem;
+}
+
+
 .Rec-paragraph
 {
     align-items: center;
+    padding-top: 10%;
+    padding-inline: 1rem;
     /* margin-left: 10%;
     margin-right: 10%; */
 }
@@ -213,7 +225,7 @@ h1
     color: #676767;
     text-decoration: underline;
     font-weight:700;
-    font-size: 50px;
+    font-size: 40px;
     align-items: center;
     justify-content: center;
     display: grid;
@@ -228,11 +240,11 @@ h1
     font-size: 24px;
     padding-inline: 3rem;
     font-weight: 300;
-    margin-top: 15px;
+    margin-top: 50px;
     
 }
 
-.Button-cyo
+.Button-Paragraph
 {
     justify-content: center;
     width: 386px;
@@ -243,11 +255,9 @@ h1
     color: white;
     align-items: center;
     border: none;
-    margin-top: 33px;
-    display: grid;
-    padding-right: 1rem;
-    
-
+    display: block;
+    margin: 0 auto;
+    margin-top: 3rem;
 }
 
 .bgblur
@@ -255,14 +265,6 @@ h1
     height: 100%;
 }
 
-.cyo
-{
-    display: inline-block;
-    height: 300px;
-    position: relative;
-    top: 40px;
-    left:60px;
-}
 
 .column {
     display: inline-block;
