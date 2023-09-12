@@ -11,28 +11,35 @@
 <body>
     <form id="Regform" method="post" action="php/login.php">
         Username:
-        <input type="text"><br>
+        <input type="text" pattern="[A-Za-z0-9]{3,20}" id="username"><br>
         Password:
-        <input type="password" id="pass1" pattern="[a-zA-Z0-9@_]{6,}"><br>
+        <input type="password" id="pass1" pattern="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z]).{8,}$" title="password ต้องมี8ตัว ตัวใหญ่ 1 ตัวเล็ก 1 ตัวเลข1"><br>
         ConfPass:
-        <input type="password" id="pass2"><br>
+        <input type="password" id="pass2" pattern="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z]).{8,}$"><br>
         Name:
-        <input type="text" name="txtName" id="txtName"><br>
+        <input type="text" name="txtName" id="txtName" placeholder="ชื่อ"><br>
         Surname:
-        <input type="text" name="txtsurname" id="txtsurname"><br>
+        <input type="text" name="txtsurname" id="txtsurname" placeholder="นามสกุล"><br>
         Email:
-        <input type="email" name="txtEmail" id="txtEmail"><br>
+        <input type="email" name="txtEmail" id="txtEmail" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"><br>
         Tel:
-        <input type="tel" name="txtPhone" id="txtPhone"><br>
+        <input type="tel" id="tel" name="txtPhone" id="txtPhone" pattern="^(\+66|0)[0-9]{1,2}-[0-9]{3}-[0-9]{4,5}$" placeholder="phone"><br>
         Address:
         <textarea name="txtAddress" id="txtAddress">
 
         </textarea><br>
-        <input type="submit" name="Submit" id="btnreg" value="Submit">
+        <!-- <input type="button" name="Submit" id="btnreg" value="Submit"> -->
+        <button type="button" id="btnreg">Register</button>
        
         <a href="index.html">Home </a>
-        <div id="errormsg"></div>
-        <p>**Password (รหัสผ่าน 6 ตัวขึ้นไป)</p>
+
+        <div id="errmsg1" style="color: red;"></div>
+        <div id="errmsg2" style="color: red;"></div>
+        <div id="errmsg3" style="color: red;"></div>
+        <div id="errmsg4" style="color: red;"></div>
+       
+
+        <!-- <p>**Password (รหัสผ่าน 8 ตัวขึ้นไป)</p> -->
     </form>
 </body>
 </html>
