@@ -258,6 +258,15 @@ h1
     display: block;
     margin: 0 auto;
     margin-top: 3rem;
+    cursor: pointer;
+    font-family: "Kanit", Arial, sans-serif;
+    transition: transform 1.2;
+}
+
+.Button-Paragraph:hover
+{
+    background-color:#090909c0;
+    transform: scale(1.05);
 }
 
 .bgblur
