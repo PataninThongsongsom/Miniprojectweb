@@ -280,8 +280,13 @@ h1
 .column {
     display: inline-block;
 }
-  
-Shop
+
+/* Sponser */
+.Sponser
 {
-    background-color: gray;
+    background-color: white;
+    height: 700px;
+    top: 0;
+    left: 0;
+    position: relative; 
 }
