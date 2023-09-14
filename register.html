@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>O'clock</title>
-        <link rel="icon" type="image/x-icon" href="/img/logo.png">
+        <link rel="icon" type="image/x-icon" href="./img/logo.png">
         <link rel="stylesheet" href="style.css">
         <script src="./js/regscript.js"></script>
 </head>
 <body>
     <form id="Regform" method="post" action="./php/register.php">
         Username:
-        <input type="text" pattern="[A-Za-z0-9]{3,20}" id="username" required><br>
+        <input type="text" pattern="[A-Za-z0-9]{3,20}" id="username" name="Username" required><br>
         Password:
-        <input type="password" id="pass1" pattern="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z]).{8,}$" title="password ต้องมี8ตัว ตัวใหญ่ 1 ตัวเล็ก 1 ตัวเลข1" required><br>
+        <input type="password" id="pass1" pattern="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z]).{8,}$" title="password ต้องมี8ตัว ตัวใหญ่ 1 ตัวเล็ก 1 ตัวเลข1" required name="Password"><br>
         ConfPass:
         <input type="password" id="pass2" pattern="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z]).{8,}$" required><br>
         Name:
