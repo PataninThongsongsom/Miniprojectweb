@@ -225,11 +225,7 @@ h1
     color: #676767;
     text-decoration: underline;
     font-weight:700;
-<<<<<<< Updated upstream
     font-size: 40px;
-=======
-    font-size: 36px;
->>>>>>> Stashed changes
     align-items: center;
     justify-content: center;
     display: grid;
@@ -244,13 +240,7 @@ h1
     font-size: 17px;
     padding-inline: 3rem;
     font-weight: 300;
-<<<<<<< Updated upstream
     margin-top: 50px;
-=======
-    margin-top: 15px;
-    color: #676767;
-
->>>>>>> Stashed changes
     
 }
 
@@ -265,7 +255,6 @@ h1
     color: white;
     align-items: center;
     border: none;
-<<<<<<< Updated upstream
     display: block;
     margin: 0 auto;
     margin-top: 3rem;
@@ -278,11 +267,6 @@ h1
 {
     background-color:#090909c0;
     transform: scale(1.05);
-=======
-    margin-top: 33px;
-    display: grid;
-    padding-right: 1rem;
->>>>>>> Stashed changes
 }
 
 .bgblur
