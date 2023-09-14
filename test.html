@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Drawing Toolbox with Individual Shape Colors and Freehand Drawing</title>
+    <style>
+        /* Add some basic styles for the toolbox */
+        .toolbox {
+            background-color: #f1f1f1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="toolbox">
+        <label for="colorPicker">Select Color:</label>
+        <input type="color" id="colorPicker" value="#000000">
+        <label for="sizeSlider">Size:</label>
+        <input type="range" id="sizeSlider" min="1" max="20" value="5">
+        <button id="drawRect">Rectangle</button>
+        <button id="drawCircle">Circle</button>
+        <button id="drawLine">Line</button>
+        <button id="drawFreehand">Freehand</button>
+        <!-- Add more drawing tools as needed -->
+    </div>
+    <canvas id="myCanvas" width="400" height="400"></canvas>
+
+    <script>
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+        var currentTool = "none"; // Default: no drawing
+        var currentColor = "#000000"; // Default color: black
+        var isDrawing = false;
+        var isResizing = false;
+        var selectedShape = null; // Reference to the selected shape for resizing
+        var lineWidth = 5; // Default line width
+        var startX, startY;
+        var offsetX, offsetY; // Offset from the top-left corner of the shape for resizing
+
+        // Keep track of freehand drawing paths
+        var freehandPath = []; // Current path being drawn
+
+        // Event listener for the color picker input
+        document.getElementById("colorPicker").addEventListener("input", function (e) {
+            currentColor = e.target.value;
+        });
+
+        // Event listener for the size slider input
+        document.getElementById("sizeSlider").addEventListener("input", function (e) {
+            lineWidth = e.target.value;
+        });
+
+        document.getElementById("drawRect").addEventListener("click", function () {
+            currentTool = "rect";
+            isDrawing = false; // Reset the drawing mode
+        });
+
+        document.getElementById("drawCircle").addEventListener("click", function () {
+            currentTool = "circle";
+            isDrawing = false; // Reset the drawing mode
+        });
+
+        document.getElementById("drawLine").addEventListener("click", function () {
+            currentTool = "line";
+            isDrawing = false; // Reset the drawing mode
+        });
+
+        document.getElementById("drawFreehand").addEventListener("click", function () {
+            currentTool = "freehand";
+            isDrawing = true; // Enable freehand drawing
+        });
+
+        canvas.addEventListener("mousedown", function (e) {
+            var mouseX = e.clientX - canvas.getBoundingClientRect().left;
+            var mouseY = e.clientY - canvas.getBoundingClientRect().top;
+
+            if (currentTool === "rect") {
+                for (var i = shapes.length - 1; i >= 0; i--) {
+                    if (isPointInsideRect(mouseX, mouseY, shapes[i])) {
+                        isResizing = true;
+                        selectedShape = shapes[i];
+                        offsetX = mouseX - selectedShape.x;
+                        offsetY = mouseY - selectedShape.y;
+                        break;
+                    }
+                }
+
+                if (!isResizing) {
+                    isDrawing = true;
+                    startX = mouseX;
+                    startY = mouseY;
+                }
+            } else if (currentTool === "circle") {
+                for (var i = shapes.length - 1; i >= 0; i--) {
+                    if (isPointInsideCircle(mouseX, mouseY, shapes[i])) {
+                        isResizing = true;
+                        selectedShape = shapes[i];
+                        offsetX = mouseX - selectedShape.x;
+                        offsetY = mouseY - selectedShape.y;
+                        break;
+                    }
+                }
+
+                if (!isResizing) {
+                    isDrawing = true;
+                    startX = mouseX;
+                    startY = mouseY;
+                }
+            } else if (currentTool === "freehand") {
+                isDrawing = true;
+                ctx.strokeStyle = currentColor;
+                ctx.lineWidth = lineWidth;
+                ctx.beginPath();
+                ctx.moveTo(mouseX, mouseY);
+                freehandPath.push({ x: mouseX, y: mouseY });
+            }
+        });
+
+        canvas.addEventListener("mousemove", function (e) {
+            var mouseX = e.clientX - canvas.getBoundingClientRect().left;
+            var mouseY = e.clientY - canvas.getBoundingClientRect().top;
+
+            if (isResizing) {
+                if (selectedShape.type === "rect") {
+                    selectedShape.width = mouseX - selectedShape.x - offsetX;
+                    selectedShape.height = mouseY - selectedShape.y - offsetY;
+                } else if (selectedShape.type === "circle") {
+                    var radius = Math.sqrt(Math.pow(mouseX - selectedShape.x - offsetX, 2) + Math.pow(mouseY - selectedShape.y - offsetY, 2));
+                    selectedShape.radius = radius;
+                }
+                redrawCanvas();
+                drawShapes();
+            } else if (isDrawing) {
+                redrawCanvas();
+                drawShapes();
+                if (currentTool === "rect") {
+                    drawRectangle(startX, startY, mouseX - startX, mouseY - startY, currentColor);
+                } else if (currentTool === "circle") {
+                    drawCircle(startX, startY, Math.sqrt(Math.pow(mouseX - startX, 2) + Math.pow(mouseY - startY, 2)), currentColor);
+                } else if (currentTool === "freehand") {
+                    ctx.lineTo(mouseX, mouseY);
+                    ctx.stroke();
+                    freehandPath.push({ x: mouseX, y: mouseY });
+                }
+            }
+        });
+
+        canvas.addEventListener("mouseup", function () {
+            if (isDrawing) {
+                var mouseX = event.clientX - canvas.getBoundingClientRect().left;
+                var mouseY = event.clientY - canvas.getBoundingClientRect().top;
+
+                if (currentTool === "rect") {
+                    shapes.push({
+                        type: currentTool,
+                        color: currentColor,
+                        lineWidth: lineWidth,
+                        x: startX,
+                        y: startY,
+                        width: mouseX - startX,
+                        height: mouseY - startY,
+                    });
+                } else if (currentTool === "circle") {
+                    shapes.push({
+                        type: currentTool,
+                        color: currentColor,
+                        lineWidth: lineWidth,
+                        x: startX,
+                        y: startY,
+                        radius: Math.sqrt(Math.pow(mouseX - startX, 2) + Math.pow(mouseY - startY, 2)),
+                    });
+                } else if (currentTool === "freehand") {
+                    // Store the current freehand path in shapes
+                    shapes.push({
+                        type: currentTool,
+                        color: currentColor,
+                        lineWidth: lineWidth,
+                        path: freehandPath.slice(),
+                    });
+                    freehandPath = []; // Clear the current path
+                }
+
+                isDrawing = false;
+            }
+
+            if (isResizing) {
+                isResizing = false;
+                selectedShape = null;
+            }
+        });
+
+        var shapes = [];
+
+        function drawRectangle(x, y, width, height, color) {
+            ctx.fillStyle = color;
+            ctx.fillRect(x, y, width, height);
+        }
+
+        function drawCircle(x, y, radius, color) {
+            ctx.fillStyle = color;
+            ctx.beginPath();
+            ctx.arc(x, y, radius, 0, 2 * Math.PI);
+            ctx.fill();
+        }
+
+        function drawShapes() {
+            shapes.forEach(function (shape) {
+                ctx.strokeStyle = shape.color;
+                ctx.lineWidth = shape.lineWidth;
+
+                if (shape.type === "rect") {
+                    drawRectangle(shape.x, shape.y, shape.width, shape.height, shape.color);
+                } else if (shape.type === "circle") {
+                    drawCircle(shape.x, shape.y, shape.radius, shape.color);
+                } else if (shape.type === "freehand") {
+                    ctx.strokeStyle = shape.color;
+                    ctx.lineWidth = shape.lineWidth;
+                    ctx.beginPath();
+                    for (var i = 0; i < shape.path.length; i++) {
+                        var point = shape.path[i];
+                        if (i === 0) {
+                            ctx.moveTo(point.x, point.y);
+                        } else {
+                            ctx.lineTo(point.x, point.y);
+                        }
+                    }
+                    ctx.stroke();
+                }
+            });
+        }
+
+        function redrawCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawShapes();
+        }
+
+        function isPointInsideRect(x, y, rect) {
+            return x >= rect.x && x <= rect.x + rect.width && y >= rect.y && y <= rect.y + rect.height;
+        }
+
+        function isPointInsideCircle(x, y, circle) {
+            var distance = Math.sqrt(Math.pow(x - circle.x, 2) + Math.pow(y - circle.y, 2));
+            return distance <= circle.radius;
+        }
+    </script>
+</body>
+</html>
