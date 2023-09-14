@@ -1,0 +1,285 @@
+*
+{
+    margin: 0%;
+    padding: 0%;
+    scroll-behavior: smooth;
+}
+
+.class { 
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.WelcomePage
+{
+    width: 100%;
+    height: 100%;
+}
+
+/* Customize menu */
+.main-nav
+{
+    -webkit-backdrop-filter:blur(10px);
+    backdrop-filter: blur(10px);    
+    background-color: rgba(255, 255, 255, 0.614);
+    margin-top: 1rem;
+    margin-inline: 2rem;
+    border-radius: 6px;
+    box-shadow: 0px 4px 10px 0px rgb(0, 0, 0,0.25);
+    z-index: 7 ;
+    top: 0%;
+    display: flex;
+    position: fixed;
+    width: 90%;
+    margin-right: 5%;
+    margin-left: 5%;
+}
+
+
+ul.menu-left
+{
+    align-items: center;
+    font-size: 14px;
+    padding-left: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    display: inline-flex;
+    z-index: 6;
+}
+
+div.menu-right
+{
+    display: flex;
+    z-index: 6;
+    align-items: center;
+    margin-left: auto;
+    padding-right: 2rem;
+}
+
+li
+{
+    padding-right: 50px;
+    list-style-type: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.searchbox
+{
+    border-radius: 15px;
+    border:0cm;
+    height: 24px;
+    width: 16rem;
+    margin-right: 1rem;
+}
+
+input[type=search]
+{
+    outline: none;
+    padding: 12px 12px;
+    font-size: 15px;
+    
+}
+
+/* Shop */
+a.Shop
+{
+    text-decoration:none;
+    color: rgb(68, 68, 68);
+}
+
+/* Magazine */
+a.Magazine
+{
+    text-decoration: none;
+    color: rgb(68, 68, 68);
+}
+
+/* CustomYourOwn */
+a.Custom
+{
+    text-decoration: none;
+    color: rgb(68, 68, 68);
+}
+
+/* Logo */
+.logo
+{
+    margin-right: 70px;    
+    height: 20px;
+    width: 20px;
+    padding-left: 1px;
+ 
+}
+
+.login
+{
+    height: 40px;
+}
+
+.cart
+{
+    height: 40px;
+    margin-right: 10px;
+}
+
+.Shadow
+{
+    display:block;
+    width: 100%;
+    position: fixed ;
+    z-index: 5;
+    top:0%;
+
+}
+
+.img-title
+{
+    width: 100%;
+    display: block;
+}
+
+
+h1
+{
+    font-size: large;
+}
+
+/* Banner */
+
+.Banner
+{
+    top: 0;
+    left: 0;
+    position: relative;
+    width: 100%;
+    height: var(--doc-height, 100vh);
+    z-index: 4;
+    bottom: 0;
+}
+
+.VdoBanner
+{
+    width: 100%;
+    height: var(--doc-height, 100vh);
+    object-fit: cover;
+    z-index: 6;
+}
+
+
+
+.black_effect
+{
+    background-color: rgba(0, 0, 0, 0.074);
+    width: 100%;
+    height: var(--doc-height, 100vh);
+    z-index: 5;
+    object-fit: cover;
+    position: absolute;
+}
+
+/* Recommand */
+.Recommand
+{
+    top: 0;
+    left: 0;
+    position: relative;
+    height: 700px;
+    z-index: 4;
+    bottom: 0;
+    background-image: url(img/bg-blurry.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-inline: 1rem;
+    padding-top: 60px;
+    font-family: "Kanit", Arial, sans-serif;
+    display: flex;
+    /* grid-template-columns: 1fr 1fr;*/
+} 
+
+.Rec-image
+{
+    flex: 100%;
+    padding-inline: 1rem;
+}
+
+.cyo
+{
+    display: inline-block;
+    height: 400px;
+    position: relative;
+    top: 20%;
+    left: 4rem;
+}
+
+
+.Rec-paragraph
+{
+    align-items: center;
+    padding-top: 10%;
+    padding-inline: 1rem;
+    /* margin-left: 10%;
+    margin-right: 10%; */
+}
+
+.Rec-paragraph-Headers
+{
+    color: #676767;
+    text-decoration: underline;
+    font-weight:700;
+    font-size: 40px;
+    align-items: center;
+    justify-content: center;
+    display: grid;
+    padding-inline: 1rem;
+}
+
+.Rec-paragraph-Paragraph
+{
+    display: grid  ;
+    justify-content: center;
+    align-items: center ;
+    font-size: 24px;
+    padding-inline: 3rem;
+    font-weight: 300;
+    margin-top: 50px;
+    
+}
+
+.Button-Paragraph
+{
+    justify-content: center;
+    width: 386px;
+    height: 76px;
+    font-size: 24px;
+    border-radius: 38px;
+    background-color: #090909;
+    color: white;
+    align-items: center;
+    border: none;
+    display: block;
+    margin: 0 auto;
+    margin-top: 3rem;
+    cursor: pointer;
+    font-family: "Kanit", Arial, sans-serif;
+    transition: transform 1.2;
+}
+
+.Button-Paragraph:hover
+{
+    background-color:#090909c0;
+    transform: scale(1.05);
+}
+
+.bgblur
+{
+    height: 100%;
+}
+
+
+.column {
+    display: inline-block;
+}
+  
+Shop
+{
+    background-color: gray;
+}

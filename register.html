@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O'clock</title>
+        <link rel="icon" type="image/x-icon" href="./img/logo.png">
+        <link rel="stylesheet" href="style.css">
+        <script src="./js/regscript.js"></script>
+</head>
+<body>
+    <form id="Regform" method="post" action="./php/register.php">
+        Username:
+        <input type="text" pattern="[A-Za-z0-9]{3,20}" id="username" name="Username" required><br>
+        Password:
+        <input type="password" id="pass1" pattern="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z]).{8,}$" title="password ต้องมี8ตัว ตัวใหญ่ 1 ตัวเล็ก 1 ตัวเลข1" required name="Password"><br>
+        ConfPass:
+        <input type="password" id="pass2" pattern="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z]).{8,}$" required><br>
+        Name:
+        <input type="text" name="txtName" id="txtName" placeholder="ชื่อ" required><br>
+        Surname:
+        <input type="text" name="txtsurname" id="txtsurname" placeholder="นามสกุล" required><br>
+        Email:
+        <input type="text" name="txtEmail" id="txtEmail" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required><br>
+        Tel:
+        <input type="text" name="txtPhone" id="txtPhone" pattern="^(\+66|0)[0-9]{1,2}[0-9]{3}[0-9]{4,5}$" placeholder="phone" required><br>
+        Address:
+        <textarea name="txtAddress" id="txtAddress"></textarea><br>
+        <input type="submit" name="Submit" id="btnreg" value="Submit">
+        <!-- <button type="button" id="btnreg">Register</button> -->
+       
+        <a href="index.html">Home </a>
+
+        <div id="errmsg1" style="color: red;"></div>
+        <div id="errmsg2" style="color: red;"></div>
+        <div id="errmsg3" style="color: red;"></div>
+        <div id="errmsg4" style="color: red;"></div>
+        <div id="errmsg5" style="color: red;"></div>
+
+        <!-- <p>**Password (รหัสผ่าน 8 ตัวขึ้นไป)</p> -->
+    </form>
+</body>
+</html>
