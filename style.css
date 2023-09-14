@@ -215,6 +215,7 @@ h1
 
 .Rec-paragraph
 {
+ 
     align-items: center;
     padding-top: 10%;
     padding-inline:2rem;
@@ -224,6 +225,7 @@ h1
 
 .Rec-paragraph-Headers
 {
+    
     color: #676767;
     text-decoration: underline;
     font-weight:500;
@@ -232,7 +234,7 @@ h1
     align-items: center;
     justify-content: center;
     display: grid;
-    padding-inline: 1rem;
+    padding-inline: 5rem;
 }
 
 .Rec-paragraph-Paragraph
@@ -241,11 +243,9 @@ h1
     justify-content: center;
     align-items: center ;
     font-size: 24px;
-    padding-inline: 3rem;
+    padding-inline: 5rem;
     font-weight: 300;
-    margin-top: 15px;
-    color: #676767;
-
+    margin-top: 50px;
     
 }
 
