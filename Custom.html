@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML Drawing Toolbox with Color Selection</title>
+     
     <style>
-        /* Add some basic styles for the toolbox */
         .toolbox {
             background-color: #f1f1f1;
             padding: 10px;
@@ -16,52 +16,17 @@
 </head>
 <body>
     <div class="toolbox">
+        <!-- Button  -->
         <label for="colorPicker">Select Color:</label>
         <input type="color" id="colorPicker">
         <button id="drawRect">Rectangle</button>
         <button id="drawCircle">Circle</button>
         <button id="drawLine">Line</button>
-        <!-- Add more drawing tools as needed -->
+        <button id="drawFreehandLine">Freehand Line</button>
+        
     </div>
-    <canvas id="myCanvas" width="400" height="400"></canvas>
-
-    <script>
-        var canvas = document.getElementById("myCanvas");
-        var ctx = canvas.getContext("2d");
-        var currentTool = "none"; // Default: no drawing
-        var currentColor = "#000000"; // Default color: black
-
-        // Event listener for the color picker input
-        document.getElementById("colorPicker").addEventListener("input", function (e) {
-            currentColor = e.target.value;
-        });
-
-        document.getElementById("drawRect").addEventListener("click", function () {
-            currentTool = "rect";
-        });
-
-        document.getElementById("drawCircle").addEventListener("click", function () {
-            currentTool = "circle";
-        });
-
-        document.getElementById("drawLine").addEventListener("click", function () {
-            currentTool = "line";
-        });
-
-        canvas.addEventListener("mousedown", function (e) {
-            // Implement logic to draw based on the selected tool and color
-            ctx.fillStyle = currentColor;
-
-            if (currentTool === "rect") {
-                ctx.fillRect(e.clientX - canvas.getBoundingClientRect().left, e.clientY - canvas.getBoundingClientRect().top, 50, 50);
-            } else if (currentTool === "circle") {
-                ctx.beginPath();
-                ctx.arc(e.clientX - canvas.getBoundingClientRect().left, e.clientY - canvas.getBoundingClientRect().top, 25, 0, 2 * Math.PI);
-                ctx.fill();
-            } else if (currentTool === "line") {
-                // Implement line drawing logic here
-            }
-        });
-    </script>
+    <canvas id="myCanvas" width="1200" height="1200"></canvas>
+    <script src="./js/Custom.js"></script>
+    
 </body>
 </html>
