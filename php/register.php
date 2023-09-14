@@ -34,7 +34,8 @@ if(isset($_POST['Submit']))
         if($rs2)
         {
             header("Location: ../Login.html");
-            echo "Contact Records Inserted";
+            exit();
+            
 
         }
         else
