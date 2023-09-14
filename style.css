@@ -242,8 +242,10 @@ h1
     align-items: center ;
     font-size: 24px;
     padding-inline: 3rem;
-    font-weight: 200;
-    margin-top: 50px;
+    font-weight: 300;
+    margin-top: 15px;
+    color: #676767;
+
     
 }
 
