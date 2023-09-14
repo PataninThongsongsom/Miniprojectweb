@@ -11,7 +11,7 @@ body{
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: #4A98F7;
+  background: #b7bdc5;
 }
 .container{
   display: flex;
@@ -21,7 +21,7 @@ body{
   max-width: 1050px;
 }
 section{
-  background: #fff;
+  background: #f3d7d7;
   border-radius: 7px;
 }
 .tools-board{
@@ -87,10 +87,11 @@ section{
   background-color: #E02020;
 }
 .colors .option:nth-child(4){
-  background-color: #6DD400;
+  background-color: #0027d4;
 }
 .colors .option:nth-child(5){
-  background-color: #4A98F7;
+  background-color: #ff00f2;
+ 
 }
 .colors .option.selected::before{
   position: absolute;
@@ -129,11 +130,11 @@ section{
   transition: all 0.3s ease;
 }
 .clear-canvas:hover{
-  color: #fff;
-  background: #6C757D;
+  color: #ffffff;
+  background: #389cf5;
 }
 .buttons .save-img{
-  background: #4A98F7;
+  background: #000000;
   border: 1px solid #4A98F7;
 }
 .drawing-board{
