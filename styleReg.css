@@ -1,0 +1,66 @@
+
+#Regform{
+    display:grid;
+    background-color:rgb(219, 219, 219);
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+    margin: 5% 25% 5%;
+    /* margin: 3% 0% 25% 53%; */
+    border-radius: 10px;
+}
+.Reg_Header{
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+#Regform h1{
+    font-size: 2em;
+    background-color: black;
+    border-radius: 10px;
+    color: white;
+    padding: 1em;
+    margin: 0%;
+    text-align: center;
+}
+#Regform input,textarea {
+    margin: 1em;
+    padding: 1em;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    width: 70%;
+}
+#Regform p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+#Regform input[type="submit"]{
+    background-color: green;
+    color: white;
+    width: 50%;
+    border-radius: 10px;
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+a{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    background-color: red;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border-radius: 10px;
+    margin: 1em;
+    padding: 1em;
+    width: 40%;
+    border: 0.5px solid black;
+    color: white;
+    text-decoration:none
+}
+
+body{
+    background-image: url(/img/Background.jpeg);
+    background-repeat:no-repeat ;
+    background-size: cover ;
+}
