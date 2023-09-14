@@ -1,32 +1,52 @@
 <?php
-	// database connection code
-	if(isset($_POST['Submit']))
-	{
-	// $con = mysqli_connect('localhost', 'database_user', 'database_password','database');
-	$con = mysqli_connect('localhost', 'root', '','webdevtest');
+// database connection code
+if(isset($_POST['Submit']))
+{
+    // $con = mysqli_connect('localhost', 'database_user', 'database_password','database');
+    $con = mysqli_connect('localhost', 'root', '', 'webdevtest');
 
-	// get the post records
+    // Get the post records
+    $txtName = $_POST['txtName'];
+    $txtSurname = $_POST['txtsurname'];
+    $txtEmail = $_POST['txtEmail'];
+    $txtPhone = $_POST['txtPhone'];
+    $txtAddress = $_POST['txtAddress'];
 
-	$txtName = $_POST['txtName'];
-	$txtSurname=$_POST['txtsurname'];
-	$txtEmail = $_POST['txtEmail'];
-	$txtPhone = $_POST['txtPhone'];
-	$txtAddress = $_POST['txtAddress'];
+    $txtUsername = $_POST['Username'];
+    $txtPassword = $_POST['Password'];
 
-	// database insert SQL code
-	$sql = "INSERT INTO `member_detail` (`Id`, `Name`, `Surname`, `Email`, `tel`, `Address`) VALUES ('0', '$txtName', '$txtSurname', '$txtEmail', '$txtPhone', '$txtAddress')";
-	//$sql = "INSERT INTO `member_detail` (`Id`, `Name`, `Surname`, `Email`, `tel`, `Address`) VALUES ('0', 'test', 'test2', 'patanin@dd', '098222', 'สวัสดี test')";
-	// $sql = "INSERT INTO `member_detail` (`Id`, `Name`, `Surname`, `Email`, `tel`, `Address`) VALUES (\'0\', \'test11\', \'test23\', \'daw@gma\', \'098211\', \'sad22123\');";
-	// insert in database 
-	$rs = mysqli_query($con, $sql);
-	if($rs)
-	{
-		echo "Contact Records Inserted";
-	}
-	}
-	else
-	{
-		echo "Are you a genuine visitor?";
-		
-	}
+    // Database insert SQL code for member_detail table
+    $sql = "INSERT INTO `member_detail` (`Name`, `Surname`, `Email`, `tel`, `Address`) VALUES ('$txtName', '$txtSurname', '$txtEmail', '$txtPhone', '$txtAddress')";
+
+    // Insert into member_detail and check for success
+    $rs = mysqli_query($con, $sql);
+    if($rs)
+    {
+        // Retrieve the auto-generated Id from the last insert operation
+        $mdId = mysqli_insert_id($con);
+
+        // Database insert SQL code for member_account table using the retrieved Id
+        $sql2 = "INSERT INTO `member_account` (`Username`, `Password`, `MD_id`) VALUES ('$txtUsername', '$txtPassword', '$mdId')";
+
+        // Insert into member_account
+        $rs2 = mysqli_query($con, $sql2);
+
+        if($rs2)
+        {
+            echo "Contact Records Inserted";
+        }
+        else
+        {
+            echo "Failed to insert into member_account";
+        }
+    }
+    else
+    {
+        echo "Failed to insert into member_detail";
+    }
+}
+else
+{
+    echo "Are you a genuine visitor?";
+}
 ?>
