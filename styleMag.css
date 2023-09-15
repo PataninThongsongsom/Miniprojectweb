@@ -1,0 +1,89 @@
+*
+{
+    margin: 0%;
+    padding: 0%;
+    scroll-behavior: smooth;    
+    box-sizing: border-box;
+}
+
+
+
+.class { 
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.WelcomePage
+{
+    width: 100%;
+    height: 100%;
+}
+
+/* Customize menu */
+.main-nav
+{
+    margin-top: 1rem;
+    margin-inline: 2rem;
+    border-radius: 6px;
+    z-index: 7 ;
+    top: 0%;
+    display: flex;
+    position: fixed;
+    width: 90%;
+    margin-right: 5%;
+    margin-left: 5%;
+}
+
+
+ul.menu-left
+{
+    align-items: center;
+    font-size: 14px;
+    padding-left: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    display: inline-flex;
+    z-index: 6;
+    
+}
+
+div.menu-right
+{
+    display: flex;
+    z-index: 6;
+    align-items: center;
+    margin-left: auto;
+    padding-right: 2rem;
+}
+
+li 
+{   
+    
+    list-style-type: none;
+    padding-left: 80px;
+    padding-right: 50px;
+    list-style-type: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+li > *
+{
+    text-decoration: none;
+    color: white;
+}
+
+.searchbox
+{
+    border-radius: 15px;
+    border:0cm;
+    height: 24px;
+    width: 16rem;
+    margin-right: 1rem;
+}
+
+input[type=search]
+{
+    outline: none;
+    padding: 12px 12px;
+    font-size: 15px;
+    
+}
