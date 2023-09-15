@@ -1,0 +1,70 @@
+*
+{
+    margin: 0%;
+    padding: 0%;
+    scroll-behavior: smooth;
+}
+
+.class { 
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+
+
+
+.Login-page{
+    background-image: url('../img/bg-blur.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    
+   
+}
+
+.mybox{
+    width:400px;
+    background-color: rgba(255, 251, 251, 0.20);
+    color: #000;
+    padding: 25px 35px;
+}
+
+
+
+.Logintext{
+    width: 20px;
+    height: 30px;
+    text-align: center;
+    padding: 30px 100px 60px;
+}
+
+
+.myinput{
+    width: 80%;
+    height: 30px; 
+    margin: 10px 40px;
+}
+
+.myinput input{
+    width: 90%;
+    height: 90%;
+    
+    padding: 5px 20px 5px;
+}
+.btn{
+    width: 45%;
+    height: 45px;
+    margin-left: 110px;
+    background-color: black;
+    color:white;
+    
+}
+
+.p{
+    padding-left: px;
+}
