@@ -3,10 +3,13 @@
     <head>
         <meta charset="utf-8">
         <title>O'clock</title>
-        <link rel="icon" type="image/x-icon" href="/img/logo.png">
+        <link rel="icon" type="image/x-icon" href="./img/logo.png">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./css/style.css">
+        <script src="../js/app.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
         <script src="app.js"></script>
         
@@ -15,23 +18,23 @@
     <body>
         <!-- Menu -->
         <div class="top-menu"> 
-            <img src="./img/Shadow.png" class="Shadow" title="Shadow">
+            <img src="img/Shadow.png" class="Shadow" title="Shadow">
             <nav class="main-nav">
                 <ul class="menu-left">
                     <a href="index.html"><img src="./img/logo.png"class="logo"></a>
-                    <li><a href="Shop.html"class="Shop" href="">SHOP</a></li>
-                    <li><a href="Magazine.html" class="Magazine" href="">MAGAZINE</a></li>
-                    <li><a class="Custom" href="Custom.html">CUSTOM YOUR OWN</a></li>
+                    <li><a href="./html/Cart.html"class="Shop" href="">SHOP</a></li>
+                    <li><a href="./html/Magazine.html" class="Magazine" href="">MAGAZINE</a></li>
+                    <li><a class="Custom" href="./html/Custom.html">CUSTOM YOUR OWN</a></li>
                 </ul>
                 <div class="menu-right">
                     <input type="search" class="searchbox" placeholder="Search Products" >
-                    <a href="Cart.html"><img src="./img/cart.png" class="cart"></a>
-                    <a href="Login.html"><img src="./img/Login.png" class="login"> </a>
+                    <a href="./html/Cart.html"><img src="./img/cart.png" class="cart"></a>
+                    <a href="./html/Login.html"><img src="./img/Login.png" class="login"> </a>
                 </div>
             </nav>
             
         </div> 
-        <!-- Banner -->
+        <!-- Container -->
         <div class="Banner">
             <!--Effect ภาพ Banner-->
             <!-- <div class="black_effect"></div>-->
@@ -50,9 +53,23 @@
                     ทำได้ขนาดนี้มาก่อน! โดยเทคโนโลยีนี้ได้รับแรงบันดาลใจ
                     ต่อยอดมาจากเสื้อผ้ายอดฮิตจาก อภิชาติฟาร์ม
                 </p>
-                <button class="Button-Paragraph" onclick="window.location.href='./Custom.html'">ทดลองใช้</button>
+                <button class="Button-Paragraph" onclick="window.location.href='./html/Custom.html'">ทดลองใช้</button>
             </div>
         </div>
-        
+        <div class="Recommand" >
+            <img src="./img/Customyourown-new.png" class="cyo" title="cyo">
+            <div class="Info">
+                <h1 class="Rec-Header">Custom Your Own!</h1>
+            </div>
+
+        </div>
+        <!-- Banner Area -->
+        <div class="Banner">
+            <!-- <img src="/img/Parallax1.png" class="Parallax1" id="Parallax1"> -->
+        </div>
+        <!-- Content Area -->
+        <div class="Contents">
+
+        </div>
     </body>
 </html>
