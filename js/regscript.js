@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+function checkPassword(){
+    let result = document.getElementById("errormsg")
+=======
 function checkPattern(){
     //define variable //
     let result1 = document.getElementById("errmsg1");
@@ -8,11 +12,30 @@ function checkPattern(){
     let Username = document.getElementById("username");
     let phone = document.getElementById("tel");
     let email = document.getElementById("txtEmail");
+>>>>>>> 127f080dc86e958149f3eb15bf697e6b90884c10
     let pas11 = document.getElementById("pass1");
     let pas22 = document.getElementById("pass2");
     let password1 = pas11.value;
     let password2 = pas22.value;
     let chk = false;
+<<<<<<< HEAD
+    if(password1 == password2){
+        chk = true;
+    }
+    // console.log(password1);
+    // console.log(password2);
+    if (chk) {
+        result.style.color = "green";
+        result.innerHTML = "Correct";
+    }else{
+        result.style.color = "red";
+        result.innerHTML = "InCorrect";
+    }
+}
+window.onload = function(){
+    let regbtn = document.getElementById("btnreg");
+    regbtn.onclick = checkPassword;
+=======
     // Check Pattern //
     if (!pas11.checkValidity() && !Username.checkValidity() && !phone.checkValidity() && !email.checkValidity()) {
         result2.textContent = "->รหัสผ่าน ต้องมี8ตัว ตัวใหญ่ 1 ตัวเล็ก 1 ตัวเลข1";
@@ -121,4 +144,5 @@ function checkPattern(){
 window.onload = function(){
     let regbtn = document.getElementById("btnreg");
     regbtn.onclick = checkPattern;
+>>>>>>> 127f080dc86e958149f3eb15bf697e6b90884c10
 }
