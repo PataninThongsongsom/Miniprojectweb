@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 14, 2023 at 11:26 AM
+-- Generation Time: Sep 19, 2023 at 05:07 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -20,6 +20,19 @@ SET time_zone = "+00:00";
 --
 -- Database: `webdevtest`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `images`
+--
+
+CREATE TABLE `images` (
+  `ID` int(11) NOT NULL,
+  `file_name` varchar(255) NOT NULL,
+  `uploaded_on` datetime NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -54,6 +67,12 @@ CREATE TABLE `member_detail` (
 --
 
 --
+-- Indexes for table `images`
+--
+ALTER TABLE `images`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- Indexes for table `member_account`
 --
 ALTER TABLE `member_account`
@@ -69,6 +88,12 @@ ALTER TABLE `member_detail`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `images`
+--
+ALTER TABLE `images`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `member_account`
