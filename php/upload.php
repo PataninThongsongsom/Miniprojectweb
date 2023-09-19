@@ -6,9 +6,11 @@ $statusMsg = '';
  
 // File upload directory  
 $targetDir = "../uploadfile/"; 
- 
+
 if(isset($_POST["submit"])){ 
+    // check empty file 
     if(!empty($_FILES["file"]["name"])){ 
+        //get file name
         $fileName = basename($_FILES["file"]["name"]); 
         $targetFilePath = $targetDir . $fileName; 
         $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION); 
