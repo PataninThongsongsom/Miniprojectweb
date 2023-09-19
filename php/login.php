@@ -26,10 +26,16 @@
             exit();
         } else {
             // Login failed
-            echo "Invalid username or password. Please try again.";
+            echo "<script type='text/javascript'>alert('Invalid username or password. Please try again.'); 
+                window.location = './Login.html'
+            </script>";
+            // echo "Invalid username or password. Please try again.";
         }
     } else {
-        echo "Please provide both username and password.";
+        echo "<script type='text/javascript'>alert('Please provide both username and password. Or you not Register?'); 
+            window.location = './Login.html'
+        </script>";
+        //echo "Please provide both username and password.";
     }
 
     mysqli_close($con);

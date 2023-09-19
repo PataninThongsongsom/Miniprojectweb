@@ -40,16 +40,23 @@ if(isset($_POST['Submit']))
         }
         else
         {
-            echo "Failed to insert into member_account";
+            echo "<script type='text/javascript'>alert('Failed to insert into table '); 
+            window.location = './Login.html'
+            </script>";
+            //echo "Failed to insert into member_account";
         }
     }
     else
     {
-        echo "Failed to insert into member_detail";
+        echo "<script type='text/javascript'>alert('Failed to insert into table '); 
+            window.location = './Login.html'
+        </script>";
     }
 }
 else
 {
-    echo "Are you a genuine visitor?";
+    echo "<script type='text/javascript'>alert('what do you do????'); 
+            window.location = './Login.html'
+        </script>";
 }
 ?>
