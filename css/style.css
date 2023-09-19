@@ -9,12 +9,6 @@
     font-family: "Segoe UI", Arial, sans-serif;
 }
 
-.WelcomePage
-{
-    width: 100%;
-    height: 100%;
-}
-
 /* Customize menu */
 .main-nav
 {
@@ -185,7 +179,7 @@ h1
     height: 700px;
     z-index: 4;
     bottom: 0;
-    background-image: url(img/bg-blurry.png);
+    background-image: url(../img/bg-blurry.png);
     background-repeat: no-repeat;
     background-size: cover;
     padding-inline: 1rem;
