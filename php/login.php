@@ -3,7 +3,7 @@
     session_start();
 
     // Database connection code
-    $con = mysqli_connect('localhost', 'root', '', 'webdevtest');
+    $con = mysqli_connect('localhost', 'root', '', 'oclockne_Webtest');
 
     if (!$con) {
         die("Connection failed: " . mysqli_connect_error());

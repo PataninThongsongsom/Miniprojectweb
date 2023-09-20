@@ -1,6 +1,6 @@
 <?php 
 // login DB
-$con = mysqli_connect('localhost', 'root', '', 'webdevtest');
+$con = mysqli_connect('localhost', 'root', '', 'oclockne_Webtest');
  
 $statusMsg = ''; 
  
