@@ -6,7 +6,8 @@ colorBtns = document.querySelectorAll(".colors .option"),
 colorPicker = document.querySelector("#color-picker"),
 clearCanvas = document.querySelector(".clear-canvas"),
 saveImg = document.querySelector(".save-img"),
-ctx = canvas.getContext("2d");
+ctx = canvas.getContext("2d"),
+img = document.getElementById("imgsource");
 
 // global variables with default value
 let prevMouseX, prevMouseY, snapshot,
@@ -16,10 +17,12 @@ brushWidth = 5,
 selectedColor = "#000";
 
 const setCanvasBackground = () => {
-    // setting whole canvas background to white, so the downloaded img background will be white
-    ctx.fillStyle = "#fff";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = selectedColor; // setting fillstyle back to the selectedColor, it'll be the brush color
+    // setting whole canvas background to white
+    //ctx.fillStyle = "#fff";
+    // ctx.fillRect(0, 0, canvas.width, canvas.height);
+    // ctx.fillStyle = selectedColor; // setting fillstyle back to the selectedColor, it'll be the brush color
+    // setting canvas background by using img
+    ctx.drawImage(img,0,0,canvas.width,canvas.height);
 }
 
 window.addEventListener("load", () => {
