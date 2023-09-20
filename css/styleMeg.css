@@ -1,0 +1,45 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body
+{
+    background-color: black;
+    color: white;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.main-header    
+{
+    position: relative;
+}
+
+.layers
+{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.layer
+{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+}
+
+.layers_base
+{
+    transform: translate3d(0, calc(var(--scrollTop)/2),0);
+}
+.main-article
+{
+    height: 130vh;
+}
