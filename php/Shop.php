@@ -1,6 +1,7 @@
 <?php
-if (isset($_SESSION['username'])) { // ถ้าlogin ไว้แล้ว
-    header("location: ../php/afterlogin.php"); // ให้ redirect ไป หน้าlogin แล้ว
+session_start();
+if (!isset($_SESSION['username'])) { // ถ้าlogin ไว้แล้ว
+    header("location: ./afterlogin.php"); // ให้ redirect ไป หน้าlogin แล้ว
     exit;
 }
 ?>
@@ -61,7 +62,17 @@ if (isset($_SESSION['username'])) { // ถ้าlogin ไว้แล้ว
             <div class="menu-right">
                 <input type="search" class="searchbox" placeholder="Search Products">
                 <a href="Cart.php"><img src="../img/cart.png" class="cart"></a>
-                <a href="Login.php"><img src="../img/Login.png" class="login"> </a>
+                <div class="dropdown">
+                        <img src="../img/Login.png" class="login" alt="Login Icon">
+                        
+                        <div class="dropdown-content" style="left: 1px;">
+                            
+                            <a href="./profile.php">PROFILE</a>
+                            <a href="./logout.php">LOGOUT</a>
+                        </div>
+                        <p style="text-align: center;">Hi <?php echo $_SESSION['username']; ?></p>
+                    </div>
+                <!-- <a href="Login.php"><img src="../img/Login.png" class="login"> </a> -->
             </div>
         </nav>
     </div>
