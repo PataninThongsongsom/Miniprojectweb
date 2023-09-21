@@ -37,7 +37,8 @@ if(isset($_POST['Submit']))
 
         if($rs2)
         {
-            header("Location: ../html/Login.html");
+            
+            header("Location: ./login.php");
             exit();
             
 
@@ -45,7 +46,7 @@ if(isset($_POST['Submit']))
         else
         {
             echo "<script type='text/javascript'>alert('Failed to insert into table '); 
-            window.location = '../html/Login.html'
+            window.location = './login.php'
             </script>";
             //echo "Failed to insert into member_account";
         }
@@ -53,7 +54,7 @@ if(isset($_POST['Submit']))
     else
     {
         echo "<script type='text/javascript'>alert('Failed to insert into table '); 
-            window.location = '../html/Login.html'
+        window.location = './login.php'
         </script>";
     }
 }
