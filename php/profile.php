@@ -9,18 +9,30 @@ if(isset($_POST['Submit']))
 {
     include "./connect.php";
     $txtName = $_POST['txtName'];
-    $txtPassword = $_POST['newpass1'];
-    $txtPassword2 =$_POST['newpass2'];
     $txtoldpassword = $_POST['oldpass'];
     $txtSurname = $_POST['txtSurname'];
     $txtEmail = $_POST['txtEmail'];
     $txtPhone = $_POST['txtPhone'];
     $txtAddress = $_POST['txtAddress'];
     $txtid = $user['id'];
-    $oldpassword = $user['pass'];
     $sql = "UPDATE `member_detail` SET `Name` = '$txtName', `Surname` = '$txtSurname', `Email` = '$txtEmail', `tel` = '$txtPhone', `Address` = '$txtAddress' WHERE `member_detail`.`Id` = '$txtid';";
     $rs = mysqli_query($con, $sql);
     
+    if ($rs) {
+        echo "<script type='text/javascript'>alert('แก้ไขข้อมูลเรียบร้อย กรุณาlogout และ login ใหม่ อีกครั้ง');
+            window.location = './afterlogin.php';
+            </script>";
+    }else{
+        echo "<script type='text/javascript'>alert('Error');
+            </script>";
+            
+    }
+}
+if(isset($_POST['Submit2'])){
+    include "./connect.php";
+    $txtPassword = $_POST['newpass1'];
+    $txtPassword2 =$_POST['newpass2'];
+    $oldpassword = $user['pass'];
     if($oldpassword==$txtoldpassword){
         if($txtPassword == $txtPassword2){
             $sql2 = "UPDATE `member_account` SET `Password` = '$txtPassword' WHERE `member_account`.`MD_Id` = '$txtid';";
@@ -35,8 +47,7 @@ if(isset($_POST['Submit']))
                 </script>";
             
     }
-    
-    if ($rs && $rs2) {
+    if ($rs2) {
         echo "<script type='text/javascript'>alert('แก้ไขข้อมูลเรียบร้อย กรุณาlogout และ login ใหม่ อีกครั้ง');
             window.location = './afterlogin.php';
             </script>";
@@ -179,6 +190,7 @@ if(isset($_POST['Submit']))
 				<!-- button -->
 				<div class="gap-3 d-md-flex justify-content-md-end text-center">
                     <input type="submit" name="Submit" class="btn btn-primary btn-lg" value="Update profile">
+                    <input type="submit" name="Submit2" class="btn btn-primary btn-lg" value="Change Password">
                     <a href="../afterlogin.php" class ="btn btn-primary btn-lg">BACK TO HOME</a><br>
 					<!-- <button type="butston" class="btn btn-danger btn-lg">Delete profile</button>
 					<button type="button" class="btn btn-primary btn-lg">Update profile</button> -->
