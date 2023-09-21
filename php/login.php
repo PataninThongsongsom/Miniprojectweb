@@ -30,7 +30,9 @@
                 'surname' => $res['Surname'],
                 'email' => $res['Email'],
                 'phone' => $res['tel'],
-                'address' => $res['Address']
+                'address' => $res['Address'],
+                'pass' => $res['Password'],
+                'id' => $res['Id']
             );
             // echo "<div class='menu-right'> $username</div>";
             // echo "Ez";
