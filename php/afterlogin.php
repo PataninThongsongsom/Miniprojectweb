@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['username'])) { // ถ้าไม่ได้เข้าระบบอยู่
+    header("location: ./login.php"); // redirect ไปยังหน้า login.php
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,20 +25,23 @@
             <img src="../img/Shadow.png" class="Shadow" title="Shadow">
             <nav class="main-nav">
                 <ul class="menu-left">
-                    <a href="index.html"><img src="../img/logo.png"class="logo"></a>
+                    <a href="./afterlogin.php"><img src="../img/logo.png"class="logo"></a>
                     <li><a href="../html/Cart.html"class="Shop" href="">SHOP</a></li>
-                    <li><a href="../html/Magazine.html" class="Magazine" href="">MAGAZINE</a></li>
-                    <li><a class="Custom" href="../html/Custom.html">CUSTOM YOUR OWN</a></li>
+                    <li><a href="../php/Magazine.php" class="Magazine" href="">MAGAZINE</a></li>
+                    <li><a class="Custom" href="../php/Custom.php">CUSTOM YOUR OWN</a></li>
                 </ul>
                 <div class="menu-right">
                     <input type="search" class="searchbox" placeholder="Search Products" >
                     <a href="../html/Cart.html"><img src="../img/cart.png" class="cart"></a>
                     <div class="dropdown">
                         <img src="../img/Login.png" class="login" alt="Login Icon">
+                        
                         <div class="dropdown-content" style="left: 1px;">
+                            
                             <a href="#">PROFILE</a>
-                            <a href="../index.html">LOGOUT</a>
+                            <a href="../php/logout.php">LOGOUT</a>
                         </div>
+                        <p style="text-align: center;">Hi <?php echo $_SESSION['username']; ?></p>
                     </div>
                 </div>
             </nav>
