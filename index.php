@@ -24,17 +24,10 @@ if (isset($_SESSION['username'])) { // ถ้าlogin ไว้แล้ว
             <img src="./img/Shadow.png" class="Shadow" title="Shadow">
             <nav class="main-nav">
                 <ul class="menu-left">
-<<<<<<< HEAD:index.html
-                    <a href="index.html"><img src="./img/logo.png"class="logo"></a>
-                    <li><a href="./html/Shop.html"class="Shop" href="">SHOP</a></li>
-                    <li><a href="./html/Magazine.html" class="Magazine" href="">MAGAZINE</a></li>
-                    <li><a class="Custom" href="./html/Custom.html">CUSTOM YOUR OWN</a></li>
-=======
                     <a href="./index.php"><img src="./img/logo.png"class="logo"></a>
-                    <li><a href="./html/Cart.html"class="Shop" href="">SHOP</a></li>
+                    <li><a href="./html/shop.html"class="Shop" href="">SHOP</a></li>
                     <li><a href="./php/Magazine.php" class="Magazine" href="">MAGAZINE</a></li>
                     <li><a class="Custom" href="./php/Custom.php">CUSTOM YOUR OWN</a></li>
->>>>>>> main:index.php
                 </ul>
                 <div class="menu-right">
                     <input type="search" class="searchbox" placeholder="Search Products" >
