@@ -16,7 +16,7 @@
     </head>
     <body class="Login-page">
         <div class = "mybox">
-        <form class="Loginform">
+        <form class="Loginform" action="../php/login.php" method="post">
             
             <div class="Logintext"><img src ="../img/Loginlogo.png"></div>
             <div class = "myinput"><ion-icon name="person"></ion-icon><input type="text" placeholder="USERNAME" ></div><br>
@@ -25,7 +25,8 @@
             <div class ="Remember"><p><input type ="checkbox" value="Remember">
                 REMEMBER ME!</p></div>
             <br>
-            <a href="../html/afterlogin.html" class = "btnlogin">LOGIN</a>
+            <input type="submit" value="Login" class="btnlogin">
+            <!-- <a href="../html/afterlogin.html" class = "btnlogin">LOGIN</a> -->
             <a href="../index.html" class ="btnback">BACK</a><br>
 
             <div class ="Register">

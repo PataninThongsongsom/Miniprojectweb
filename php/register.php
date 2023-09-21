@@ -3,7 +3,7 @@
 if(isset($_POST['Submit']))
 {
     // $con = mysqli_connect('localhost', 'database_user', 'database_password','database');
-    $con = mysqli_connect('localhost', 'root', '', 'oclockne_Webtest');
+    include "./connect.php";
 
     // Get the post records
     $txtName = $_POST['txtName'];
