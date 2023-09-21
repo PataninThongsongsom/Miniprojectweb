@@ -33,7 +33,7 @@ if(isset($_POST['Submit']))
 
         if($rs2)
         {
-            header("Location: ../Login.html");
+            header("Location: ../html/Login.html");
             exit();
             
 
