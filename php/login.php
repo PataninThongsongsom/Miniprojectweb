@@ -22,7 +22,7 @@
             // Login successful
             $_SESSION['username'] = $username; // Store username in session for future use
             // echo "Ez";
-            header("Location: ../index.html"); // Redirect to the dashboard or another secure page
+            header("Location: ../html/afterlogin.html"); // Redirect to the dashboard or another secure page
             exit();
         } else {
             // Login failed
@@ -33,7 +33,7 @@
         }
     } else {
         echo "<script type='text/javascript'>alert('Please provide both username and password. Or you not Register?'); 
-            window.location = './Login.html'
+            window.location = '../html/Login.html'
         </script>";
         //echo "Please provide both username and password.";
     }

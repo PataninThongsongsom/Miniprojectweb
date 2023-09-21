@@ -41,7 +41,7 @@ if(isset($_POST['Submit']))
         else
         {
             echo "<script type='text/javascript'>alert('Failed to insert into table '); 
-            window.location = './Login.html'
+            window.location = '../html/Login.html'
             </script>";
             //echo "Failed to insert into member_account";
         }
@@ -49,14 +49,14 @@ if(isset($_POST['Submit']))
     else
     {
         echo "<script type='text/javascript'>alert('Failed to insert into table '); 
-            window.location = './Login.html'
+            window.location = '../html/Login.html'
         </script>";
     }
 }
 else
 {
     echo "<script type='text/javascript'>alert('what do you do????'); 
-            window.location = './Login.html'
+            window.location = '../html/Login.html'
         </script>";
 }
 ?>
