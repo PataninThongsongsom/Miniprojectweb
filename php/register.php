@@ -1,7 +1,7 @@
 <?php
 // database connection code
 if (isset($_SESSION['username'])) { // ถ้าเข้าระบบอยู่
-    header("location: ../html/afterlogin.html"); // redirect ไปยังหน้า index.php
+    header("location: ./afterlogin.php"); // redirect ไปยังหน้า index.php
     exit;
 }else
 if(isset($_POST['Submit']))

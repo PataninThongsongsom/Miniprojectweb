@@ -43,7 +43,7 @@ if(isset($_POST["submit"])){
  
 // Display status message 
 echo "<script type='text/javascript'>alert('{$statusMsg}'); 
-    window.location = '../index.html'
+    window.location = '../index.php'
 </script>";
 
 

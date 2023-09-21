@@ -2,7 +2,7 @@
     // Start a session (if not already started)
     session_start();
     if (isset($_SESSION['username'])) { // ถ้าเข้าระบบอยู่
-        header("location: ../html/afterlogin.html"); // redirect ไปยังหน้า index.php
+        header("location: ./afterlogin.php"); // redirect ไปยังหน้า index.php
         exit;
     }else
     // Database connection code
@@ -27,14 +27,14 @@
             // echo "<div class='menu-right'> $username</div>";
             // echo "Ez";
             echo "<script type='text/javascript'>alert('Login Complete'); 
-                window.location = '../html/afterlogin.html'
+                window.location = './afterlogin.php'
 
              </script>"; // Redirect to the dashboard or another secure page
             
         } else {
             // Login failed
             echo "<script type='text/javascript'>alert('Invalid username or password. Please try again.'); 
-                window.location = '../html/Login.html'
+                window.location = './login.php'
             </script>";
             // echo "Invalid username or password. Please try again.";
         }
