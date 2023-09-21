@@ -375,3 +375,32 @@ Shop
     height: 2em;
     border: none;
 }
+.Next-pic{
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 3em 10em;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+}
+.Next-pic button{
+    display: block;
+    margin: 10px;
+    border-radius: 10px;
+    width: 10em;
+    height: 2em;
+    border: 1px solid black;
+}
+#image-container {
+    margin: 0% 10%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    gap: 10px; /* Gap between grid items */
+}
+
+/* CSS for individual images (adjust as needed) */
+#image-container img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}

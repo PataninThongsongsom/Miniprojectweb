@@ -25,7 +25,7 @@ if (isset($_SESSION['username'])) { // ถ้าlogin ไว้แล้ว
             <nav class="main-nav">
                 <ul class="menu-left">
                     <a href="./index.php"><img src="./img/logo.png"class="logo"></a>
-                    <li><a href="./html/shop.php"class="Shop" href="">SHOP</a></li>
+                    <li><a href="./php/shop.php"class="Shop" href="">SHOP</a></li>
                     <li><a href="./php/Magazine.php" class="Magazine" href="">MAGAZINE</a></li>
                     <li><a class="Custom" href="./php/Custom.php">CUSTOM YOUR OWN</a></li>
                 </ul>
