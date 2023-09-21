@@ -28,7 +28,7 @@ if (!isset($_SESSION['username'])) { // ถ้าไม่ได้เข้า�
                     <a href="./afterlogin.php"><img src="../img/logo.png"class="logo"></a>
                     <li><a href="../html/Cart.html"class="Shop" href="">SHOP</a></li>
                     <li><a href="../php/Magazine.php" class="Magazine" href="">MAGAZINE</a></li>
-                    <li><a class="Custom" href="../html/Custom.html">CUSTOM YOUR OWN</a></li>
+                    <li><a class="Custom" href="./Custom.php">CUSTOM YOUR OWN</a></li>
                 </ul>
                 <div class="menu-right">
                     <input type="search" class="searchbox" placeholder="Search Products" >

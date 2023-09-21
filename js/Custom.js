@@ -6,7 +6,6 @@ colorBtns = document.querySelectorAll(".colors .option"),
 colorPicker = document.querySelector("#color-picker"),
 clearCanvas = document.querySelector(".clear-canvas"),
 saveImg = document.querySelector(".save-img"),
-backHome = document.querySelector("backhome")
 ctx = canvas.getContext("2d"),
 img = document.getElementById("imgsource");
 
@@ -129,9 +128,7 @@ saveImg.addEventListener("click", () => {
     link.click(); // clicking link to download image
 });
 
-backHome.addEventListener("click",() =>{
-    window.location = '../index.php'
-});
+
 
 canvas.addEventListener("mousedown", startDraw);
 canvas.addEventListener("mousemove", drawing);

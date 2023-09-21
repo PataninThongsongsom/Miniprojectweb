@@ -70,7 +70,7 @@ if (!isset($_SESSION['username'])) { // ถ้าไม่ได้เข้า�
         <div class="row buttons">
           <button class="clear-canvas">Clear Canvas</button>
           <button class="save-img">Save As Image</button>
-          <button class="backhome">Back to home</button>
+          <!-- <button class="backhome">Back to home</button> -->
         </div>
       </section>
       <section class="drawing-board" >
