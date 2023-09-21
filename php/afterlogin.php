@@ -38,8 +38,8 @@ if (!isset($_SESSION['username'])) { // ถ้าไม่ได้เข้า�
                         
                         <div class="dropdown-content" style="left: 1px;">
                             
-                            <a href="#">PROFILE</a>
-                            <a href="../php/logout.php">LOGOUT</a>
+                            <a href="./profile.php">PROFILE</a>
+                            <a href="./logout.php">LOGOUT</a>
                         </div>
                         <p style="text-align: center;">Hi <?php echo $_SESSION['username']; ?></p>
                     </div>

@@ -18,12 +18,22 @@
 
         // Query to check if the provided username and password match a record in the database
         $sql = "SELECT * FROM `member_account` WHERE `Username` = '$username' AND `Password` = '$password'";
-
+        $sql2 = "SELECT * FROM `member_detail` JOIN `member_account` ON member_detail.Id = member_account.MD_Id WHERE `Username` = '$username' AND `Password` = '$password'";
         $result = mysqli_query($con, $sql);
-
+        $result2 = mysqli_query($con, $sql2);
+        $res = mysqli_fetch_assoc($result2);
         if ($result && mysqli_num_rows($result) > 0) {
             // Login successful
             $_SESSION['username'] = $username; // Store username in session for future use
+            $_SESSION['userdetail'] = array(
+                'name' => $res['Name'],
+                'surname' => $res['Surname'],
+                'email' => $res['Email'],
+                'phone' => $res['tel'],
+                'address' => $res['Address'],
+                'pass' => $res['Password'],
+                'id' => $res['MD_Id']
+            );
             // echo "<div class='menu-right'> $username</div>";
             // echo "Ez";
             echo "<script type='text/javascript'>alert('Login Complete'); 
