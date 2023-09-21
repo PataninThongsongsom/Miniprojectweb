@@ -9,19 +9,41 @@ if(isset($_POST['Submit']))
 {
     include "./connect.php";
     $txtName = $_POST['txtName'];
-    $txtPassword = $_POST['$newpass1'];
+    $txtPassword = $_POST['newpass1'];
+    $txtPassword2 =$_POST['newpass2'];
+    $txtoldpassword = $_POST['oldpass'];
     $txtSurname = $_POST['txtSurname'];
     $txtEmail = $_POST['txtEmail'];
     $txtPhone = $_POST['txtPhone'];
     $txtAddress = $_POST['txtAddress'];
     $txtid = $user['id'];
+    $oldpassword = $user['pass'];
     $sql = "UPDATE `member_detail` SET `Name` = '$txtName', `Surname` = '$txtSurname', `Email` = '$txtEmail', `tel` = '$txtPhone', `Address` = '$txtAddress' WHERE `member_detail`.`Id` = '$txtid';";
     $rs = mysqli_query($con, $sql);
-    // $sql2 = "UPDATE `member_account` SET `Password` = '$txtPassword' WHERE `member_account`.`Id` = '$txtid'";
-    // $rs2 = mysqli_query($con, $sql2);
-    if ($rs) {
-        echo "<script type='text/javascript'>alert('แก้ไขข้อมูลเรียบร้อย กรุณาlogout และ login ใหม่ อีกครั้ง'); 
+    
+    if($oldpassword==$txtoldpassword){
+        if($txtPassword == $txtPassword2){
+            $sql2 = "UPDATE `member_account` SET `Password` = '$txtPassword' WHERE `member_account`.`MD_Id` = '$txtid';";
+            $rs2 = mysqli_query($con, $sql2);
+        }else{
+            echo "<script type='text/javascript'>alert('รหัสผ่านไม่ตรงกัน'); 
+                </script>";
+            
+        }
+    }else{
+        echo "<script type='text/javascript'>alert('รหัสผ่านผิด'); 
+                </script>";
+            
+    }
+    
+    if ($rs && $rs2) {
+        echo "<script type='text/javascript'>alert('แก้ไขข้อมูลเรียบร้อย กรุณาlogout และ login ใหม่ อีกครั้ง');
+            window.location = './afterlogin.php';
             </script>";
+    }else{
+        echo "<script type='text/javascript'>alert('Error');
+            </script>";
+            
     }
 }
 ?>
@@ -98,7 +120,7 @@ if(isset($_POST['Submit']))
 								<!-- First Name -->
 								<div class="col-md-6">
 									<label class="form-label">First Name *</label>
-									<input type="text" class="form-control" placeholder="" aria-label="First name" value="<?php echo $user['name']; ?>" name=txtName>
+									<input type="text" class="form-control" placeholder="" aria-label="First name" value="<?php echo $user['name']; ?>" name=txtName pattern="[A-Za-z0-9]{3,20}">
 								</div>
 								<!-- Last name -->
 								<div class="col-md-6">
@@ -113,12 +135,12 @@ if(isset($_POST['Submit']))
 								<!-- Mobile number -->
 								<div class="col-md-6">
 									<label class="form-label">Mobile number *</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $user['phone']; ?>">
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $user['phone']; ?>" pattern="^(\+66|0)[0-9]{1,2}[0-9]{3}[0-9]{4,5}$">
 								</div>
 								<!-- Email -->
 								<div class="col-md-6">
 									<label for="inputEmail4" class="form-label">Email *</label>
-									<input type="email" class="form-control" id="inputEmail4" value="<?php echo $user['email']; ?>" name="txtEmail">
+									<input type="email" class="form-control" id="inputEmail4" value="<?php echo $user['email']; ?>" name="txtEmail" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$">
 								</div>
 								<div class="col-md-6">
 									<label for="inputEmail4" class="form-label">Address *</label>
@@ -138,17 +160,17 @@ if(isset($_POST['Submit']))
 								<!-- Old password -->
 								<div class="col-md-6">
 									<label for="exampleInputPassword1" class="form-label">Old password *</label>
-									<input type="password" class="form-control" id="exampleInputPassword1" name="oldpass">
+									<input type="password" class="form-control" id="exampleInputPassword1" name="oldpass" >
 								</div>
 								<!-- New password -->
 								<div class="col-md-6">
 									<label for="exampleInputPassword2" class="form-label">New password *</label>
-									<input type="password" class="form-control" id="exampleInputPassword2" name="newpass1">
+									<input type="password" class="form-control" id="exampleInputPassword2" name="newpass1" pattern="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z]).{8,}$" title="password ต้องมี8ตัว ตัวใหญ่ 1 ตัวเล็ก 1 ตัวเลข1">
 								</div>
 								<!-- Confirm password -->
 								<div class="col-md-12">
 									<label for="exampleInputPassword3" class="form-label">Confirm Password *</label>
-									<input type="password" class="form-control" id="exampleInputPassword3" name="newpass2">
+									<input type="password" class="form-control" id="exampleInputPassword3" name="newpass2" pattern="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z]).{8,}$" title="password ต้องมี8ตัว ตัวใหญ่ 1 ตัวเล็ก 1 ตัวเลข1">
 								</div>
 							</div>
 						</div>
