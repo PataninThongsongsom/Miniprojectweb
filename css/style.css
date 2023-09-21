@@ -334,4 +334,125 @@ Shop
     background-color: rgba(0, 0, 0);
     color: white;
 }
+.Shop-filter{
+    /* background-image: url(../img/shop_img/bg-top2_small.jpg);
+    background-repeat:no-repeat ;
+    background-size: cover; */
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 0em 10em;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+}
+.Shop-filter img{
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    width: 10vh;
+}
+.shop-top-bg{
+    display: block;
+    background-size: cover ;
+}
+.shop-top-bg{
+    width: 100%;
+    height: 40em;
+}
+.filterBT{
+    display: block;
+    margin: 10px;
+    border-radius: 10px;
+    width: 5em;
+    height: 2em;
+    border: none;
+}
+.SortBT{
+    display: block;
+    margin: 10px;
+    border-radius: 10px;
+    width: 10em;
+    height: 2em;
+    border: none;
+}
+.Next-pic{
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 3em 10em;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+}
+.Next-pic button{
+    display: block;
+    margin: 10px;
+    border-radius: 10px;
+    width: 10em;
+    height: 2em;
+    border: 1px solid black;
+}
+#image-container {
+    margin: 0% 10%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    gap: 10px; /* Gap between grid items */
+}
 
+/* CSS for individual images (adjust as needed) */
+#image-container img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+#side{
+    height: 100%;
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    padding-right: 20% ;
+    color: #090909;
+    position: fixed;
+    z-index: 10;
+    display: none;
+}
+#side-content {
+    font-size: large;
+    display: block;
+    margin-left: 10%;
+}
+#side-content h1 {
+    font-size: 2em;
+    margin: 10% 0%;
+    width: 100%;
+}
+#category input ,label{
+    display: inline;
+    width: 2em;
+    height: 1.5em;
+}
+#Price input{
+    width: 10em;
+}
+#Price{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
+}
+#Price label,input{
+    width: 10em;
+}
+#closeFilter  {
+    margin: 10%;
+    align-items: start;
+    text-align: start;
+}
+#submit-filter{
+    margin-top: 20%;
+    border-radius: 10px;
+    border: none;
+    background-color: #606060;
+    color: white;
+    height: 2em;
+}
+#closeFilter{
+    color: red;
+}
