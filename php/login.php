@@ -32,7 +32,7 @@
                 'phone' => $res['tel'],
                 'address' => $res['Address'],
                 'pass' => $res['Password'],
-                'id' => $res['Id']
+                'id' => $res['MD_Id']
             );
             // echo "<div class='menu-right'> $username</div>";
             // echo "Ez";

@@ -5,18 +5,25 @@ if (!isset($_SESSION['username'])) { // ถ้าไม่ได้เข้า�
     exit;
 }
 $user = $_SESSION['userdetail'];
-include "./connect.php";
+if(isset($_POST['Submit']))
+{
+    include "./connect.php";
     $txtName = $_POST['txtName'];
     $txtPassword = $_POST['$newpass1'];
-    $txtSurname = $_POST['txtsurname'];
+    $txtSurname = $_POST['txtSurname'];
     $txtEmail = $_POST['txtEmail'];
     $txtPhone = $_POST['txtPhone'];
     $txtAddress = $_POST['txtAddress'];
     $txtid = $user['id'];
     $sql = "UPDATE `member_detail` SET `Name` = '$txtName', `Surname` = '$txtSurname', `Email` = '$txtEmail', `tel` = '$txtPhone', `Address` = '$txtAddress' WHERE `member_detail`.`Id` = '$txtid';";
     $rs = mysqli_query($con, $sql);
-    $sql2 = "UPDATE `member_account` SET `Password` = '$txtPassword' WHERE `member_account`.`Id` = '$txtid'"
-
+    // $sql2 = "UPDATE `member_account` SET `Password` = '$txtPassword' WHERE `member_account`.`Id` = '$txtid'";
+    // $rs2 = mysqli_query($con, $sql2);
+    if ($rs) {
+        echo "<script type='text/javascript'>alert('แก้ไขข้อมูลเรียบร้อย กรุณาlogout และ login ใหม่ อีกครั้ง'); 
+            </script>";
+    }
+}
 ?>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -149,8 +156,10 @@ include "./connect.php";
 				</div> <!-- Row END -->
 				<!-- button -->
 				<div class="gap-3 d-md-flex justify-content-md-end text-center">
-					<button type="button" class="btn btn-danger btn-lg">Delete profile</button>
-					<button type="button" class="btn btn-primary btn-lg">Update profile</button>
+                    <input type="submit" name="Submit" class="btn btn-primary btn-lg" value="Update profile">
+                    <a href="../afterlogin.php" class ="btn btn-primary btn-lg">BACK TO HOME</a><br>
+					<!-- <button type="butston" class="btn btn-danger btn-lg">Delete profile</button>
+					<button type="button" class="btn btn-primary btn-lg">Update profile</button> -->
 				</div>
 			</form> <!-- Form END -->
 		</div>
