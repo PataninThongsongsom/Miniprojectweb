@@ -3,6 +3,7 @@ if (isset($_SESSION['username'])) { // ถ้าlogin ไว้แล้ว
     header("location: ../php/afterlogin.php"); // ให้ redirect ไป หน้าlogin แล้ว
     exit;
 }
+?>
 <!DOCTYPE html>
 <html>
     <head>
