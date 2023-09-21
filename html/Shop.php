@@ -1,3 +1,8 @@
+<?php
+if (isset($_SESSION['username'])) { // ถ้าlogin ไว้แล้ว
+    header("location: ../php/afterlogin.php"); // ให้ redirect ไป หน้าlogin แล้ว
+    exit;
+}
 <!DOCTYPE html>
 <html>
     <head>
@@ -21,7 +26,7 @@
             <img src="../img/Shadow.png" class="Shadow">
             <nav class="main-nav">
                 <ul class="menu-left">
-                    <a href="../index.html"><img src="../img/logo.png"class="logo"></a>
+                    <a href="../index.php"><img src="../img/logo.png"class="logo"></a>
                     <li><a class="Shop" href="">SHOP</a></li>
                     <li><a href="Magazine.html" class="Magazine" href="">MAGAZINE</a></li>
                     <li><a class="Custom" href="">CUSTOM YOUR OWN</a></li>
@@ -33,7 +38,7 @@
                 </div>
             </nav>     
         </div> 
-        <img class="shop-top-bg" src="/img/shop_img/bg-top2_small.jpg" alt="">
+        <img class="shop-top-bg" src="../img/shop_img/bg-top2_small.jpg" alt="">
 
         <div class="Shop-filter">
             <button class="filterBT">Filter</button>
