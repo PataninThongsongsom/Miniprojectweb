@@ -39,7 +39,8 @@
 .Logintext{
    width: 50%;
    margin-left:100px;
-   margin-bottom: 30px;
+   margin-top: 20px;
+   margin-bottom: 10px;
 }
 
 
@@ -52,8 +53,8 @@
 .myinput input{
     width: 90%;
     height: 90%;
-    
-    padding: 5px 25px 5px;
+    margin-left: 22px;
+    padding: 5px 7px 5px 5px;
 }
 .btn{
     width: 45%;
@@ -63,6 +64,20 @@
     color:white;
     font-weight: bold;
     
+}
+.btnlogin{
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-left: 125px;
+    margin-top: -10px;
+    padding: 15px;
+    width: 30%;
+    background-color: black;
+    font-weight: bold;
+    color: white;
+    text-decoration:none;
 }
 .btnback{
     text-decoration: none;
@@ -82,8 +97,8 @@
 
 
 .myinput ion-icon{
-    position: fixed;
-    margin-left: -35px;
+    position: relative;
+    margin-left: -30px;
     margin-top: 10px;
     font-size: 25px;
 }
