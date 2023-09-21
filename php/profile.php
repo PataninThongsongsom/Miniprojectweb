@@ -191,7 +191,7 @@ if(isset($_POST['Submit2'])){
 				<div class="gap-3 d-md-flex justify-content-md-end text-center">
                     <input type="submit" name="Submit" class="btn btn-primary btn-lg" value="Update profile">
                     <input type="submit" name="Submit2" class="btn btn-primary btn-lg" value="Change Password">
-                    <a href="../afterlogin.php" class ="btn btn-primary btn-lg">BACK TO HOME</a><br>
+                    <a href="./afterlogin.php" class ="btn btn-primary btn-lg">BACK TO HOME</a><br>
 					<!-- <button type="butston" class="btn btn-danger btn-lg">Delete profile</button>
 					<button type="button" class="btn btn-primary btn-lg">Update profile</button> -->
 				</div>
