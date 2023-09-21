@@ -404,3 +404,55 @@ Shop
     height: auto;
     display: block;
 }
+#side{
+    height: 100%;
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    padding-right: 20% ;
+    color: #090909;
+    position: fixed;
+    z-index: 10;
+    display: none;
+}
+#side-content {
+    font-size: large;
+    display: block;
+    margin-left: 10%;
+}
+#side-content h1 {
+    font-size: 2em;
+    margin: 10% 0%;
+    width: 100%;
+}
+#category input ,label{
+    display: inline;
+    width: 2em;
+    height: 1.5em;
+}
+#Price input{
+    width: 10em;
+}
+#Price{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
+}
+#Price label,input{
+    width: 10em;
+}
+#closeFilter  {
+    margin: 10%;
+    align-items: start;
+    text-align: start;
+}
+#submit-filter{
+    margin-top: 20%;
+    border-radius: 10px;
+    border: none;
+    background-color: #606060;
+    color: white;
+    height: 2em;
+}
+#closeFilter{
+    color: red;
+}

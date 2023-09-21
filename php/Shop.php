@@ -16,6 +16,7 @@ if (isset($_SESSION['username'])) { // ถ้าlogin ไว้แล้ว
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <script src="../js/app.js"></script>
+    <script src="../js/Shop.js"></script>
     <script src="https://kit.fontawesome.com/e08e147dde.js" crossorigin="anonymous"></script>
 
 </head>
@@ -25,12 +26,35 @@ if (isset($_SESSION['username'])) { // ถ้าlogin ไว้แล้ว
             <h1>Hello,welcome to our website</h1>  
         </div> -->
     <!-- Menu -->
+
+    <nav id="side">
+        <h1 id="closeFilter">CLOSE</h1>
+        <div id="side-content">
+            <h1>Category</h1>
+            <div id="category">
+                    <input type="checkbox" id="shirt" name="shirt" value="shirt">
+                    <label for="shirt">shirt</label>
+                    <input type="checkbox" id="Jean" name="Jean" value="Jean">
+                    <label for="Jean"> Jean</label>
+            </div>
+            <h1>Price</h1>
+            <div id="Price">
+                    <label for="max-price">Max Price : </label>
+                    <input type="text">
+                    <label for="max-price">Min Price : </label>
+                    <input type="text">
+            </div>
+            <input type="submit" id="submit-filter">
+            <!-- <h1>Color</h1> -->
+        </div>
+    </nav>
+
     <div class="top-menu">
         <img src="../img/Shadow.png" class="Shadow">
         <nav class="main-nav">
             <ul class="menu-left">
                 <a href="../index.php"><img src="../img/logo.png" class="logo"></a>
-                <li><a class="" href="">SHOP</a></li>
+                <li><a class="Shop" href="">SHOP</a></li>
                 <li><a href="Magazine.php" class="Magazine" href="">MAGAZINE</a></li>
                 <li><a class="Custom" href="Custom.php">CUSTOM YOUR OWN</a></li>
             </ul>
@@ -44,12 +68,8 @@ if (isset($_SESSION['username'])) { // ถ้าlogin ไว้แล้ว
     <img class="shop-top-bg" src="../img/shop_img/bg-top2_small.jpg" alt="">
 
     <div class="Shop-filter">
-        <button class="filterBT">Filter</button>
+        <button id="filterBT"class="filterBT">Filter</button>
         <button class="SortBT">Sort by Feature</button>
-        <!-- <img src="/img/shop_img/t-shirt.png" alt="">
-            <img src="/img/shop_img/jeans.svg" alt="">
-            <p class="catalog1">Shirt</p>
-            <p class="catalog3">jean</p> -->
     </div>
 
     <div id="image-container">
@@ -60,46 +80,6 @@ if (isset($_SESSION['username'])) { // ถ้าlogin ไว้แล้ว
         <button id="prev-button">Previous</button>
         <button id="next-button">Next</button>
     </div>
-
-    <script>
-        let currentImageIndex = 1;
-        const imageContainer = document.getElementById("image-container");
-        const prevButton = document.getElementById("prev-button");
-        const nextButton = document.getElementById("next-button");
-        const imagesPerPage = 8; // Number of images to display per page
-
-        function displayImages(startIndex) {
-            imageContainer.innerHTML = ''; // Clear previous images
-            for (let i = startIndex; i < startIndex + imagesPerPage; i++) {
-                if (i <= 100) {
-                    const img = document.createElement("img");
-                    img.src = `../img/Product_cloth_dataset/tshirt/${i}.jpg`;
-                    img.alt = `Image ${i}`;
-                    imageContainer.appendChild(img);
-                }
-            }
-        }
-
-        prevButton.addEventListener("click", () => {
-            if (currentImageIndex > 1) {
-                currentImageIndex -= imagesPerPage;
-                if (currentImageIndex < 1) {
-                    currentImageIndex = 1;
-                }
-                displayImages(currentImageIndex);
-            }
-        });
-
-        nextButton.addEventListener("click", () => {
-            if (currentImageIndex + imagesPerPage <= 100) {
-                currentImageIndex += imagesPerPage;
-                displayImages(currentImageIndex);
-            }
-        });
-
-        // Initial image display
-        displayImages(currentImageIndex);
-    </script>
 
 </body>
 
