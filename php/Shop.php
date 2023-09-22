@@ -1,6 +1,7 @@
 <?php
-if (isset($_SESSION['username'])) { // ถ้าlogin ไว้แล้ว
-    header("location: ../php/afterlogin.php"); // ให้ redirect ไป หน้าlogin แล้ว
+session_start();
+if (!isset($_SESSION['username'])) { // ถ้าlogin ไว้แล้ว
+    header("location: ./afterlogin.php"); // ให้ redirect ไป หน้าlogin แล้ว
     exit;
 }
 ?>
@@ -15,7 +16,7 @@ if (isset($_SESSION['username'])) { // ถ้าlogin ไว้แล้ว
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
-    <script src="../js/app.js"></script>
+    
     <script src="../js/Shop.js"></script>
     <script src="https://kit.fontawesome.com/e08e147dde.js" crossorigin="anonymous"></script>
 
@@ -61,7 +62,17 @@ if (isset($_SESSION['username'])) { // ถ้าlogin ไว้แล้ว
             <div class="menu-right">
                 <input type="search" class="searchbox" placeholder="Search Products">
                 <a href="Cart.php"><img src="../img/cart.png" class="cart"></a>
-                <a href="Login.php"><img src="../img/Login.png" class="login"> </a>
+                <div class="dropdown">
+                        <img src="../img/Login.png" class="login" alt="Login Icon">
+                        
+                        <div class="dropdown-content" style="left: 1px;">
+                            
+                            <a href="./profile.php">PROFILE</a>
+                            <a href="./logout.php">LOGOUT</a>
+                        </div>
+                        <p style="text-align: center;">Hi <?php echo $_SESSION['username']; ?></p>
+                    </div>
+                <!-- <a href="Login.php"><img src="../img/Login.png" class="login"> </a> -->
             </div>
         </nav>
     </div>

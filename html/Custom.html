@@ -1,10 +1,3 @@
-<?php
-session_start();
-if (!isset($_SESSION['username'])) { // ถ้าไม่ได้เข้าระบบอยู่
-    header("location: ./login.php"); // redirect ไปยังหน้า login.php
-    exit;
-}
-?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
