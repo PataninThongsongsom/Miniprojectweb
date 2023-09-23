@@ -128,6 +128,8 @@ saveImg.addEventListener("click", () => {
     link.click(); // clicking link to download image
 });
 
+
+
 canvas.addEventListener("mousedown", startDraw);
 canvas.addEventListener("mousemove", drawing);
 canvas.addEventListener("mouseup", () => isDrawing = false);
