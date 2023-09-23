@@ -1,9 +1,3 @@
-<?php
-if (isset($_SESSION['username'])) { // ถ้าlogin ไว้แล้ว
-    header("location: ../php/afterlogin.php"); // ให้ redirect ไป หน้าlogin แล้ว
-    exit;
-}
-?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -24,15 +18,15 @@ if (isset($_SESSION['username'])) { // ถ้าlogin ไว้แล้ว
             <img src="./img/Shadow.png" class="Shadow" title="Shadow">
             <nav class="main-nav">
                 <ul class="menu-left">
-                    <a href="./index.php"><img src="./img/logo.png"class="logo"></a>
-                    <li><a href="./php/Shop.php"class="Shop" href="">SHOP</a></li>
-                    <li><a href="./php/Magazine.php" class="Magazine" href="">MAGAZINE</a></li>
-                    <li><a class="Custom" href="./php/Custom.php">CUSTOM YOUR OWN</a></li>
+                    <a href="index.html"><img src="./img/logo.png"class="logo"></a>
+                    <li><a href="./html/Cart.html"class="Shop" href="">SHOP</a></li>
+                    <li><a href="./html/Magazine.html" class="Magazine" href="">MAGAZINE</a></li>
+                    <li><a class="Custom" href="./html/Custom.html">CUSTOM YOUR OWN</a></li>
                 </ul>
                 <div class="menu-right">
                     <input type="search" class="searchbox" placeholder="Search Products" >
                     <a href="./html/Cart.html"><img src="./img/cart.png" class="cart"></a>
-                    <a href="./php/login.php"><img src="./img/Login.png" class="login"> </a>
+                    <a href="./html/Login.html"><img src="./img/Login.png" class="login"> </a>
                 </div>
             </nav>
             
