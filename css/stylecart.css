@@ -147,8 +147,10 @@ a.Custom
     margin-top: 10px;
     color: #000; /* สีลิงก์ดำ */
     text-decoration: underline;
+    
 }
 
+/*cart*/
 
     .cart-content {
         position: relative; /* เพิ่มบรรทัดนี้ */
@@ -156,7 +158,6 @@ a.Custom
         padding: 100px;
     }
     
-    /* เพิ่มสไตล์ขาวดำ */
 body {
     background-color: #fff; /* สีพื้นหลังขาว */
     color: #000; /* สีตัวอักษรดำ */
@@ -200,6 +201,9 @@ p {
     width: 15%;
     border-radius: 5px; /* รอบมุมของปุ่ม */
     padding: 10px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-left: 470px;
 }
 
