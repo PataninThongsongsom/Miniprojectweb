@@ -70,7 +70,7 @@ if (!isset($_SESSION['username'])) { // ถ้าไม่ได้เข้า�
         <div class="row buttons">
           <button class="clear-canvas">Clear Canvas</button>
           <button class="save-img">Save As Image</button>
-          <!-- <button class="backhome">Back to home</button> -->
+          <a href="./afterlogin.php" class="backhome" id="bkh">Back to home</a>
         </div>
       </section>
       <section class="drawing-board" >
