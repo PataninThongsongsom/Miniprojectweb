@@ -383,13 +383,15 @@ Shop
     align-items: center;
     justify-content: space-between;
 }
-.Next-pic button{
+.Next-pic a{
+    
     display: block;
     margin: 10px;
     border-radius: 10px;
     width: 10em;
     height: 2em;
     border: 1px solid black;
+    text-decoration: none;
 }
 #image-container {
     margin: 0% 10%;
