@@ -40,8 +40,9 @@ let prevMouseX, prevMouseY, snapshot,
     ctx.drawImage(bgImage, 0, 0, canvas.width, canvas.height);
   
     for (const image of images) {
-        ctx.drawImage(image.img, image.x, image.y, image.width, image.height);
+        ctx.drawImage(image.img, (image.x), (image.y), image.width, image.height);
       }
+    
   };
 
 window.addEventListener("load", () => {
@@ -134,13 +135,19 @@ toolBtns.forEach(btn => {
         isPointerToolActive = true;
         isPointerToolActive2 = false;
         isDrawing = false;
+        isResizing = false; // Reset resizing flag
+        //console.log(isResizing);
       }else if(btn.id === "pointer-tool2"){
         isPointerToolActive2 = true;
         isPointerToolActive =false;
         isDrawing = false;
+        isResizing = true; // Set resizing flag
+       // console.log(isResizing);
       } 
       else {
         isPointerToolActive = false;
+        isPointerToolActive2 = false;
+        isResizing = false; // Reset resizing flag
         selectedTool = btn.id;
       }
   });
@@ -163,7 +170,7 @@ colorPicker.addEventListener("change", () => {
 
 clearCanvas.addEventListener("click", () => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  setCanvasBackground();
+  ctx.drawImage(bgImage, 0, 0, canvas.width, canvas.height);
 });
 
 saveImg.addEventListener("click", () => {
@@ -175,17 +182,30 @@ saveImg.addEventListener("click", () => {
 
 const drawImages = () => {
     setCanvasBackground();
+    
     for (const image of images) {
+      // Draw the image
       ctx.drawImage(image.img, image.x, image.y, image.width, image.height);
+  
+      // Draw handles for resizing
+      if (isPointerToolActive2) {
+        ctx.fillStyle = "blue";
+        const handleSize = 10; // Adjust the handle size as needed
+  
+        // Top-left handle
+        ctx.fillRect(image.x - handleSize / 2, image.y - handleSize / 2, handleSize, handleSize);
+  
+        // Bottom-right handle
+        ctx.fillRect(image.x + image.width - handleSize / 2, image.y + image.height - handleSize / 2, handleSize, handleSize);
+      }
     }
-  };
-fileInput.addEventListener('change', importImage);
+};
+
 
 
 
 canvas.addEventListener("mousedown", (e) => {
     if (isPointerToolActive) {
-      // Check if the click is on an imported image
       for (const image of images) {
         if (
           e.clientX >= image.x &&
@@ -195,15 +215,15 @@ canvas.addEventListener("mousedown", (e) => {
         ) {
           isDragging = true;
           isResizing = false;
-          ismoveing = true;
           draggingImage = image;
           offsetX = e.clientX - image.x;
           offsetY = e.clientY - image.y;
-          console.log("Moving");
+          console.log(offsetX);
+          console.log(offsetY);
           break;
         }
       }
-    }else if(isPointerToolActive2){
+    } else if(isPointerToolActive2){
         for (const image of images) {
             if (
               e.clientX >= image.x &&
@@ -213,13 +233,12 @@ canvas.addEventListener("mousedown", (e) => {
             ) {
               isDragging = true;
               isResizing = true;
-              ismoveing = false;
               draggingImage = image;
               offsetX = e.clientX - image.x;
               offsetY = e.clientY - image.y;
-              console.log("Resizing");
               break;
-        }    }
+            }
+    }
     }
     else if (selectedTool === "brush") {
       isDrawing = true;
@@ -227,50 +246,43 @@ canvas.addEventListener("mousedown", (e) => {
     }
   });
 
+
   document.addEventListener('mousemove', (e) => {
+        //Debug //        
+         // console.log("IsDragging:");
+        // console.log(isDragging);
+        // console.log("draggingImage:");
+        // console.log(draggingImage);
+
     if (isDragging && draggingImage) {
-        handleImageInteraction(e);
-      } else if (isDrawing) {
-        drawing(e);
+      if (isResizing) {
+        // Handle resizing
+        draggingImage.width = e.clientX - draggingImage.x ;
+        draggingImage.height = e.clientY - draggingImage.y;
+        drawImageOnCanvas();
+      } else {
+        // Handle moving
+        draggingImage.x = e.clientX - offsetX;
+        draggingImage.y = e.clientY  - offsetY;
+        setCanvasBackground();
       }
-  })
+      setCanvasBackground();
+    } else if (isDrawing) {
+      drawing(e);
+    }
+  });
+
 
   document.addEventListener('mouseup', () => {
     isDragging = false;
+    isResizing = false;
     draggingImage = null;
     isDrawing = false;
 
   });
 
-function isCursorOnImage(e) {
-  if (images.length > 0) {
-    const image = images[0];
-    return (
-      e.clientX >= image.x &&
-      e.clientX <= image.x + image.width &&
-      e.clientY >= image.y &&
-      e.clientY <= image.y + image.height
-    );
-  }
-  return false;
-}
-function handleImageInteraction(e) {
-    if (isDragging && draggingImage) {
-      if (isResizing) {
-        // Handle resizing
-        draggingImage.width = e.clientX - canvas.offsetLeft - draggingImage.x;
-        draggingImage.height = e.clientY - canvas.offsetTop - draggingImage.y;
-        drawImageOnCanvas();
-      } else if(ismoveing){
-        // Handle moving
-        draggingImage.x = e.clientX - offsetX;
-        draggingImage.y = e.clientY - offsetY;
-      }
-      setCanvasBackground();
-      setCanvasBackground();
-    }
-  }
 
+  
 function drawImageOnCanvas() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   images.forEach((image) => {
@@ -279,7 +291,7 @@ function drawImageOnCanvas() {
 }
 
 // fileInput.addEventListener('change', importImage);
-
+fileInput.addEventListener('change', importImage);
 canvas.addEventListener("mousedown", startDraw);
 canvas.addEventListener("mousemove", drawing);
 canvas.addEventListener("mouseup", () => isDrawing = false);

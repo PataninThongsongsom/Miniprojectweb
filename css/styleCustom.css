@@ -3,47 +3,49 @@
 *{
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   font-family: 'Poppins', sans-serif;
 }
 body{
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: inline;
+  /* align-items: center; */
+  /* justify-content: center; */
   min-height: 100vh;
   background: #b7bdc5;
 }
-.container{
-  display: flex;
-  width: 100%;
-  gap: 10px;
-  padding: 10px;
-  max-width: 1050px;
-}
+/* .container{
+  display: flex; 
+   width: 100%;
+   gap: 10px;
+  padding: 10px; 
+   max-width: 1050px; 
+} */
 section{
   background: #f3d7d7;
   border-radius: 7px;
 }
 .tools-board{
-  width: 210px;
+  display: inline;
+  position: fixed;
+  width: 150px;
   padding: 15px 22px 0;
 }
 .tools-board .row{
   margin-bottom: 20px;
 }
-.row .options{
+/* .row .options{
   list-style: none;
   margin: 10px 0 0 5px;
-}
+} */
 .row .options .option{
-  display: flex;
+  display: inline-block;
   cursor: pointer;
   align-items: center;
   margin-bottom: 10px;
 }
-.option:is(:hover, .active) img{
+/* .option:is(:hover, .active) img{
   filter: invert(17%) sepia(90%) saturate(3000%) hue-rotate(900deg) brightness(100%) contrast(100%);
-}
+} */
 .option :where(span, label){
   color: #5A6168;
   cursor: pointer;
@@ -145,11 +147,6 @@ section{
   flex: 1;
   overflow: hidden;
 }
-.drawing-board canvas{
-  width: 100%;
-  height: 100%;
-}
-
 #bkh .backhome a{
     text-decoration: none;
     align-items: center;
@@ -161,6 +158,5 @@ section{
     width: 20%;
     background-color: white;
     font-weight: bold;
-    color: black;
-  
+    
 }
