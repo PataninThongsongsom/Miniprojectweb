@@ -150,128 +150,29 @@ a.Custom
     
 }
 
-/*cart*/
 
-    .cart-content {
-        position: relative; /* เพิ่มบรรทัดนี้ */
-        text-align: center;
-        padding: 100px;
-    }
-    
-body {
-    background-color: #fff; /* สีพื้นหลังขาว */
-    color: #000; /* สีตัวอักษรดำ */
-    font-family: "Segoe UI", Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-}
-
-.top-menu {
-    background-color: #ffffff; /* สีพื้นหลังดำสี */
-    color: #000000; /* สีตัวอักษรขาว */
-    text-align: center;
-    padding: 20px;
-}
-
-
-
-.cart-content h1 {
-    font-size: 40px; /* ขนาดตัวอักษรสำหรับ <h1> */
-    margin-bottom: 10px; /* เพิ่มระยะห่างด้านล่าง 10px */
-}
-.cart-content ion-icon{
-    font-size: 250px;
-}
-p {
-    font-size: 18px; /* ขนาดตัวอักษรสำหรับ <p> */
-    font-weight: bold;
-}
-
-.login-link {
-    text-decoration: none;
-    color: #000; /* สีลิงก์ดำ */
-    font-weight: bold; /* ตัวหนา */
-    background-color: #000; /* สีพื้นหลังดำสำหรับปุ่ม */
-    color: #fff; /* สีตัวอักษรขาวสำหรับปุ่ม */
-    width: 15%;
-    border-radius: 5px; /* รอบมุมของปุ่ม */
-    padding: 10px 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 470px;
-}
-
-.login-link:hover {
-    background-color: rgba(54, 54, 54, 0.614);
-    color: #000; /* สีตัวอักษรดำเมื่อเมาส์ชี้ที่ปุ่ม */
-}
-  
-    
-.cart-content .mytext {
-    color: #6e6e6e; /* สีเทา */
-}
-        
-/* Style for the cart container */
-.small-container.cart-page {
-    max-width: 800px; /* Adjust the max-width as needed */
-    margin: 0 auto; /* Center the container horizontally */
-    padding: 20px;
-    background-color: #f5f5f5; /* Light gray background */
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
-}
-
-/* Style for the table container */
-.table-container {
-    background-color: #fff; /* White background */
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a shadow */
-    overflow-x: auto; /* Add horizontal scrolling if needed */
-    margin-top: 20px;
-}
-
-/* Style for the table */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: center; /* Center align text in the table */
-}
-
-/* Style for table header (th) */
-th {
-    background-color: #333; /* Dark gray background */
-    color: #fff; /* White text color */
-    padding: 15px;
-}
-
-/* Style for table rows (tr) */
-tr {
-    border-bottom: 1px solid #ddd; /* Gray bottom border for rows */
-}
-
-/* Style for table data cells (td) */
-td {
-    padding: 10px;
-    font-weight: bold;
-}
-
-/* Style for quantity input */
-input.QUANTITY {
-    width: 40px;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-/* Style for delete icon */
 ion-icon[name="trash-sharp"] {
     color: #ff0000; /* Red color for the trash icon */
     font-size: 20px;
     cursor: pointer;
 }
+
+
+body{
+    min-height: 100vh;
+    vertical-align: middle;
+    display: flex;
+}
+.title{
+    margin-bottom: 5vh;
+}
+.card{
+    background-color: white;
+    margin: auto;
+    max-width: 950px;
+    width: 90%;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 1rem;
+    border: transparent;
+}
+
