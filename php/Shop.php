@@ -80,12 +80,12 @@ $con->close(); // Close the database connection
             <ul class="menu-left">
                 <a href="afterlogin.php"><img src="../img/logo.png" class="logo"></a>
                 <li><a class="Shop" href="">SHOP</a></li>
-                <li><a href="Magazine.php" class="Magazine" href="">MAGAZINE</a></li>
-                <li><a class="Custom" href="Custom.php">CUSTOM YOUR OWN</a></li>
+                <li><a href="./Magazine.php" class="Magazine" href="">MAGAZINE</a></li>
+                <li><a class="Custom" href="./Custom.php">CUSTOM YOUR OWN</a></li>
             </ul>
             <div class="menu-right">
                 <input type="search" class="searchbox" placeholder="Search Products">
-                <a href="Cart.php"><img src="../img/cart.png" class="cart"></a>
+                <a href="../html/cart2.html"><img src="../img/cart.png" class="cart"></a>
                 <div class="dropdown">
                     <img src="../img/Login.png" class="login" alt="Login Icon">
 
