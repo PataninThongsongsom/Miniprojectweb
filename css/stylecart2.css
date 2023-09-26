@@ -5,7 +5,7 @@
     scroll-behavior: smooth;
 }
 
-.class { 
+* { 
     font-family: "Segoe UI", Arial, sans-serif;
 }
 
@@ -157,122 +157,140 @@ ion-icon[name="trash-sharp"] {
     cursor: pointer;
 }
 
+.cart-content {
+    position: relative; /* เพิ่มบรรทัดนี้ */
+    text-align: center;
+    margin-top: 120px;
+}
 
-body{
-    min-height: 100vh;
-    vertical-align: middle;
+.mycart {
+    width: 100%;
+    padding: 20px 10vw;
     display: flex;
+    justify-content: space-between;
 }
-.title{
-    margin-bottom: 20px;
+
+.product{
+    width:50%;
 }
-.card{
-    margin: auto;
-    max-width: 950px;
-    width: 90%;
+.listcart{
+    width:100%;
+    background-color: white;    
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 1rem;
-    border: transparent;
-}
-.col{
-    padding: 1vh;
-}
-.cart{
-    background-color: #fff;
-    padding: 10px 10px;
-    border-bottom-left-radius: 1rem;
-    border-top-left-radius: 1rem;
-}
-.summary{
-    background-color: #000000;
-    border-top-right-radius: 1rem;
-    border-bottom-right-radius: 1rem;
     padding: 20px;
-    margin-left: 500px;
-
-    color: rgb(255, 255, 255);
+    margin-bottom: 50px;
 }
-
-.img-fluid{
-    width: 100px;
-    height: 120px;
-}
-
-.summary .col-2{
-    padding: 0;
-}
-.summary .col-10
-{
-    padding: 0;
-}.row{
-    margin: 0;
-}
-.title b{
-    font-size: 1.5rem;
-}
-.main{
-    margin: 0;
-    padding: 2px 0;
+.numberlist{
     width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow:hidden;
+    position:relative;
+    margin-bottom:20px;
 }
 
-.col-2, .col{
-    padding: 0 1vh;
-}
-a{
-    padding: 0 1vh;
+.mycart .numberlist:last-child{
+    margin-bottom: 0;
 }
 
-h5{
-    margin-top: 4vh;
+.numberlist-img{
+    height:100px;
+    width:100px;
+    object-fit: cover;
 }
-hr{
-    margin-top: 1.25rem;
+.numberlist-text{
+    width:50%
 }
-form{
-    padding: 2vh 0;
-}
-
-select{
-    border: 1px solid rgba(0, 0, 0, 0.137);
-    padding: 1.5px 1px;
-    margin-bottom: 4vh;
-    outline: none;
-    width: 100%;
-    background-color: rgb(247, 247, 247);
-}
-input{
-    border: 1px solid rgba(0, 0, 0, 0.137);
-    padding: 1vh;
-    margin-bottom: 4vh;
-    outline: none;
-    width: 100%;
-    background-color: rgb(247, 247, 247);
-}
-input:focus::-webkit-input-placeholder
-{
-      color:transparent;
+.numberlist-name{
+    font-size:20px;
+    font-weight: bold;
+    text-transform: capitalize;
 }
 
-.btn{
-    background-color: rgb(255, 255, 255)cfc;
-    border-color: #000;
-    color: rgb(0, 0, 0);
-    width: 100%;
-    font-size: 0.7rem;
-    margin-top: 4vh;
-    padding: 1vh;
-    border-radius: 0;
+.numberlist-des{
+    font-size: 15px;
+    opacity:0.5;
+    line-height: 25px;
+    text-transform: capitalize;
+    margin-top: 10px;
 }
-.btn:focus{
-    box-shadow: none;
-    outline: none;
-    box-shadow: none;
-    color: rgb(0, 0, 0);
-    -webkit-box-shadow: none;
-    -webkit-user-select: none;
-    transition: none; 
+
+.quantity{
+    width:90px;
+    height:30px;
+    display:flex;
+    margin-right:20ox;
 }
-.btn:hover{
-    color: white;
+.quantity-btn .item-quantity{
+width:30px;
+height:30px;
 }
+    .quantity-btn{
+        border:none;
+        background-color: black;
+        color: white;
+        border-radius: 2px;
+        cursor:pointer;
+        width:20px;
+    }
+
+    .item-quantity{
+        text-align: center;
+        line-height: 30px;
+        background-color: white;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .numberlist-del-btn{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(116, 3, 3);
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .subtotal{
+        width:20%;
+        margin-right: 370px;
+    }
+
+    .subtotal-box{
+        width:100%;
+        height:150px;
+        background-color: black;
+        color:white;
+        box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        padding: 50px;
+    }
+
+    .text{
+        text-transform: capitalize;
+        font-size:20px;
+        text-align: center;
+    }
+
+    .subtotal-btn{
+        display: block;
+        width:100%;
+        border:none;
+        outline:none;
+        cursor:pointer;
+        height:40px;
+        border-radius:5px;
+        background-color: white;
+        color:black;
+        text-align: center;
+        line-height: 40px;
+        text-transform: capitalize;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .subtotalprice{
+        font-size: 50px;
+        text-align: center;
+    }
