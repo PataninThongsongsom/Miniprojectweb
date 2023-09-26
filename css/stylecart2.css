@@ -164,10 +164,9 @@ body{
     display: flex;
 }
 .title{
-    margin-bottom: 5vh;
+    margin-bottom: 20px;
 }
 .card{
-    background-color: white;
     margin: auto;
     max-width: 950px;
     width: 90%;
@@ -175,4 +174,105 @@ body{
     border-radius: 1rem;
     border: transparent;
 }
+.col{
+    padding: 1vh;
+}
+.cart{
+    background-color: #fff;
+    padding: 10px 10px;
+    border-bottom-left-radius: 1rem;
+    border-top-left-radius: 1rem;
+}
+.summary{
+    background-color: #000000;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    padding: 20px;
+    margin-left: 500px;
 
+    color: rgb(255, 255, 255);
+}
+
+.img-fluid{
+    width: 100px;
+    height: 120px;
+}
+
+.summary .col-2{
+    padding: 0;
+}
+.summary .col-10
+{
+    padding: 0;
+}.row{
+    margin: 0;
+}
+.title b{
+    font-size: 1.5rem;
+}
+.main{
+    margin: 0;
+    padding: 2px 0;
+    width: 100%;
+}
+
+.col-2, .col{
+    padding: 0 1vh;
+}
+a{
+    padding: 0 1vh;
+}
+
+h5{
+    margin-top: 4vh;
+}
+hr{
+    margin-top: 1.25rem;
+}
+form{
+    padding: 2vh 0;
+}
+
+select{
+    border: 1px solid rgba(0, 0, 0, 0.137);
+    padding: 1.5px 1px;
+    margin-bottom: 4vh;
+    outline: none;
+    width: 100%;
+    background-color: rgb(247, 247, 247);
+}
+input{
+    border: 1px solid rgba(0, 0, 0, 0.137);
+    padding: 1vh;
+    margin-bottom: 4vh;
+    outline: none;
+    width: 100%;
+    background-color: rgb(247, 247, 247);
+}
+input:focus::-webkit-input-placeholder
+{
+      color:transparent;
+}
+
+.btn{
+    background-color: rgb(255, 255, 255)cfc;
+    border-color: #000;
+    color: rgb(0, 0, 0);
+    width: 100%;
+    font-size: 0.7rem;
+    margin-top: 4vh;
+    padding: 1vh;
+    border-radius: 0;
+}
+.btn:focus{
+    box-shadow: none;
+    outline: none;
+    box-shadow: none;
+    color: rgb(0, 0, 0);
+    -webkit-box-shadow: none;
+    -webkit-user-select: none;
+    transition: none; 
+}
+.btn:hover{
+    color: white;
+}
