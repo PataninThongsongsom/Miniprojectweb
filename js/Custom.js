@@ -24,7 +24,7 @@ let isDragging = false,
   offsetY = 0;
   
 
-bgImage.src = './img/t-shirt-template-white.png';
+bgImage.src = '../img/t-shirt-template-white.png';
 bgImage.onload = () => {
   setCanvasBackground();
 };
