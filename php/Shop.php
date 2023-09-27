@@ -51,6 +51,7 @@ $con->close(); // Close the database connection
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <script src="https://kit.fontawesome.com/e08e147dde.js" crossorigin="anonymous"></script>
+    <script src="../js/Shop.js"></script>
 </head>
 
 <body>
