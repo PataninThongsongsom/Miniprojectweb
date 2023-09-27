@@ -4,7 +4,7 @@ if (!isset($_SESSION['username'])) { // ถ้าlogin ไว้แล้ว
     header("location: ./afterlogin.php"); // ให้ redirect ไป หน้าlogin แล้ว
     exit;
 }
-include 'connect.php'; // Include your database connection code
+include './connect.php'; // Include your database connection code
 // Pagination configuration
 $itemsPerPage = 8; // Number of items to display per page
 $page = isset($_GET['page']) ? $_GET['page'] : 1; // Get the current page from the query string or default to page 1
@@ -14,7 +14,16 @@ $offset = ($page - 1) * $itemsPerPage;
 
 // Query to select image paths with pagination
 $sql = "SELECT image_path FROM images LIMIT $offset, $itemsPerPage";
-$result = $con->query($sql);
+//sort Item
+$sql2 = "SELECT image_path FROM images JOIN products ON images.IMG_ID=products.IMG_ID ORDER BY products.price DESC LIMIT $offset, $itemsPerPage;";
+$sql3 = "SELECT image_path FROM images JOIN products ON images.IMG_ID=products.IMG_ID ORDER BY products.price ASC LIMIT $offset, $itemsPerPage;";
+if(isset($_POST['SortBT'])){
+    $result = $con->query($sql2);
+}else if(isset($_POST['SortBTASC'])){
+    $result = $con->query($sql3);
+}else{
+    $result = $con->query($sql);
+}
 
 $imagePaths = []; // An array to store the image paths
 
@@ -28,7 +37,6 @@ if ($result->num_rows > 0) {
 $totalImagesQuery = "SELECT COUNT(*) as total FROM images";
 $totalImagesResult = $con->query($totalImagesQuery);
 $totalImages = $totalImagesResult->fetch_assoc()['total'];
-
 $con->close(); // Close the database connection
 ?>
 <!DOCTYPE html>
@@ -43,7 +51,7 @@ $con->close(); // Close the database connection
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <script src="https://kit.fontawesome.com/e08e147dde.js" crossorigin="anonymous"></script>
-
+    <script src="../js/Shop.js"></script>
 </head>
 
 <body>
@@ -104,7 +112,15 @@ $con->close(); // Close the database connection
 
     <div class="Shop-filter">
         <button id="filterBT" class="filterBT">Filter</button>
-        <button class="SortBT">Sort by Feature</button>
+        <form action="./Shop.php" method="post">
+            <div class="dropdown">
+                <button class="SortBT" name="SortBT">Sort by Feature</button>
+                <div class="dropdown-content" style="left: 1px;">
+                    <button class="SortBT" name="SortBT">Sort by DESC</button>
+                    <button class="SortBT" name="SortBTASC">Sort by ASC</button>
+                </div>
+            </div>
+        </form>
     </div>
 
     <div id="image-container">
