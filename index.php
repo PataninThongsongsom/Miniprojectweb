@@ -39,8 +39,6 @@ if (isset($_SESSION['username'])) { // ถ้าlogin ไว้แล้ว
         </div> 
         <!-- Banner -->
         <div class="Banner">
-            <!--Effect ภาพ Banner-->
-            <!-- <div class="black_effect"></div>-->
             <video src="./vdo/BannerVideo.mp4" class="VdoBanner" autoplay muted loop playsinline data-object-fit="cover">
         </div>  
         <!-- Recommand -->
