@@ -62,24 +62,20 @@ $con->close(); // Close the database connection
 
     <nav id="side">
         <h1 id="closeFilter">CLOSE</h1>
-        <div id="side-content">
-            <h1>Category</h1>
-            <div id="category">
+        <form action="" method="post">
+                <h1>Category</h1>
                 <input type="checkbox" id="shirt" name="shirt" value="shirt">
                 <label for="shirt">shirt</label>
                 <input type="checkbox" id="Jean" name="Jean" value="Jean">
                 <label for="Jean"> Jean</label>
-            </div>
-            <h1>Price</h1>
-            <div id="Price">
+
+                <h1>Price</h1>
                 <label for="max-price">Max Price : </label>
                 <input type="text">
                 <label for="max-price">Min Price : </label>
                 <input type="text">
-            </div>
-            <input type="submit" id="submit-filter">
-            <!-- <h1>Color</h1> -->
-        </div>
+                <input type="submit" id="submit-filter">
+        </form>    
     </nav>
 
     <div class="top-menu">

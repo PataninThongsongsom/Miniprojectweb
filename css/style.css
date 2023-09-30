@@ -345,12 +345,6 @@ Shop
     align-items: center;
     justify-content: space-between;
 }
-.Shop-filter img{
-    justify-content: center;
-    align-items: center;
-    height: 10vh;
-    width: 10vh;
-}
 .shop-top-bg{
     display: block;
     background-size: cover ;
@@ -406,55 +400,33 @@ Shop
     height: auto;
     display: block;
 }
-#side{
-    height: 100%;
-    position: absolute;
-    background-color: rgb(255, 255, 255);
-    padding-right: 20% ;
-    color: #090909;
-    position: fixed;
-    z-index: 10;
-    display: none;
+
+
+#side {
+    background-color: #f4f4f4; /* Adjust the color as needed */
 }
-#side-content {
-    font-size: large;
-    display: block;
-    margin-left: 10%;
+#side h1 {
+    font-size: 1.5rem; /* Adjust the font size as needed */
+    padding: 10px; /* Add padding to headings for better spacing */
 }
-#side-content h1 {
-    font-size: 2em;
-    margin: 10% 0%;
-    width: 100%;
+
+#side label {
+    font-size: 1rem; /* Adjust the font size for labels */
+    padding: 5px; /* Add padding to labels for better spacing */
 }
-#category input ,label{
-    display: inline;
-    width: 2em;
-    height: 1.5em;
+#side input[type="checkbox"] {
+    margin-right: 0px; /* Add spacing between checkboxes and labels */
 }
-#Price input{
-    width: 10em;
+
+#side input[type="checkbox"]:checked + label {
+    font-weight: bold; /* Make the label bold when the checkbox is checked */
 }
-#Price{
-    display: grid;
-    grid-template-columns: auto auto;
-    gap: 10px;
-}
-#Price label,input{
-    width: 10em;
-}
-#closeFilter  {
-    margin: 10%;
-    align-items: start;
-    text-align: start;
-}
-#submit-filter{
-    margin-top: 20%;
-    border-radius: 10px;
+#submit-filter {
+    background-color: #007bff; /* Change the button background color */
+    color: white; /* Change the text color */
     border: none;
-    background-color: #606060;
-    color: white;
-    height: 2em;
-}
-#closeFilter{
-    color: red;
+    padding: 10px 20px; /* Adjust padding as needed */
+    font-size: 1rem; /* Adjust the font size */
+    border-radius: 5px; /* Add rounded corners */
+    cursor: pointer;
 }
