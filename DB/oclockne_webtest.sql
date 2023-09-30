@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 24, 2023 at 02:51 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.1
+-- Generation Time: Sep 30, 2023 at 02:29 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `category` (
   `CID` int(10) NOT NULL,
   `Category_name` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `category`
@@ -52,7 +52,7 @@ CREATE TABLE `images` (
   `uploaded_on` datetime NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT 1,
   `Image_path` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `images`
@@ -469,14 +469,15 @@ CREATE TABLE `member_account` (
   `Username` varchar(255) NOT NULL,
   `Password` varchar(255) NOT NULL,
   `MD_Id` int(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `member_account`
 --
 
 INSERT INTO `member_account` (`Id`, `Username`, `Password`, `MD_Id`) VALUES
-(6, 'zen', 'Zen12345678', 12);
+(6, 'zen', 'Zen12345678', 12),
+(7, 'john', 'John12345', 13);
 
 -- --------------------------------------------------------
 
@@ -491,14 +492,15 @@ CREATE TABLE `member_detail` (
   `Email` varchar(255) NOT NULL,
   `tel` varchar(255) NOT NULL,
   `Address` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `member_detail`
 --
 
 INSERT INTO `member_detail` (`Id`, `Name`, `Surname`, `Email`, `tel`, `Address`) VALUES
-(12, 'Parunyu', 'Anakitbumrung', 's6404062663223@email.kmutnb.ac.th', '091231231', 'thai');
+(12, 'Parunyu', 'Anakitbumrung', 's6404062663223@email.kmutnb.ac.th', '091231231', 'thai'),
+(13, 'john', 'henry', 'john@email.com', '061514577', 'london');
 
 -- --------------------------------------------------------
 
@@ -511,7 +513,18 @@ CREATE TABLE `orders` (
   `Date` date NOT NULL,
   `TIME` time NOT NULL,
   `ID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`OID`, `Date`, `TIME`, `ID`) VALUES
+(1, '2022-09-05', '12:11:00', 6),
+(2, '2022-10-05', '00:03:43', 6),
+(3, '2022-09-08', '11:13:43', 7),
+(4, '2023-08-23', '06:29:16', 6),
+(5, '2023-09-30', '19:16:02', 7);
 
 -- --------------------------------------------------------
 
@@ -522,8 +535,20 @@ CREATE TABLE `orders` (
 CREATE TABLE `order_detail` (
   `PID` int(255) NOT NULL,
   `OID` int(255) NOT NULL,
-  `Amount` int(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `Amount` int(255) NOT NULL,
+  `payment_status` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `order_detail`
+--
+
+INSERT INTO `order_detail` (`PID`, `OID`, `Amount`, `payment_status`) VALUES
+(1983, 1, 2, 'paid'),
+(1846, 2, 5, 'paid'),
+(1969, 3, 1, 'paid'),
+(1675, 4, 11, 'waiting'),
+(1718, 5, 22, 'waiting');
 
 -- --------------------------------------------------------
 
@@ -538,7 +563,7 @@ CREATE TABLE `products` (
   `amount` int(255) DEFAULT NULL,
   `CID` int(10) NOT NULL,
   `IMG_ID` int(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `products`
@@ -1015,19 +1040,19 @@ ALTER TABLE `images`
 -- AUTO_INCREMENT for table `member_account`
 --
 ALTER TABLE `member_account`
-  MODIFY `Id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `Id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `member_detail`
 --
 ALTER TABLE `member_detail`
-  MODIFY `Id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `Id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `OID` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `OID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `products`
