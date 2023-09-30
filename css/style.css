@@ -338,6 +338,7 @@ Shop
     /* background-image: url(../img/shop_img/bg-top2_small.jpg);
     background-repeat:no-repeat ;
     background-size: cover; */
+    margin-top: 10%;
     display: grid;
     grid-template-columns: auto auto;
     padding: 0em 10em;
@@ -345,14 +346,14 @@ Shop
     align-items: center;
     justify-content: space-between;
 }
-.shop-top-bg{
+/* .shop-top-bg{
     display: block;
     background-size: cover ;
 }
 .shop-top-bg{
     width: 100%;
     height: 40em;
-}
+} */
 .filterBT{
     display: block;
     margin: 10px;
@@ -390,18 +391,34 @@ Shop
     border: 1px solid black;
     text-decoration: none;
 }
+/* CSS for individual images and prices (adjust as needed) */
 #image-container {
-    margin: 0% 10%;
+    margin: 10% 10%;
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 4 columns */
     gap: 10px; /* Gap between grid items */
 }
 
-/* CSS for individual images (adjust as needed) */
-#image-container img {
+#image-container .product-item {
+    position: relative;
+}
+
+#image-container .product-item img {
     max-width: 100%;
     height: auto;
     display: block;
+}
+
+#image-container .product-price {
+    /* position: relative; */
+    bottom: 10px; /* Adjust the distance from the bottom as needed */
+    left: 0;
+    right: 0;
+    text-align: center;
+    background-color: rgba(113, 148, 118, 0.8); /* Background color for price */
+    padding: 5px; /* Adjust the padding as needed */
+    font-size: 14px; /* Adjust the font size as needed */
+    font-weight: bold;
 }
 
 
@@ -414,6 +431,9 @@ Shop
     position: fixed;
     z-index: 10;
     display: none;
+    top: 0;
+    left: 0;
+    
 }
 #side h1 {
     font-size: 1.5rem; 
