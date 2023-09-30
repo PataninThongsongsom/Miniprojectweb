@@ -71,9 +71,9 @@ $con->close(); // Close the database connection
 
                 <h1>Price</h1>
                 <label for="max-price">Max Price : </label>
-                <input type="text">
+                <input type="number"><br>
                 <label for="max-price">Min Price : </label>
-                <input type="text">
+                <input type="number"><br>
                 <input type="submit" id="submit-filter">
         </form>    
     </nav>

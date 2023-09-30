@@ -378,8 +378,11 @@ Shop
     justify-content: space-between;
 }
 .Next-pic a{
-    
-    display: block;
+    color: #000;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
     margin: 10px;
     border-radius: 10px;
     width: 10em;
@@ -403,30 +406,37 @@ Shop
 
 
 #side {
-    background-color: #f4f4f4; /* Adjust the color as needed */
+    background-color: #e7e7e7;
+    height: 100%;
+    padding-right: 20%;
+    position: absolute;
+    color: #090909;
+    position: fixed;
+    z-index: 10;
+    display: none;
 }
 #side h1 {
-    font-size: 1.5rem; /* Adjust the font size as needed */
-    padding: 10px; /* Add padding to headings for better spacing */
+    font-size: 1.5rem; 
+    padding: 10px; 
 }
 
 #side label {
-    font-size: 1rem; /* Adjust the font size for labels */
-    padding: 5px; /* Add padding to labels for better spacing */
+    font-size: 1rem; 
+    padding: 5px; 
 }
 #side input[type="checkbox"] {
-    margin-right: 0px; /* Add spacing between checkboxes and labels */
+    margin-right: 0px; 
 }
 
 #side input[type="checkbox"]:checked + label {
-    font-weight: bold; /* Make the label bold when the checkbox is checked */
+    font-weight: bold; 
 }
 #submit-filter {
-    background-color: #007bff; /* Change the button background color */
-    color: white; /* Change the text color */
+    background-color: #007bff; 
+    color: white; 
     border: none;
-    padding: 10px 20px; /* Adjust padding as needed */
-    font-size: 1rem; /* Adjust the font size */
-    border-radius: 5px; /* Add rounded corners */
+    padding: 10px 20px; 
+    font-size: 1rem; 
+    border-radius: 5px; 
     cursor: pointer;
 }
