@@ -1,15 +1,4 @@
 const canvas = document.querySelector("canvas"),
-<<<<<<< HEAD
-toolBtns = document.querySelectorAll(".tool"),
-fillColor = document.querySelector("#fill-color"),
-sizeSlider = document.querySelector("#size-slider"),
-colorBtns = document.querySelectorAll(".colors .option"),
-colorPicker = document.querySelector("#color-picker"),
-clearCanvas = document.querySelector(".clear-canvas"),
-saveImg = document.querySelector(".save-img"),
-ctx = canvas.getContext("2d"),
-img = document.getElementById("imgsource");
-=======
   toolBtns = document.querySelectorAll(".tool"),
   fillColor = document.querySelector("#fill-color"),
   sizeSlider = document.querySelector("#size-slider"),
@@ -39,7 +28,6 @@ bgImage.src = '../img/t-shirt-template-white.png';
 bgImage.onload = () => {
   setCanvasBackground();
 };
->>>>>>> main
 
 let prevMouseX, prevMouseY, snapshot,
   isDrawing = false,
@@ -47,16 +35,6 @@ let prevMouseX, prevMouseY, snapshot,
   brushWidth = 5,
   selectedColor = "#000";
 
-<<<<<<< HEAD
-const setCanvasBackground = () => {
-    // setting whole canvas background to white
-    //ctx.fillStyle = "#fff";
-    // ctx.fillRect(0, 0, canvas.width, canvas.height);
-    // ctx.fillStyle = selectedColor; // setting fillstyle back to the selectedColor, it'll be the brush color
-    // setting canvas background by using img
-    ctx.drawImage(img,0,0,canvas.width,canvas.height);
-}
-=======
   const setCanvasBackground = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(bgImage, 0, 0, canvas.width, canvas.height);
@@ -66,7 +44,6 @@ const setCanvasBackground = () => {
       }
     
   };
->>>>>>> main
 
 window.addEventListener("load", () => {
   canvas.width = canvas.offsetWidth;
