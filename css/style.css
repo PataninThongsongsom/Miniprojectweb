@@ -237,7 +237,7 @@ h1
     display: grid  ;
     justify-content: center;
     align-items: center ;
-    font-size: 24px;
+    font-size: 17px;
     padding-inline: 3rem;
     font-weight: 300;
     margin-top: 50px;
@@ -247,7 +247,7 @@ h1
 .Button-Paragraph
 {
     justify-content: center;
-    width: 386px;
+    width: 246px;
     height: 76px;
     font-size: 24px;
     border-radius: 38px;
@@ -275,7 +275,8 @@ h1
 }
 
 
-.column {
+.column 
+{
     display: inline-block;
 }
   
