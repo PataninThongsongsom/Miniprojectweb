@@ -6,7 +6,7 @@ if (!isset($_SESSION['username'])) { // ถ้าlogin ไว้แล้ว
 }
 include './connect.php'; // Include your database connection code
 // Pagination configuration
-$itemsPerPage = 8; // Number of items to display per page
+$itemsPerPage = 16; // Number of items to display per page
 $page = isset($_GET['page']) ? $_GET['page'] : 1; // Get the current page from the query string or default to page 1
 
 // Calculate the offset (starting index) for the SQL query
@@ -17,13 +17,67 @@ $sql = "SELECT image_path FROM images LIMIT $offset, $itemsPerPage";
 //sort Item
 $sql2 = "SELECT image_path FROM images JOIN products ON images.IMG_ID=products.IMG_ID ORDER BY products.price DESC LIMIT $offset, $itemsPerPage;";
 $sql3 = "SELECT image_path FROM images JOIN products ON images.IMG_ID=products.IMG_ID ORDER BY products.price ASC LIMIT $offset, $itemsPerPage;";
-if(isset($_POST['SortBT'])){
-    $result = $con->query($sql2);
-}else if(isset($_POST['SortBTASC'])){
-    $result = $con->query($sql3);
-}else{
+
+// if(isset($_POST['SortBT'])){
+//     $result = $con->query($sql2);
+// }else if(isset($_POST['SortBTASC'])){
+//     $result = $con->query($sql3);
+// }else{
+//     $result = $con->query($sql);
+// }
+
+if (isset($_POST['submit-fitler'])) {
+    if (isset($_POST['category'])) {
+        $category = $_POST['category'];
+    } else {
+        // Handle the case where 'category' is not set, e.g., when no checkboxes are selected
+        $category = []; // Initialize it as an empty array or handle it as needed
+    }
+    $maxPrice = isset($_POST['max-price']) ? $_POST['max-price'] : null;
+    $minPrice = isset($_POST['min-price']) ? $_POST['min-price'] : null;
+
+    // Create the base SQL query
+    $sql = "SELECT images.image_path FROM images 
+            JOIN products ON images.IMG_ID = products.IMG_ID";
+
+    // Add category filter if selected
+    if (!empty($category)) {
+        $categoryFilters = [];
+        foreach ($category as $cat) {
+            if ($cat === 'shirt') {
+                $categoryFilters[] = "products.CID = 1"; // Shirt category ID
+            } elseif ($cat === 'jeans') {
+                $categoryFilters[] = "products.CID = 2"; // Jeans category ID
+            }
+        }
+        if (!empty($categoryFilters)) {
+            $sql .= " WHERE " . implode(" OR ", $categoryFilters);
+        }
+
+    }
+
+    // Add price range filter if max and min prices are provided
+    if (!empty($maxPrice) && !empty($minPrice)) {
+        $sql .= " AND products.price BETWEEN $minPrice AND $maxPrice";
+    }
+
+    // Sort the results based on price
+    $sql .= " ORDER BY products.price DESC LIMIT $offset, $itemsPerPage";
+
+    // Execute the modified SQL query
     $result = $con->query($sql);
+} else {
+    // Default query without filtering
+    // $result = $con->query($sql);
+    if(isset($_POST['SortBT'])){
+        $result = $con->query($sql2);
+    }else if(isset($_POST['SortBTASC'])){
+        $result = $con->query($sql3);
+    }else{
+        $result = $con->query($sql);
+    }
 }
+
 
 $imagePaths = []; // An array to store the image paths
 
@@ -37,7 +91,27 @@ if ($result->num_rows > 0) {
 $totalImagesQuery = "SELECT COUNT(*) as total FROM images";
 $totalImagesResult = $con->query($totalImagesQuery);
 $totalImages = $totalImagesResult->fetch_assoc()['total'];
-$con->close(); // Close the database connection
+$categoryFilter = isset($_POST['category']) ? implode(",", $_POST['category']) : '';
+$maxPriceFilter = isset($_POST['max-price']) ? $_POST['max-price'] : '';
+$minPriceFilter = isset($_POST['min-price']) ? $_POST['min-price'] : '';
+// Construct the URL for Next and Previous links
+$nextPageURL = "?page=" . ($page + 1);
+$prevPageURL = "?page=" . ($page - 1);
+
+// Include filter parameters in the URLs if they are set
+if (!empty($categoryFilter)) {
+    $nextPageURL .= "&category=" . $categoryFilter;
+    $prevPageURL .= "&category=" . $categoryFilter;
+}
+if (!empty($maxPriceFilter)) {
+    $nextPageURL .= "&max-price=" . $maxPriceFilter;
+    $prevPageURL .= "&max-price=" . $maxPriceFilter;
+}
+if (!empty($minPriceFilter)) {
+    $nextPageURL .= "&min-price=" . $minPriceFilter;
+    $prevPageURL .= "&min-price=" . $minPriceFilter;
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -62,29 +136,28 @@ $con->close(); // Close the database connection
 
     <nav id="side">
         <h1 id="closeFilter">CLOSE</h1>
-        <div id="side-content">
+        <form action="Shop.php" method="post" onsubmit="return validatePrice()">
             <h1>Category</h1>
-            <div id="category">
-                <input type="checkbox" id="shirt" name="shirt" value="shirt">
+            <div required>
+                <input type="checkbox" id="shirt" name="category[]" value="shirt" <?php if (isset($_POST['category']) && in_array('shirt', $_POST['category'])) echo 'checked'; ?>>
                 <label for="shirt">shirt</label>
-                <input type="checkbox" id="Jean" name="Jean" value="Jean">
+                <input type="checkbox" id="Jean" name="category[]" value="Jean" <?php if (isset($_POST['category']) && in_array('Jean', $_POST['category'])) echo 'checked'; ?>>
                 <label for="Jean"> Jean</label>
             </div>
+
             <h1>Price</h1>
-            <div id="Price">
-                <label for="max-price">Max Price : </label>
-                <input type="text">
-                <label for="max-price">Min Price : </label>
-                <input type="text">
-            </div>
-            <input type="submit" id="submit-filter">
-            <!-- <h1>Color</h1> -->
-        </div>
+            <label for="max-price">Max Price : </label>
+            <input type="number" name="max-price" placeholder="1000" value="<?php echo isset($_POST['max-price']) ? $_POST['max-price'] : ''; ?>"><br>
+            <label for="max-price">Min Price : </label>
+            <input type="number" name="min-price" min="100" placeholder="100" value="<?php echo isset($_POST['min-price']) ? $_POST['min-price'] : ''; ?>"><br>
+            <input type="submit" name="submit-fitler" id="submit-filter">
+        </form>
+
     </nav>
 
     <div class="top-menu">
         <img src="../img/Shadow.png" class="Shadow">
-        <nav class="main-nav">
+        <nav class="main-nav" style="display: relative; position: absolute;">
             <ul class="menu-left">
                 <a href="afterlogin.php"><img src="../img/logo.png" class="logo"></a>
                 <li><a class="Shop" href="">SHOP</a></li>
@@ -108,7 +181,7 @@ $con->close(); // Close the database connection
             </div>
         </nav>
     </div>
-    <img class="shop-top-bg" src="../img/shop_img/bg-top2_small.jpg" alt="">
+    <!-- <img class="shop-top-bg" src="../img/shop_img/bg-top2_small.jpg" alt=""> -->
 
     <div class="Shop-filter">
         <button id="filterBT" class="filterBT">Filter</button>
@@ -116,19 +189,29 @@ $con->close(); // Close the database connection
             <div class="dropdown">
                 <button class="SortBT" name="SortBT">Sort by Feature</button>
                 <div class="dropdown-content" style="left: 1px;">
-                    <button class="SortBT" name="SortBT">Sort by DESC</button>
-                    <button class="SortBT" name="SortBTASC">Sort by ASC</button>
+                    <button class="SortBT" name="SortBT">Sort by MAX</button>
+                    <button class="SortBT" name="SortBTASC">Sort by MIN</button>
                 </div>
             </div>
         </form>
     </div>
 
     <div id="image-container">
+        
         <!-- Loop through the image paths and display the images -->
         <?php
         foreach ($imagePaths as $imagePath) {
-            echo '<img src="' . $imagePath . '" alt="Image" />';
+            $sqlPrice = "SELECT products.price FROM products JOIN images ON products.IMG_ID = images.IMG_ID WHERE images.image_path = '$imagePath'";
+            $priceResult = $con->query($sqlPrice);
+            $price = $priceResult->fetch_assoc()['price'];
+            echo '  <div class="product-item">
+                        <img src="' . $imagePath . '" alt="Image" />
+                        <p class="product-price">$' . $price . '</p>
+                    </div>';
+        
         }
+        
+        $con->close(); // Close the database connection
         ?>
     </div>
 
@@ -136,18 +219,15 @@ $con->close(); // Close the database connection
     <div class="Next-pic">
         <?php
         $totalPages = ceil($totalImages / $itemsPerPage);
-
-        // Previous button
         if ($page > 1) {
-            $prevPage = $page - 1;
-            echo '<a href="?page=' . $prevPage . '">Previous</a>';
+            echo '<a href="' . $prevPageURL . '">Previous</a>';
         }
-
+        
         // Next button
         if ($page < $totalPages) {
-            $nextPage = $page + 1;
-            echo '<a href="?page=' . $nextPage . '">Next</a>';
+            echo '<a href="' . $nextPageURL . '">Next</a>';
         }
+        
         ?>
     </div>
 
