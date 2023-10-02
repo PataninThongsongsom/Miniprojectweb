@@ -14,6 +14,7 @@
             <th>Category</th>
             <th>product_name</th>
             <th>price</th>
+            <th>remain</th>
             <th>sold</th>
         </tr>
     <?php 
