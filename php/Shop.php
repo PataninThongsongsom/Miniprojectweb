@@ -13,7 +13,9 @@ $page = isset($_GET['page']) ? $_GET['page'] : 1; // Get the current page from t
 $offset = ($page - 1) * $itemsPerPage;
 
 // Query to select image paths with pagination
-$sql = "SELECT image_path FROM images LIMIT $offset, $itemsPerPage";
+//$sql = "SELECT image_path FROM images LIMIT $offset, $itemsPerPage";
+$sql = "SELECT images.image_path FROM images 
+            JOIN products ON images.IMG_ID = products.IMG_ID LIMIT $offset, $itemsPerPage";
 //sort Item
 $sql2 = "SELECT image_path FROM images JOIN products ON images.IMG_ID=products.IMG_ID ORDER BY products.price DESC LIMIT $offset, $itemsPerPage;";
 $sql3 = "SELECT image_path FROM images JOIN products ON images.IMG_ID=products.IMG_ID ORDER BY products.price ASC LIMIT $offset, $itemsPerPage;";
@@ -26,10 +28,13 @@ $sql3 = "SELECT image_path FROM images JOIN products ON images.IMG_ID=products.I
 //     $result = $con->query($sql);
 // }
 
-if (isset($_POST['submit-fitler'])) {
+if (isset($_POST['submit-fitler'])|| !empty($_GET['category'])) {
     if (isset($_POST['category'])) {
         $category = $_POST['category'];
-    } else {
+    }else if(isset($_GET['category'])){
+        $category = $_GET['category'];
+    } 
+    else {
         // Handle the case where 'category' is not set, e.g., when no checkboxes are selected
         $category = []; // Initialize it as an empty array or handle it as needed
     }
@@ -37,8 +42,8 @@ if (isset($_POST['submit-fitler'])) {
     $minPrice = isset($_POST['min-price']) ? $_POST['min-price'] : null;
 
     // Create the base SQL query
-    $sql = "SELECT images.image_path FROM images 
-            JOIN products ON images.IMG_ID = products.IMG_ID";
+     $sql = "SELECT images.image_path FROM images 
+             JOIN products ON images.IMG_ID = products.IMG_ID";
 
     // Add category filter if selected
     if (!empty($category)) {
@@ -46,7 +51,7 @@ if (isset($_POST['submit-fitler'])) {
         foreach ($category as $cat) {
             if ($cat === 'shirt') {
                 $categoryFilters[] = "products.CID = 1"; // Shirt category ID
-            } elseif ($cat === 'jeans') {
+            } elseif ($cat === 'Jeans') {
                 $categoryFilters[] = "products.CID = 2"; // Jeans category ID
             }
         }
@@ -92,17 +97,19 @@ $totalImagesQuery = "SELECT COUNT(*) as total FROM images";
 $totalImagesResult = $con->query($totalImagesQuery);
 $totalImages = $totalImagesResult->fetch_assoc()['total'];
 $categoryFilter = isset($_POST['category']) ? implode(",", $_POST['category']) : '';
+$categoryFilter2 = isset($_GET['category']) ? $_GET['category'] : $categoryFilter;
 $maxPriceFilter = isset($_POST['max-price']) ? $_POST['max-price'] : '';
 $minPriceFilter = isset($_POST['min-price']) ? $_POST['min-price'] : '';
 // Construct the URL for Next and Previous links
 $nextPageURL = "?page=" . ($page + 1);
 $prevPageURL = "?page=" . ($page - 1);
-
+$nextPageURL .= "&category=" . $categoryFilter2;
+$prevPageURL .= "&category=" . $categoryFilter2;
 // Include filter parameters in the URLs if they are set
-if (!empty($categoryFilter)) {
-    $nextPageURL .= "&category=" . $categoryFilter;
-    $prevPageURL .= "&category=" . $categoryFilter;
-}
+// if (!empty($categoryFilter)) {
+//     $nextPageURL .= "&category=" . $categoryFilter;
+//     $prevPageURL .= "&category=" . $categoryFilter;
+// }
 if (!empty($maxPriceFilter)) {
     $nextPageURL .= "&max-price=" . $maxPriceFilter;
     $prevPageURL .= "&max-price=" . $maxPriceFilter;
@@ -141,7 +148,7 @@ if (!empty($minPriceFilter)) {
             <div required>
                 <input type="checkbox" id="shirt" name="category[]" value="shirt" <?php if (isset($_POST['category']) && in_array('shirt', $_POST['category'])) echo 'checked'; ?>>
                 <label for="shirt">shirt</label>
-                <input type="checkbox" id="Jean" name="category[]" value="Jean" <?php if (isset($_POST['category']) && in_array('Jean', $_POST['category'])) echo 'checked'; ?>>
+                <input type="checkbox" id="Jeans" name="category[]" value="Jeans" <?php if (isset($_POST['category']) && in_array('Jeans', $_POST['category'])) echo 'checked'; ?>>
                 <label for="Jean"> Jean</label>
             </div>
 
