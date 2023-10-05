@@ -22,7 +22,7 @@ $user = $_SESSION['user_login'];
     <img src="../img/Shadow.png" class="Shadow" title="Shadow">
     <nav class="main-nav">
         <ul class="menu-left">
-            <a href="../index.php"><img src="../img/logo.png"class="logo"></a>
+            <a href="./afterlogin.php"><img src="../img/logo.png"class="logo"></a>
             <li><a href="./Shop.php"class="Shop" href="">SHOP</a></li>
             <li><a href="./Magazine.php" class="Magazine" href="">MAGAZINE</a></li>
             <li><a class="Custom" href="./Custom.php">CUSTOM YOUR OWN</a></li>
