@@ -58,6 +58,12 @@ $user = $_SESSION['user_login'];
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <!-- <script src = "../js/cart2.js"></script> -->
 </head>
+<script>function update(pid) {
+		var qty = document.getElementById(pid).value;
+		// ส่งรหัสสินค้า และจำนวนไปปรับปรุงใน session
+		document.location = "Cartafterlogin.php?action=update&pid=" + pid + "&qty=" + qty; 
+	}</script>
+
 <body>
    
    <div class="top-menu"> 
@@ -79,19 +85,18 @@ $user = $_SESSION['user_login'];
 
   <div class="cart-content">
     <h1>SHOPPING CART</h1>
-    <p>STATUS: 1 ITEM</p>
     
-</div>
+    </div>
 <br>
-<?php
-            $sum =0;
+<div class = "mycart">
+    <div class = "product">
+    <div class = "listcart">
+    <?php
+        $sum =0;
             foreach ($_SESSION["cart"] as $item){
                 $sum += $item["price"] * $item["qty"];
             ?>
-    <div class = "mycart">
-        
-        <div class = "product">
-        <div class = "listcart">
+
             <div class = "numberlist">
                 
                 <img src = "<?=$item["img"]?>" class ="numberlist-img">
@@ -101,18 +106,21 @@ $user = $_SESSION['user_login'];
                     <!-- <p class = "numberlist-des">BEN10</p> -->
                 </div>
                 <div class ="quantity">
-                    <button class ="quantity-btn decrease">-</button>
-                    <h3 class ="item-quantity"><?=$item["qty"]?></h3>
-                    <button class = "quantity-btn increase">+</button>
+                    
+                    
+                    <input class ="item-quantity" type="number" id="<?=$item["pid"]?>" value="<?=$item["qty"]?>" min="1" max="9">
+			        <a href="#" onclick="update(<?=$item["pid"]?>)">แก้ไข</a>
+                    
                 </div>
                 <h2 class = "numberlist-price"><?=$item["price"]?> ฿</h2>
                 <!-- <button class = "numberlist-del-btn"><ion-icon name="trash-sharp" ></ion-icon></button><br> -->
                 <a href="?action=delete&pid=<?=$item["pid"]?>">ลบ</a>
                 
             </div>
+        <?php }?>    
         </div>
-      
-    </div> <?php }?>
+    <br>  
+    </div> 
     <div class = "subtotal">
         <div class = "subtotal-box">
             <h1 class = "text">YOUR TOTAL</h1>

@@ -69,8 +69,3 @@
 //         });
 //     });
 // });
-function update(pid) {
-    var qty = document.getElementById(pid).value;
-    // ส่งรหัสสินค้า และจำนวนไปปรับปรุงใน session
-    document.location = "cart.php?action=update&pid=" + pid + "&qty=" + qty; 
-}
