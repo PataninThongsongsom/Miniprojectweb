@@ -9,23 +9,29 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300&display=swap" rel="stylesheet">
         <script src="app.js"></script>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     
         
     </head>
     <body class="Login-page">
         <div class = "mybox">
-        <form class="Loginform">
+        <form class="Loginform" action="./login.php" method="post">
             
             <div class="Logintext"><img src ="../img/Loginlogo.png"></div>
-            <div class = "myinput"><input type="text" placeholder="USERNAME" ></div><br>
+            <div class = "myinput"><ion-icon name="person"></ion-icon><input type="text" placeholder="USERNAME" name="username"></div><br>
 
-            <div class ="myinput"><input type="password" placeholder="PASSWORD"></div><br>
-            <p><input type ="checkbox" value="Remember">
-                REMEMBER ME!</p>
+            <div class ="myinput"><ion-icon name="lock-closed"></ion-icon><input type="password" placeholder="PASSWORD" name="password"></div><br><br>
+            <div class ="Remember"><p><input type ="checkbox" value="Remember">
+                REMEMBER ME!</p></div>
             <br>
-            <input type="button" value="LOGIN" class ="btn"> <br><br>
+            <input type="submit" value="Login" class="btnlogin">
+            <!-- <a href="../html/afterlogin.html" class = "btnlogin">LOGIN</a> -->
+            <a href="../index.php" class ="btnback">BACK</a><br>
 
-            <p>IF YOU DON'T HAVE AN ACCOUNT <a href="./register.html">Register</a></p>
+            <div class ="Register">
+            <p>IF YOU DON'T HAVE AN ACCOUNT <a href="./register.php">Register</a></p>
+            </div>
              <!-- <button onclick="window.location.href = 'register.html';">Register</button> -->
             
         </form>
