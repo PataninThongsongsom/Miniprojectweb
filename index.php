@@ -31,7 +31,7 @@ if (isset($_SESSION['username'])) { // ถ้าlogin ไว้แล้ว
                 </ul>
                 <div class="menu-right">
                     <input type="search" class="searchbox" placeholder="Search Products" >
-                    <a href="./html/cart1.html"><img src="./img/cart.png" class="cart"></a>
+                    <a href="./php/Cartbeforelogin.php"><img src="./img/cart.png" class="cart"></a>
                     <a href="./php/login.php"><img src="./img/Login.png" class="login"> </a>
                 </div>
             </nav>

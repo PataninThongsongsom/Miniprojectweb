@@ -1,0 +1,296 @@
+*
+{
+    margin: 0%;
+    padding: 0%;
+    scroll-behavior: smooth;
+}
+
+* { 
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.WelcomePage
+{
+    width: 100%;
+    height: 100%;
+}
+
+/* Customize menu */
+.main-nav
+{
+    -webkit-backdrop-filter:blur(10px);
+    backdrop-filter: blur(10px);    
+    background-color: rgba(255, 255, 255, 0.614);
+    margin-top: 1rem;
+    margin-inline: 2rem;
+    border-radius: 6px;
+    box-shadow: 0px 4px 10px 0px rgb(0, 0, 0,0.25);
+    z-index: 7 ;
+    top: 0%;
+    display: flex;
+    position: fixed;
+    width: 90%;
+    margin-right: 5%;
+    margin-left: 5%;
+}
+
+
+ul.menu-left
+{
+    align-items: center;
+    font-size: 14px;
+    padding-left: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    display: inline-flex;
+    z-index: 6;
+}
+
+div.menu-right
+{
+    display: flex;
+    z-index: 6;
+    align-items: center;
+    margin-left: auto;
+    padding-right: 2rem;
+}
+
+li
+{
+    padding-right: 50px;
+    list-style-type: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.searchbox
+{
+    border-radius: 15px;
+    border:0cm;
+    height: 24px;
+    width: 16rem;
+    margin-right: 1rem;
+}
+
+input[type=search]
+{
+    outline: none;
+    padding: 12px 12px;
+    font-size: 15px;
+    
+}
+
+/* Shop */
+a.Shop
+{
+    text-decoration:none;
+    color: rgb(68, 68, 68);
+}
+
+/* Magazine */
+a.Magazine
+{
+    text-decoration: none;
+    color: rgb(68, 68, 68);
+}
+
+/* CustomYourOwn */
+a.Custom
+{
+    text-decoration: none;
+    color: rgb(68, 68, 68);
+}
+
+/* Logo */
+.logo
+{
+    margin-right: 70px;    
+    height: 20px;
+    width: 20px;
+    padding-left: 1px;
+ 
+}
+
+.login
+{
+    height: 40px;
+}
+
+.cart
+{
+    height: 40px;
+    margin-right: 10px;
+}
+
+.Shadow
+{
+    display:block;
+    width: 100%;
+    position: fixed ;
+    z-index: 5;
+    top:0%;
+
+}
+
+.img-title
+{
+    width: 100%;
+    display: block;
+}
+
+.empty-cart {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.login-link {
+    display: block;
+    margin-top: 10px;
+    color: #000; /* สีลิงก์ดำ */
+    text-decoration: underline;
+    
+}
+
+
+ion-icon[name="trash-sharp"] {
+    color: #ff0000; /* Red color for the trash icon */
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.cart-content {
+    position: relative; /* เพิ่มบรรทัดนี้ */
+    text-align: center;
+    margin-top: 120px;
+}
+
+.mycart {
+    width: 100%;
+    padding: 20px 10vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.product{
+    width:50%;
+}
+.listcart{
+    width:100%;
+    background-color: white;    
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 20px;
+    margin-bottom: 50px;
+}
+.numberlist{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow:hidden;
+    position:relative;
+    margin-bottom:20px;
+}
+
+.mycart .numberlist:last-child{
+    margin-bottom: 0;
+}
+
+.numberlist-img{
+    height:100px;
+    width:100px;
+    object-fit: cover;
+}
+.numberlist-text{
+    width:50%
+}
+.numberlist-name{
+    font-size:20px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.numberlist-des{
+    font-size: 15px;
+    opacity:0.5;
+    line-height: 25px;
+    text-transform: capitalize;
+    margin-top: 10px;
+}
+
+.quantity{
+    width:90px;
+    height:30px;
+    display:flex;
+    margin-right:20ox;
+}
+.quantity-btn .item-quantity{
+width:30px;
+height:30px;
+}
+    .quantity-btn{
+        border:none;
+        background-color: black;
+        color: white;
+        border-radius: 2px;
+        cursor:pointer;
+        width:20px;
+    }
+
+    .item-quantity{
+        text-align: center;
+        line-height: 30px;
+        background-color: white;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .numberlist-del-btn{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(116, 3, 3);
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .subtotal{
+        width:20%;
+        margin-right: 370px;
+    }
+
+    .subtotal-box{
+        width:100%;
+        height:150px;
+        background-color: black;
+        color:white;
+        box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        padding: 50px;
+    }
+
+    .text{
+        text-transform: capitalize;
+        font-size:20px;
+        text-align: center;
+    }
+
+    .subtotal-btn{
+        display: block;
+        width:100%;
+        border:none;
+        outline:none;
+        cursor:pointer;
+        height:40px;
+        border-radius:5px;
+        background-color: white;
+        color:black;
+        text-align: center;
+        line-height: 40px;
+        text-transform: capitalize;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .subtotalprice{
+        font-size: 50px;
+        text-align: center;
+    }
