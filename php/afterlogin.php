@@ -32,7 +32,7 @@ if (!isset($_SESSION['username'])) { // ถ้าไม่ได้เข้า�
                 </ul>
                 <div class="menu-right">
                     <input type="search" class="searchbox" placeholder="Search Products" >
-                    <a href="../html/cart2.html"><img src="../img/cart.png" class="cart"></a>
+                    <a href="./Cartafterlogin.php"><img src="../img/cart.png" class="cart"></a>
                     <div class="dropdown">
                         <img src="../img/Login.png" class="login" alt="Login Icon">
                         
