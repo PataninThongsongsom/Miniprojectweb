@@ -5,6 +5,7 @@ if (!isset($_SESSION['username'])) { // ถ้าlogin ไว้แล้ว
     header("location: ./afterlogin.php"); // ให้ redirect ไป หน้าlogin แล้ว
     exit;
 }
+// cart
 if(!isset($_SESSION['cart'])){
     $_SESSION['cart']=array();
 }
