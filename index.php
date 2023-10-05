@@ -15,16 +15,13 @@ if (isset($_SESSION['username'])) { // ถ้าlogin ไว้แล้ว
         <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="./css/style.css">
         <script src="../js/app.js"></script>
-        <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="style.css">
-        <script src="app.js"></script>
         
         
     </head>
     <body>
         <!-- Menu -->
         <div class="top-menu"> 
-            <img src="img/Shadow.png" class="Shadow" title="Shadow">
+            <img src="./img/Shadow.png" class="Shadow" title="Shadow">
             <nav class="main-nav">
                 <ul class="menu-left">
                     <a href="index.php"><img src="./img/logo.png"class="logo"></a>
@@ -34,16 +31,14 @@ if (isset($_SESSION['username'])) { // ถ้าlogin ไว้แล้ว
                 </ul>
                 <div class="menu-right">
                     <input type="search" class="searchbox" placeholder="Search Products" >
-                    <a href="./html/cart1.html"><img src="./img/cart.png" class="cart"></a>
+                    <a href="./php/Cartbeforelogin.php"><img src="./img/cart.png" class="cart"></a>
                     <a href="./php/login.php"><img src="./img/Login.png" class="login"> </a>
                 </div>
             </nav>
             
         </div> 
-        <!-- Container -->
+        <!-- Banner -->
         <div class="Banner">
-            <!--Effect ภาพ Banner-->
-            <!-- <div class="black_effect"></div>-->
             <video src="./vdo/BannerVideo.mp4" class="VdoBanner" autoplay muted loop playsinline data-object-fit="cover">
         </div>  
         <!-- Recommand -->
@@ -62,20 +57,6 @@ if (isset($_SESSION['username'])) { // ถ้าlogin ไว้แล้ว
                 <button class="Button-Paragraph" onclick="window.location.href='./html/uploadfile.html'">ทดลองใช้</button>
             </div>
         </div>
-        <div class="Recommand" >
-            <img src="./img/Customyourown-new.png" class="cyo" title="cyo">
-            <div class="Info">
-                <h1 class="Rec-Header">Custom Your Own!</h1>
-            </div>
-
-        </div>
-        <!-- Banner Area -->
-        <div class="Banner">
-            <!-- <img src="/img/Parallax1.png" class="Parallax1" id="Parallax1"> -->
-        </div>
-        <!-- Content Area -->
-        <div class="Contents">
-
-        </div>
+        
     </body>
 </html>

@@ -1,9 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['username'])) { // ถ้าlogin ไว้แล้ว
-    header("location: ./afterlogin.php"); // ให้ redirect ไป หน้าlogin แล้ว
-    exit;
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,14 +23,14 @@ if (!isset($_SESSION['username'])) { // ถ้าlogin ไว้แล้ว
             <nav class="main-nav">
                 <ul class="menu-left">
                     <a href="index.html"><img src="../img/logo.png"class="logo"></a>
-                    <li><a href="../html/Cart.html"class="Shop" href="">SHOP</a></li>
-                    <li><a href="../html/Magazine.html" class="Magazine" href="">MAGAZINE</a></li>
-                    <li><a class="Custom" href="./html/Custom.html">CUSTOM YOUR OWN</a></li>
+                    <li><a href="./Shop.php"class="Shop" href="">SHOP</a></li>
+                    <li><a href="./Magazine.php" class="Magazine" href="">MAGAZINE</a></li>
+                    <li><a class="Custom" href="./Custom.php">CUSTOM YOUR OWN</a></li>
                 </ul>
                 <div class="menu-right">
                     <input type="search" class="searchbox" placeholder="Search Products" >
-                    <a href="../html/Cart.html"><img src="../img/cart.png" class="cart"></a>
-                    <a href="../html/Login.html"><img src="../img/Login.png" class="login"> </a>
+                    <a href="./Cartbeforelogin.php"><img src="../img/cart.png" class="cart"></a>
+                    <a href="./login.php"><img src="../img/Login.png" class="login"> </a>
                 </div>
             </nav>
             <div class="cart-content">
@@ -42,7 +39,7 @@ if (!isset($_SESSION['username'])) { // ถ้าlogin ไว้แล้ว
                 <p>STATUS: EMPTY</p>
                 
                 <p class ="mytext">ลงชื่อเข้าใช้เพื่อดูรถเข็นของคุณและเริ่มช็อปปิ้ง</p>
-                <a href="../html/Login.html" class="login-link">LOGIN</a>
+                <a href="./login.php" class="login-link">LOGIN</a>
             </div>
         </div> 
         
