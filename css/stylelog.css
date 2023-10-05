@@ -29,7 +29,7 @@
 
 .mybox{
     width:400px;
-    background-color: rgba(255, 251, 251, 0.20);
+    background-color: rgba(255, 251, 251, 0.40);
     color: #000;
     padding: 25px 35px;
 }
@@ -37,24 +37,24 @@
 
 
 .Logintext{
-    width: 20px;
-    height: 30px;
-    text-align: center;
-    padding: 30px 100px 60px;
+   width: 50%;
+   margin-left:100px;
+   margin-top: 20px;
+   margin-bottom: 10px;
 }
 
 
 .myinput{
     width: 80%;
     height: 30px; 
-    margin: 10px 40px;
+    margin: 5px 40px;
 }
 
 .myinput input{
     width: 90%;
     height: 90%;
-    
-    padding: 5px 20px 5px;
+    margin-left: 22px;
+    padding: 5px 7px 5px 5px;
 }
 .btn{
     width: 45%;
@@ -62,9 +62,59 @@
     margin-left: 110px;
     background-color: black;
     color:white;
+    font-weight: bold;
     
 }
+.btnlogin{
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-left: 125px;
+    margin-top: -10px;
+    padding: 15px;
+    width: 30%;
+    background-color: black;
+    font-weight: bold;
+    color: white;
+}
+.btnback{
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-left: 155px;
+    margin-top: 5px;
+    padding: 5px;
+    width: 20%;
+    background-color: white;
+    font-weight: bold;
+    color: black;
+    text-decoration:none;
+}
 
-.p{
-    padding-left: px;
+
+
+.myinput ion-icon{
+    position: relative;
+    margin-left: -30px;
+    margin-top: 10px;
+    font-size: 25px;
+}
+
+.mybox .Remember{
+    display: flex;
+    margin-left: 140px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.mybox .Register{
+    display: flex;
+    margin-left: 60px;
+    font-size: 14px;
+    font-weight: bold;
+}
+.Register a{
+    color:BLACK;
 }
