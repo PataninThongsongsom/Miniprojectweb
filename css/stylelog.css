@@ -1,118 +1,120 @@
-* {
+*
+{
     margin: 0%;
     padding: 0%;
     scroll-behavior: smooth;
 }
 
-.class {
+.class { 
     font-family: "Segoe UI", Arial, sans-serif;
 }
 
-body {
+
+
+
+.Login-page{
     background-image: url('../img/bg-blur.png');
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center; 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: grid;
-    place-items: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
     min-height: 100vh;
+    
+   
 }
 
-.mybox {
-    width: 400px;
+.mybox{
+    width:400px;
     background-color: rgba(255, 251, 251, 0.40);
     color: #000;
     padding: 25px 35px;
-    display: grid;
-    gap: 10px;
-    justify-items: center;
 }
 
-.Logintext {
-    width: 50%;
-    grid-column: span 2;
-    margin-top: 10px;
-    margin-bottom: 10px;
+
+
+.Logintext{
+   width: 50%;
+   margin-left:102px;
+   margin-top: 10px;
+   margin-bottom: 10px;
 }
 
-.myinput {
+
+.myinput{
     width: 85%;
-    height: 30px;
-    display: grid;
-    gap: 5px;
-    grid-template-columns: 1fr 4fr;
-    margin: 5px 0;
+    height: 30px; 
+    margin: 5px 40px;
 }
 
-.myinput input {
-    width: 100%;
-    height: 100%;
+.myinput input{
+    width: 90%;
+    height: 90%;
+    margin-left: 24px;
     padding: 3px 0px 3px 9px;
 }
-
-.btn {
+.btn{
     width: 45%;
     height: 45px;
-    grid-column: span 2;
+    margin-left: 140px;
     background-color: black;
-    color: white;
+    color:white;
     font-weight: bold;
-    margin-top: 10px;
+    
 }
-
-.btnlogin {
+.btnlogin{
     text-decoration: none;
     align-items: center;
     justify-content: center;
     display: flex;
-    grid-column: span 2;
-    padding: 15px;
-    width: 100%;
-    background-color: black;
-    font-weight: bold;
-    color: white;
+    margin-left: 140px;
     margin-top: -10px;
+    padding: 15px;
+    width: 30%;
+    background-color: black;
+    font-weight: bold;
+    color: white;
 }
-
-.btnback {
+.btnback{
     text-decoration: none;
     align-items: center;
     justify-content: center;
     display: flex;
-    grid-column: span 2;
+    margin-left: 155px;
+    margin-top: 5px;
     padding: 5px;
-    width: 100%;
+    width: 20%;
     background-color: white;
     font-weight: bold;
     color: black;
-    text-decoration: none;
-    margin-top: 5px;
+    text-decoration:none;
 }
 
-.myinput ion-icon {
+
+
+.myinput ion-icon{
     position: relative;
     margin-left: -30px;
     margin-top: 10px;
     font-size: 25px;
 }
 
-.mybox .Remember {
+.mybox .Remember{
     display: flex;
-    grid-column: span 2;
+    margin-left: 140px;
     font-size: 14px;
     font-weight: bold;
-    margin-top: 10px;
 }
 
-.mybox .Register {
+.mybox .Register{
     display: flex;
-    grid-column: span 2;
+    margin-left: 60px;
     font-size: 14px;
     font-weight: bold;
-    margin-top: 10px;
 }
-
-.Register a {
-    color: black;
+.Register a{
+    color:BLACK;
 }
