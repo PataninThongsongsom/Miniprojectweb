@@ -1,8 +1,12 @@
 <?php
 session_start();
+	
 if (!isset($_SESSION['username'])) { // ถ้าlogin ไว้แล้ว
     header("location: ./afterlogin.php"); // ให้ redirect ไป หน้าlogin แล้ว
     exit;
+}
+if(!isset($_SESSION['cart'])){
+    $_SESSION['cart']=array();
 }
 include './connect.php'; // Include your database connection code
 // Pagination configuration
@@ -20,13 +24,7 @@ $sql = "SELECT images.image_path FROM images
 $sql2 = "SELECT image_path FROM images JOIN products ON images.IMG_ID=products.IMG_ID ORDER BY products.price DESC LIMIT $offset, $itemsPerPage;";
 $sql3 = "SELECT image_path FROM images JOIN products ON images.IMG_ID=products.IMG_ID ORDER BY products.price ASC LIMIT $offset, $itemsPerPage;";
 
-// if(isset($_POST['SortBT'])){
-//     $result = $con->query($sql2);
-// }else if(isset($_POST['SortBTASC'])){
-//     $result = $con->query($sql3);
-// }else{
-//     $result = $con->query($sql);
-// }
+
 
 if (isset($_POST['submit-fitler'])|| !empty($_GET['category'])) {
     if (isset($_POST['category'])) {
@@ -173,7 +171,7 @@ if (!empty($minPriceFilter)) {
             </ul>
             <div class="menu-right">
                 <input type="search" class="searchbox" placeholder="Search Products">
-                <a href="../html/cart2.html"><img src="../img/cart.png" class="cart"></a>
+                <a href="./Cartafterlogin.php"><img src="../img/cart.png" class="cart"></a>
                 <div class="dropdown">
                     <img src="../img/Login.png" class="login" alt="Login Icon">
 
@@ -208,12 +206,17 @@ if (!empty($minPriceFilter)) {
         <!-- Loop through the image paths and display the images -->
         <?php
         foreach ($imagePaths as $imagePath) {
-            $sqlPrice = "SELECT products.price FROM products JOIN images ON products.IMG_ID = images.IMG_ID WHERE images.image_path = '$imagePath'";
+            $sqlPrice = "SELECT products.price,products.PID FROM products JOIN images ON products.IMG_ID = images.IMG_ID WHERE images.image_path = '$imagePath'";
             $priceResult = $con->query($sqlPrice);
-            $price = $priceResult->fetch_assoc()['price'];
+            $res = mysqli_fetch_assoc($priceResult);
+            $price = $res['price'];
+            $pid = $res['PID'];
             echo '  <div class="product-item">
                         <img src="' . $imagePath . '" alt="Image" />
                         <p class="product-price">$' . $price . '</p>
+                        <form method="post" action="./Cartafterlogin.php?action=add&pid=' . $pid . '&img=' . $imagePath .'&qty='. 1 .' " class="product-price"> 
+                            <input type="submit" value="ซื้อ">
+                        </form>
                     </div>';
         
         }
