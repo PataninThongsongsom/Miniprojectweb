@@ -55,7 +55,7 @@ body {
     width: 45%;
     height: 45px;
     grid-column: span 2;
-    background-color: red;
+    background-color: black;
     color: white;
     font-weight: bold;
     margin-top: 10px;
