@@ -137,6 +137,7 @@ a.Custom
     display: block;
 }
 
+
 .empty-cart {
     font-size: 18px;
     font-weight: bold;
@@ -175,7 +176,6 @@ body {
     background-color: #ffffff; /* สีพื้นหลังดำสี */
     color: #000000; /* สีตัวอักษรขาว */
     text-align: center;
-    padding: 20px;
 }
 
 .cart.content {

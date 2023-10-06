@@ -33,6 +33,7 @@ session_start();
                     <a href="./login.php"><img src="../img/Login.png" class="login"> </a>
                 </div>
             </nav>
+            <br>
             <div class="cart-content">
                 <h1>SHOPPING CART</h1>
                 <ion-icon name="cart-sharp"></ion-icon>
