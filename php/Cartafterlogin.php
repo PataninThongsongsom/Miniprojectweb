@@ -19,6 +19,8 @@ if ($_GET["action"]=="add") {
 	// ถ้ายังไม่มีสินค้าใดๆในรถเข็น
 	if(empty($_SESSION['cart']))
     	$_SESSION['cart'] = array();
+        echo "ตะกร้าของคุณว่างเปล่า";
+       
  
 	// ถ้ามีสินค้านั้นอยู่แล้วให้บวกเพิ่ม
 	if(array_key_exists($pid, $_SESSION['cart'])){
@@ -29,6 +31,7 @@ if ($_GET["action"]=="add") {
 	// หากยังไม่เคยเลือกสินค้นนั้นจะ
 	else
 	    $_SESSION['cart'][$pid] = $cart_item;
+       
 
 // ปรับปรุงจำนวนสินค้า
 } else if ($_GET["action"]=="update") {
@@ -82,6 +85,7 @@ $user = $_SESSION['user_login'];
         </div>
     </nav>
   </div>
+ <br><br><br><br>
 
   <div class="cart-content">
     <h1>SHOPPING CART</h1>
@@ -93,6 +97,18 @@ $user = $_SESSION['user_login'];
     <div class = "listcart">
     <?php
         $sum =0;
+        if (empty($_SESSION["cart"])) {
+            echo '<div class="cart-content">
+            <br>
+            <p>STATUS: EMPTY</p>
+            <ion-icon name="cart-sharp"></ion-icon>
+            <br>
+            <p class ="detailbeforeshop">ถ้าคุณอดใจไม่ไหวที่จะซื้อสินค้าของเราและต้องการละลายทรัพย์กับสินค้าที่เราหลอกขาย(ต้นทุน50ร้านเราขาย5000 หวานเจี๊ยบบบบบ)โปรดกดปุ่ม</p>
+            <br>
+            <a href="../php/Shop.php" class="shop-now">SHOP NOW</a>
+
+             </div>';
+        } else {
             foreach ($_SESSION["cart"] as $item){
                 $sum += $item["price"] * $item["qty"];
             ?>
@@ -114,10 +130,10 @@ $user = $_SESSION['user_login'];
                 </div>
                 <h2 class = "numberlist-price"><?=$item["price"]?> ฿</h2>
                 <!-- <button class = "numberlist-del-btn"><ion-icon name="trash-sharp" ></ion-icon></button><br> -->
-                <a href="?action=delete&pid=<?=$item["pid"]?>">ลบ</a>
+                <a href="?action=delete&pid=<?=$item["pid"]?>" class = "numberlist-del-btn"><ion-icon name="trash-sharp"></ion-icon></a>
                 
             </div>
-        <?php }?>    
+        <?php } }?>    
         </div>
     <br>  
     </div> 
@@ -126,14 +142,13 @@ $user = $_SESSION['user_login'];
             <h1 class = "text">YOUR TOTAL</h1>
             <h2 class = "subtotalprice"><?=$sum?> ฿</h2>
             <form action="./checkout.php" method="post">
-                <input type="submit" value="BUY NOW!" name="Submit">
+                <input type="submit" value="BUY NOW!" name="Submit" class = "subtotal-btn">
             </form>
             <!-- <a href="#" class="subtotal-btn">BUY NOW!</a> -->
         </div>
     </div>
 </div> 
 <script src = "../js/cart.js"></script>
-
   
 </body>
 </html>
