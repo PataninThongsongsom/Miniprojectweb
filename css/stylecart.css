@@ -137,6 +137,7 @@ a.Custom
     display: block;
 }
 
+
 .empty-cart {
     font-size: 18px;
     font-weight: bold;
@@ -175,21 +176,33 @@ body {
     background-color: #ffffff; /* สีพื้นหลังดำสี */
     color: #000000; /* สีตัวอักษรขาว */
     text-align: center;
-    padding: 20px;
 }
 
-
+.cart.content {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto; /* จัดกลางตามแนวนอน */
+}
 
 .cart-content h1 {
     font-size: 40px; /* ขนาดตัวอักษรสำหรับ <h1> */
     margin-bottom: 10px; /* เพิ่มระยะห่างด้านล่าง 10px */
+    
 }
-.cart-content ion-icon{
-    font-size: 250px;
+.cart-content ion-icon {
+    font-size: 240px;
+    margin-right:20px;
+   
 }
+
 p {
     font-size: 18px; /* ขนาดตัวอักษรสำหรับ <p> */
     font-weight: bold;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto; /* จัดกลางตามแนวนอน */
 }
 
 .login-link {
@@ -201,10 +214,11 @@ p {
     width: 15%;
     border-radius: 5px; /* รอบมุมของปุ่ม */
     padding: 10px 10px;
-    display: flex;
+    display: grid;
     align-items: center;
     justify-content: center;
-    margin-left: 470px;
+    margin: 0 auto; /* จัดกลางตามแนวนอน */
+    
 }
 
 .login-link:hover {
@@ -215,5 +229,6 @@ p {
     
 .cart-content .mytext {
     color: #6e6e6e; /* สีเทา */
+   
 }
         

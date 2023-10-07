@@ -152,7 +152,7 @@ a.Custom
 
 
 ion-icon[name="trash-sharp"] {
-    color: #ff0000; /* Red color for the trash icon */
+    color: #ffffff; /* Red color for the trash icon */
     font-size: 20px;
     cursor: pointer;
 }
@@ -245,10 +245,12 @@ height:30px;
     }
 
     .numberlist-del-btn{
-        display: flex;
+        display: grid;
+        width:3%;
         align-items: center;
         justify-content: center;
-        background-color: rgb(116, 3, 3);
+        background-color: rgb(0, 0, 0);
+        color: white;
         border-radius: 5px;
         cursor: pointer;
     }
@@ -288,9 +290,62 @@ height:30px;
         text-transform: capitalize;
         text-decoration: none;
         font-weight: bold;
+        display: grid;
     }
 
     .subtotalprice{
         font-size: 50px;
         text-align: center;
+    }
+   
+    .cart-content {
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto; /* จัดกลางตามแนวนอน */
+        text-align: center; /* จัดกลางตามแนวนอน (สำหรับข้อความ) */
+    }
+    
+    .cart-content ion-icon {
+        font-size: 200px;
+        display: grid; /* เพิ่มเลเยอร์ใน ion-icon */
+        place-self: center; /* จัดตรงกลางแนวตั้งและแนวนอน */
+        margin-right: 20px;
+    }    
+    .cart-content p {
+        font-size: 18px;
+        font-weight: bold;
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto; /* จัดกลางตามแนวนอน */
+    }
+    
+    .cart-content .detailbeforeshop{
+        color: grey;
+    }
+    .cart-content h1 {
+        font-size: 40px; 
+        
+    }
+
+    .cart-content .shop-now {
+        text-decoration: none;
+        color: #000; /* สีลิงก์ดำ */
+        font-weight: bold; /* ตัวหนา */
+        background-color: #000; /* สีพื้นหลังดำสำหรับปุ่ม */
+        color: #fff; /* สีตัวอักษรขาวสำหรับปุ่ม */
+        width: 15%;
+        border-radius: 5px; /* รอบมุมของปุ่ม */
+        padding: 10px 10px;
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto; /* จัดกลางตามแนวนอน */
+        
+    }
+    
+    .cart-content .shop-now:hover {
+        background-color: rgba(54, 54, 54, 0.614);
+        color: #000; /* สีตัวอักษรดำเมื่อเมาส์ชี้ที่ปุ่ม */
     }
