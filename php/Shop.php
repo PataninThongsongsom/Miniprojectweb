@@ -129,6 +129,7 @@ if (!empty($minPriceFilter)) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style-Shop.css">
     <link rel="stylesheet" href="../css/style.css">
     <script src="https://kit.fontawesome.com/e08e147dde.js" crossorigin="anonymous"></script>
     <script src="../js/Shop.js"></script>
@@ -213,7 +214,9 @@ if (!empty($minPriceFilter)) {
             $price = $res['price'];
             $pid = $res['PID'];
             echo '  <div class="product-item">
-                        <img src="' . $imagePath . '" alt="Image" />
+                        <a href="ShopDetail.php?imgpath=' . $imagePath . '">
+                            <img src="' . $imagePath . '" alt="Image" />
+                        </a>
                         <p class="product-price">$' . $price . '</p>
                         <form method="post" action="./Cartafterlogin.php?action=add&pid=' . $pid . '&img=' . $imagePath .'&qty='. 1 .' " class="product-price"> 
                             <input type="submit" value="ซื้อ">
