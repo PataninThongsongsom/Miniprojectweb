@@ -129,7 +129,7 @@ Shop
 }
 
 #image-container .product-price {
-    position: relative;
+    /* position: relative; */
     bottom: 10px; /* Adjust the distance from the bottom as needed */
     left: 0;
     right: 0;

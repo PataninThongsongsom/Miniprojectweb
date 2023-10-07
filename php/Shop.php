@@ -218,9 +218,6 @@ if (!empty($minPriceFilter)) {
                             <img src="' . $imagePath . '" alt="Image" />
                         </a>
                         <p class="product-price">$' . $price . '</p>
-                        <form method="post" action="./Cartafterlogin.php?action=add&pid=' . $pid . '&img=' . $imagePath .'&qty='. 1 .' " class="product-price"> 
-                            <input type="submit" value="ซื้อ">
-                        </form>
                     </div>';
         
         }

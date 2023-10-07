@@ -10,8 +10,8 @@ if(!isset($_SESSION['cart'])){
     $_SESSION['cart']=array();
 }
 include './connect.php'; // Include your database connection code
-
-$sql = "SELECT * FROM products";
+$imagePath = $_GET["imgpath"];
+$sql = "SELECT * FROM `products` INNER JOIN images ON products.IMG_ID = images.IMG_ID WHERE Image_path ='$imagePath'";
 $result = $con->query($sql);
 $row = mysqli_fetch_assoc($result);
 $pid = $row["PID"];
@@ -50,7 +50,6 @@ $pid = $row["PID"];
                     <img src="../img/Login.png" class="login" alt="Login Icon">
 
                     <div class="dropdown-content" style="left: 1px;">
-
                         <a href="./profile.php">PROFILE</a>
                         <a href="./logout.php">LOGOUT</a>
                     </div>
@@ -60,36 +59,34 @@ $pid = $row["PID"];
         </nav>
     </div> 
     <div class="content">
-
-        <div class="img-detail">
-            <?php
-            $imagePath = $_GET["imgpath"];
-            echo '<img src="' . $imagePath . '" alt="Image" />';
-            ?>
-        </div>
-        <div class="detail">
-            <?php
-                echo '<p>Name: ' . $row['product_name'] . '</p>
-                      <p>Price: ' . $row['price'] . '</p>
-                    <div class="quantity">
-                        <button onclick="decrementQuantity()">-</button>
-                            <input type="number" id="quantity" name="quantity" value="1">
-                        <button onclick="incrementQuantity()">+</button>
-                    </div>
-                    <form method="post" action="./Cartafterlogin.php?action=add&pid=' . $pid . '&img=' . $imagePath .'&qty='. 1 .' " class="product-price"> 
-                        <input type="submit" src="../img/cart.png" alt="Add to Cart" class="cart" value="ADD TO CART">
-                    </form>
-                    <a href="Shop.php">
-                        <button>BACK</bu tton>
-                    </a>';
-            ?>
-            <!-- <input type="number" name="qty"> -->
-            
-
-
-
-        </div>
+    <div class="img-detail">
+        <?php
+        
+        echo '<img src="' . $imagePath . '" alt="Image" />';
+        ?>
     </div>
+    <div class="detail">
+        <?php
+        echo '<p>Name: ' . $row['product_name'] . '</p>
+              <p>Price: ' . $row['price'] . '</p>
+              <form method="get" action="./Cartafterlogin.php" class="product-price"> 
+                <input type="hidden" name="action" value="add">
+                <input type="hidden" name="pid" value="' . $pid . '">
+                <input type="hidden" name="img" value="' . $imagePath . '">
+                <div class="quantity">
+                    <button type="button" onclick="decrementQuantity()">-</button>
+                        <input type="number" id="quantity" name="qty" value="1">
+                    <button type="button" onclick="incrementQuantity()">+</button>
+                </div>
+                <input type="submit" value="ADD TO CART">
+            </form>
+            <a href="Shop.php">
+                <button>BACK</button>
+            </a>';
+        ?>
+    </div>
+</div>
+
 
 </body>
 <script>

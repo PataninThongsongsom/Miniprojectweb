@@ -50,8 +50,9 @@ input::-webkit-inner-spin-button {
 .detail a{
     text-decoration: none;
     color: black;
-    padding: 1em;
+
 }
-.detail button{
+.detail a button{
     margin: 1em 0em 1em 0em;
+    padding: 0.5em 3em;
 }
