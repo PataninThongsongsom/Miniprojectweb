@@ -67,23 +67,32 @@ $pid = $row["PID"];
     </div>
     <div class="detail">
         <?php
-        echo '<p>Name: ' . $row['product_name'] . '</p>
-              <p>Price: ' . $row['price'] . '</p>
-              <form method="get" action="./Cartafterlogin.php" class="product-price"> 
-                <input type="hidden" name="action" value="add">
-                <input type="hidden" name="pid" value="' . $pid . '">
-                <input type="hidden" name="img" value="' . $imagePath . '">
-                <div class="quantity">
-                    <button type="button" onclick="decrementQuantity()">-</button>
-                        <input type="number" id="quantity" name="qty" value="1">
-                    <button type="button" onclick="incrementQuantity()">+</button>
-                </div>
-                <input type="submit" value="ADD TO CART">
-            </form>
-            <a href="Shop.php">
-                <button>BACK</button>
-            </a>';
+        if ($row['amount'] > 0) {
+                echo '<p>Name: ' . $row['product_name'] . '</p>
+                    <p>Price: ' . $row['price'] . ' ฿</p>
+                    <p>Remain: ' . $row['amount'] . '</p>
+                    <form method="get" action="./Cartafterlogin.php" class="product-price"> 
+                        <input type="hidden" name="action" value="add">
+                        <input type="hidden" name="pid" value="' . $pid . '">
+                        <input type="hidden" name="img" value="' . $imagePath . '">
+                        <div class="quantity">
+                            <button type="button" onclick="decrementQuantity()">-</button>
+                                <input type="number" id="quantity" name="qty" value="1">
+                            <button type="button" onclick="incrementQuantity()">+</button>
+                        </div>
+                        <input type="submit" value="ADD TO CART">
+                    </form>
+                    <a href="Shop.php">
+                        <button>BACK</button>
+                    </a>';
+        } else {
+            echo   '<p>This product is out of stock.</p>
+                    <a href="Shop.php">
+                    <button>BACK</button>
+                    </a>';
+        }
         ?>
+        
     </div>
 </div>
 

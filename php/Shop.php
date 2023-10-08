@@ -217,7 +217,7 @@ if (!empty($minPriceFilter)) {
                         <a href="ShopDetail.php?imgpath=' . $imagePath . '">
                             <img src="' . $imagePath . '" alt="Image" />
                         </a>
-                        <p class="product-price">$' . $price . '</p>
+                        <p class="product-price">' . $price . ' ฿</p>
                     </div>';
         
         }
