@@ -1,53 +1,55 @@
 <?php
 session_start();
 include "./connect.php";
-if ($_GET["action"]=="add") {
-	
-	$pid = $_GET['pid'];
-    $sql = "SELECT * FROM products WHERE PID = '$pid' ";
+if (isset($_GET["action"])) {
+    if ($_GET["action"]=="add") {
+        
+        $pid = $_GET['pid'];
+        $sql = "SELECT * FROM products WHERE PID = '$pid' ";
+        
+        $result = $con->query($sql);
+        $res = mysqli_fetch_assoc($result);
+        $cart_item = array(
+            'pid' => $pid,
+            'pname' => $res["product_name"],
+            'price' => $res["price"],
+            'qty' => $_GET['qty'],
+            'img' => $_GET['img']
+        );
+
+        // ถ้ายังไม่มีสินค้าใดๆในรถเข็น
+        if(empty($_SESSION['cart'])){
+            $_SESSION['cart'] = array();
+        }
+        
     
-    $result = $con->query($sql);
-    $res = mysqli_fetch_assoc($result);
-	$cart_item = array(
- 		'pid' => $pid,
-		'pname' => $res["product_name"],
-		'price' => $res["price"],
-		'qty' => $_GET['qty'],
-        'img' => $_GET['img']
-	);
+        // ถ้ามีสินค้านั้นอยู่แล้วให้บวกเพิ่ม
+        if(array_key_exists($pid, $_SESSION['cart'])){
+            $_SESSION['cart'][$pid]['qty'] += $_GET['qty'];
+        }
+            
+        // หากยังไม่เคยเลือกสินค้นนั้นจะ
+        else
+            $_SESSION['cart'][$pid] = $cart_item;
+        
 
-	// ถ้ายังไม่มีสินค้าใดๆในรถเข็น
-	if(empty($_SESSION['cart']))
-    	$_SESSION['cart'] = array();
-        echo "ตะกร้าของคุณว่างเปล่า";
-       
- 
-	// ถ้ามีสินค้านั้นอยู่แล้วให้บวกเพิ่ม
-	if(array_key_exists($pid, $_SESSION['cart'])){
-		$_SESSION['cart'][$pid]['qty'] += $_GET['qty'];
-		
-	}
-		
-	// หากยังไม่เคยเลือกสินค้นนั้นจะ
-	else
-	    $_SESSION['cart'][$pid] = $cart_item;
-       
+    // ปรับปรุงจำนวนสินค้า
+    } else if ($_GET["action"]=="update") {
+        $pid = $_GET["pid"];     
+        $qty = $_GET["qty"];
+        $_SESSION['cart'][$pid]['qty'] = $qty;
 
-// ปรับปรุงจำนวนสินค้า
-} else if ($_GET["action"]=="update") {
-	$pid = $_GET["pid"];     
-	$qty = $_GET["qty"];
-	$_SESSION['cart'][$pid]['qty'] = $qty;
-
-// ลบสินค้า
-} else if ($_GET["action"]=="delete") {
-	
-	$pid = $_GET['pid'];
-	unset($_SESSION['cart'][$pid]);
+    // ลบสินค้า
+    } else if ($_GET["action"]=="delete") {
+        
+        $pid = $_GET['pid'];
+        unset($_SESSION['cart'][$pid]);
+    }
 }
 
-
-$user = $_SESSION['user_login'];
+if (isset($_SESSION['user_login'])) {
+    $user = $_SESSION['user_login'];
+}
 ?>
 
 <!DOCTYPE html>
