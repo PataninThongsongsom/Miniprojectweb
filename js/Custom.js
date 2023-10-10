@@ -174,9 +174,10 @@ clearCanvas.addEventListener("click", () => {
 });
 
 saveImg.addEventListener("click", () => {
+  const canvasDataURL = canvas.toDataURL();
   const link = document.createElement("a");
-  link.download = `${Date.now()}.jpg`;
-  link.href = canvas.toDataURL();
+  // link.download = `${Date.now()}.jpg`;
+  link.href = `./Cartafterlogin.php?addtocart=${encodeURIComponent(canvasDataURL)}`;
   link.click();
 });
 

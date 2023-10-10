@@ -1,6 +1,7 @@
 <?php
 session_start();
 include "./connect.php";
+
 if (isset($_GET["action"])) {
     if ($_GET["action"]=="add") {
         
@@ -49,6 +50,29 @@ if (isset($_GET["action"])) {
 
 if (isset($_SESSION['user_login'])) {
     $user = $_SESSION['user_login'];
+}
+
+if(isset($_GET["addtocart"])){
+    $picture = $_GET["addtocart"];
+    $data = str_replace('data:image/png;base64,', '', $picture);
+    $decodedData = base64_decode($data);
+    $filename = time() . '.png';
+    $filepath = '../img/custom' . $filename;
+    file_put_contents($filepath, $decodedData);//save img to path
+    $member_name=$_SESSION['username'];
+    $member=$_SESSION['userdetail'];
+    $memberID=$member['id'];
+    $sql = "INSERT INTO orders_custom (M_id,member_name,image_path) VALUES ('$memberID','$member_name','$filepath')";
+    if ($conn->query($sql) === TRUE) {
+        echo "<script type='text/javascript'>alert('addtocart complete!'); 
+             </script>";
+    } else {
+        echo "<script type='text/javascript'>alert('Error!'); 
+             </script>";
+    }
+    
+    $conn->close();
+
 }
 ?>
 
