@@ -52,28 +52,7 @@ if (isset($_SESSION['user_login'])) {
     $user = $_SESSION['user_login'];
 }
 
-if(isset($_GET["addtocart"])){
-    $picture = $_GET["addtocart"];
-    $data = str_replace('data:image/png;base64,', '', $picture);
-    $decodedData = base64_decode($data);
-    $filename = time() . '.png';
-    $filepath = '../img/custom' . $filename;
-    file_put_contents($filepath, $decodedData);//save img to path
-    $member_name=$_SESSION['username'];
-    $member=$_SESSION['userdetail'];
-    $memberID=$member['id'];
-    $sql = "INSERT INTO orders_custom (M_id,member_name,image_path) VALUES ('$memberID','$member_name','$filepath')";
-    if ($conn->query($sql) === TRUE) {
-        echo "<script type='text/javascript'>alert('addtocart complete!'); 
-             </script>";
-    } else {
-        echo "<script type='text/javascript'>alert('Error!'); 
-             </script>";
-    }
-    
-    $conn->close();
-
-}
+// add to cart form Custom page //
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['imageData'])) {
     // Retrieve the image data from the POST request
     $imageData = $_POST['imageData'];
@@ -92,6 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['imageData'])) {
         $memberID = $member['id'];
 
         // Establish your database connection
+        // for fix bug sometime don't connect DB
         $con = mysqli_connect('localhost', 'oclockne', 'Thongsongsom@1', 'oclockne_Webtest');
 
         // Check the connection
