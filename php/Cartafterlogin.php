@@ -74,6 +74,48 @@ if(isset($_GET["addtocart"])){
     $conn->close();
 
 }
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['imageData'])) {
+    // Retrieve the image data from the POST request
+    $imageData = $_POST['imageData'];
+
+    // Generate a unique filename
+    $filename = time() . '.jpg';
+
+    // Specify the file path to save the image on the server
+    $filepath = '../img/custom/' . $filename;
+
+    // Save the image to the server
+    if (file_put_contents($filepath, base64_decode($imageData))) {
+        // Image saved successfully
+        $member_name = $_SESSION['username'];
+        $member = $_SESSION['userdetail'];
+        $memberID = $member['id'];
+
+        // Establish your database connection
+        $con = mysqli_connect('localhost', 'oclockne', 'Thongsongsom@1', 'oclockne_Webtest');
+
+        // Check the connection
+        if (!$con) {
+            die('Could not connect to the database: ' . mysqli_connect_error());
+        }
+
+        // Prepare and execute the SQL insertion
+        $sql = "INSERT INTO orders_custom (M_id, member_name, image_path) VALUES ('$memberID', '$member_name', '$filepath')";
+
+        if (mysqli_query($con, $sql)) {
+            echo 'Image saved successfully. File path: ' . $filepath;
+        } else {
+            echo 'Error saving image to the database: ' . mysqli_error($con);
+        }
+
+        // Close the database connection
+        mysqli_close($con);
+    } else {
+        echo 'Error saving image to the server.';
+    }
+} else {
+    echo 'Invalid request or no image data received.';
+}
 ?>
 
 <!DOCTYPE html>

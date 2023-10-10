@@ -174,11 +174,27 @@ clearCanvas.addEventListener("click", () => {
 });
 
 saveImg.addEventListener("click", () => {
-  const canvasDataURL = canvas.toDataURL();
-  const link = document.createElement("a");
-  // link.download = `${Date.now()}.jpg`;
-  link.href = `./Cartafterlogin.php?addtocart=${encodeURIComponent(canvasDataURL)}`;
-  link.click();
+  const imageData = canvas.toDataURL('image/jpeg', 0.8);
+
+  const formData = new FormData();
+  formData.append('imageData', imageData);
+
+  fetch('../php/Cartafterlogin.php', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.text(); // Assuming the response is plain text
+  })
+  .then(data => {
+    console.log('Response from server:', data);
+  })
+  .catch(error => {
+    console.error('Error saving image:', error);
+  });
 });
 
 const drawImages = () => {
