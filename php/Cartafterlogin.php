@@ -83,7 +83,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['imageData'])) {
         $sql = "INSERT INTO orders_custom (M_id, member_name, image_path) VALUES ('$memberID', '$member_name', '$filepath')";
 
         if (mysqli_query($con, $sql)) {
-            echo 'Image saved successfully. File path: ' . $filepath;
+            echo "<script type='text/javascript'>
+                alert('Add To Cart Complete');
+                window.location.href = 'Cartafterlogin.php?member=" . $memberID . "';
+            </script>";
         } else {
             echo 'Error saving image to the database: ' . mysqli_error($con);
         }
@@ -96,6 +99,48 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['imageData'])) {
 } else {
     echo 'Invalid request or no image data received.';
 }
+if (!empty($_GET["member"])) {
+    $member = $_SESSION['userdetail'];
+    $memberID = $member['id'];
+    $sql = "SELECT * FROM orders_custom WHERE M_Id = '$memberID' ";
+    $result = $con->query($sql);
+        $res = mysqli_fetch_assoc($result);
+        $cart_item = array(
+            'pid' => $memberID,
+            'pname' => "custom Shirt",
+            'price' => "1500",
+            'qty' => "1",
+            'img' => $res["image_path"]
+        );
+
+        // ถ้ายังไม่มีสินค้าใดๆในรถเข็น
+        if(empty($_SESSION['cart'])){
+            $_SESSION['cart'] = array();
+        }
+        
+    
+        // ถ้ามีสินค้านั้นอยู่แล้วให้บวกเพิ่ม
+        if(array_key_exists($pid, $_SESSION['cart'])){
+            $_SESSION['cart'][$pid]['qty'] += $_GET['qty'];
+        }
+            
+        // หากยังไม่เคยเลือกสินค้นนั้นจะ
+        else
+            $_SESSION['cart'][$pid] = $cart_item;
+        
+
+    // ปรับปรุงจำนวนสินค้า
+    } else if ($_GET["action"]=="update") {
+        $pid = $_GET["pid"];     
+        $qty = $_GET["qty"];
+        $_SESSION['cart'][$pid]['qty'] = $qty;
+
+    // ลบสินค้า
+    } else if ($_GET["action"]=="delete") {
+        
+        $pid = $_GET['pid'];
+        unset($_SESSION['cart'][$pid]);
+    }
 ?>
 
 <!DOCTYPE html>

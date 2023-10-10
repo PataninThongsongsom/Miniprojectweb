@@ -190,12 +190,13 @@ saveImg.addEventListener("click", () => {
     return response.text(); // Assuming the response is plain text
   })
   .then(data => {
-    // console.log('Response from server:', data);
-    window.location.href = 'Cartafterlogin.php';
+    window.location.href = 'Cartafterlogin.php?member=';
+    
   })
   .catch(error => {
     console.error('Error saving image:', error);
   });
+  
 });
 
 const drawImages = () => {
