@@ -119,7 +119,7 @@ if (isset($_GET["member"])) {
     
         // ถ้ามีสินค้านั้นอยู่แล้วให้บวกเพิ่ม
         if(array_key_exists($product_id, $_SESSION['cart'])){
-            $_SESSION['cart'][$product_id]['qty'] += 1;
+            $_SESSION['cart'][$product_id]['qty'] += $_GET["qty"];
         }
             
         // หากยังไม่เคยเลือกสินค้นนั้นจะ
