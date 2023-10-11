@@ -341,13 +341,17 @@ h4.Copyright-detail
 
     .main-nav{
         display:none;
-        height: ;
     }
 
     .Recommand{
         display: flex;
         flex-direction: column;
         height: 1000px;
+        /* background-image: url(../img/noise.png); */
+        background-color: black;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center; 
     }
 
     .Rec-image{
