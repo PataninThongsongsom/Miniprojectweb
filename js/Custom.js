@@ -174,8 +174,7 @@ clearCanvas.addEventListener("click", () => {
 });
 
 saveImg.addEventListener("click", () => {
-  const imageData = canvas.toDataURL('image/jpeg', 0.8);
-
+  const imageData = canvas.toDataURL('image/png'); // Save as PNG
   const formData = new FormData();
   formData.append('imageData', imageData);
 
@@ -183,15 +182,10 @@ saveImg.addEventListener("click", () => {
     method: 'POST',
     body: formData
   })
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return response.text(); // Assuming the response is plain text
-  })
+  .then(response => response.json())
   .then(data => {
+    console.log('Image saved successfully. Path:', data.filePath);
     window.location.href = 'Cartafterlogin.php?member=';
-    
   })
   .catch(error => {
     console.error('Error saving image:', error);

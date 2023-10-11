@@ -56,15 +56,16 @@ if (isset($_SESSION['user_login'])) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['imageData'])) {
     // Retrieve the image data from the POST request
     $imageData = $_POST['imageData'];
-
+    $imageData = str_replace('data:image/png;base64,', '', $imageData);
+    $decodedData = base64_decode($imageData);
     // Generate a unique filename
-    $filename = time() . '.jpg';
+    $filename = time() . '.png';
 
     // Specify the file path to save the image on the server
     $filepath = '../img/custom/' . $filename;
-
+   
     // Save the image to the server
-    if (file_put_contents($filepath, base64_decode($imageData))) {
+    if (file_put_contents($filepath, $decodedData)) {
         // Image saved successfully
         $member_name = $_SESSION['username'];
         $member = $_SESSION['userdetail'];
@@ -81,27 +82,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['imageData'])) {
 
         // Prepare and execute the SQL insertion
         $sql = "INSERT INTO orders_custom (M_id, member_name, image_path) VALUES ('$memberID', '$member_name', '$filepath')";
-
-        if (mysqli_query($con, $sql)) {
-            echo "<script type='text/javascript'>
-                alert('Add To Cart Complete');
-                window.location.href = 'Cartafterlogin.php?member=" . $memberID . "';
-            </script>";
-        } else {
-            echo 'Error saving image to the database: ' . mysqli_error($con);
-        }
-
+        sleep(1);
+        mysqli_query($con, $sql);
         // Close the database connection
-        mysqli_close($con);
     } else {
         echo 'Error saving image to the server.';
     }
-} else {
-    echo 'Invalid request or no image data received.';
-}
-if (!empty($_GET["member"])) {
+} 
+if (isset($_GET["member"])) {
+    
     $member = $_SESSION['userdetail'];
     $memberID = $member['id'];
+    // echo $memberID;
     $sql = "SELECT * FROM orders_custom WHERE M_Id = '$memberID' ";
     $result = $con->query($sql);
         $res = mysqli_fetch_assoc($result);
@@ -149,6 +141,7 @@ if (!empty($_GET["member"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/stylecart2.css">
+    <link rel="stylesheet" href="../css/style.css">
     <title>Document</title>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -174,7 +167,16 @@ if (!empty($_GET["member"])) {
         <div class="menu-right">
             <input type="search" class="searchbox" placeholder="Search Products" >
             <a href="#"><img src="../img/cart.png" class="cart"></a>
-            <a href="./login.php"><img src="../img/Login.png" class="login"> </a>
+            <div class="dropdown">
+                    <img src="../img/Login.png" class="login" alt="Login Icon">
+
+                    <div class="dropdown-content" style="left: 1px;">
+
+                        <a href="./profile.php">PROFILE</a>
+                        <a href="./logout.php">LOGOUT</a>
+                    </div>
+                    <p style="text-align: center;">Hi <?php echo $_SESSION['username']; ?></p>
+                </div>
         </div>
     </nav>
   </div>
@@ -212,7 +214,7 @@ if (!empty($_GET["member"])) {
                 <div class = "numberlist-text">
                     
                     <p class = "numberlist-name"><?=$item["pname"]?></p>
-                    <!-- <p class = "numberlist-des">BEN10</p> -->
+                    
                 </div>
                 <div class ="quantity">
                     

@@ -1,52 +1,28 @@
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['imageData'])) {
+    // Retrieve the image data from the POST request
+    $imageData = $_POST['imageData'];
 
-<?php 
-// login DB
-include "./connect.php";
- 
-$statusMsg = ''; 
- 
-// File upload directory  
-$targetDir = "../uploadfile/"; 
+    // Remove the data:image/png;base64, prefix from the base64 data
+    $imageData = str_replace('data:image/png;base64,', '', $imageData);
 
-if(isset($_POST["submit"])){ 
-    // check empty file 
-    if(!empty($_FILES["file"]["name"])){ 
-        //get file name
-        $fileName = basename($_FILES["file"]["name"]); 
-        $targetFilePath = $targetDir . $fileName; 
-        $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION); 
-        
-        // Allow certain file formats 
-        $allowTypes = array('jpg','png','jpeg','gif'); 
-        if(in_array($fileType, $allowTypes)){ 
-            // Upload file to server 
-            if(move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)){
-                // Insert image file name into database 
-                // $insert = "INSERT INTO `images` ('file_name','uploaded_on') VALUES('$fileName','NOW()')";
-                $insert = $con->query("INSERT INTO images (file_name, uploaded_on) VALUES ('".$fileName."', NOW())"); 
-                if($insert){ 
-                    // $rs = mysqli_query($con, $insert);
-                    $statusMsg = "The file ".$fileName. " has been uploaded successfully."; 
-                }else{ 
-                    $statusMsg = "File upload failed, please try again."; 
-                }  
-            }else{ 
-                $statusMsg = "Sorry, there was an error uploading your file."; 
-            } 
-        }else{ 
-            $statusMsg = 'Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.'; 
-        } 
-    }else{ 
-        $statusMsg = 'Please select a file to upload.'; 
-    } 
-} 
- 
-// Display status message 
-echo "<script type='text/javascript'>alert('{$statusMsg}'); 
-    window.location = '../index.php'
-</script>";
+    // Decode the base64 image data
+    $decodedData = base64_decode($imageData);
 
+    // Generate a unique filename
+    $filename = time() . '.png';
 
-//header("Location: ../index.html");
+    // Specify the file path to save the image on the server
+    $filepath = '../img/custom/' . $filename;
 
+    // Save the image as PNG to the server
+    if (file_put_contents($filepath, $decodedData)) {
+        // Image saved successfully
+        echo json_encode(['filePath' => $filepath]);
+    } else {
+        echo json_encode(['error' => 'Error saving image to the server.']);
+    }
+} else {
+    echo json_encode(['error' => 'Invalid request or no image data received.']);
+}
 ?>
