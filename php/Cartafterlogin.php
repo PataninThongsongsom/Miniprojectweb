@@ -1,6 +1,7 @@
 <?php
 session_start();
 include "./connect.php";
+
 if (isset($_GET["action"])) {
     if ($_GET["action"]=="add") {
         
@@ -50,6 +51,84 @@ if (isset($_GET["action"])) {
 if (isset($_SESSION['user_login'])) {
     $user = $_SESSION['user_login'];
 }
+
+// add to cart form Custom page //
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['imageData'])) {
+    // Retrieve the image data from the POST request
+    $imageData = $_POST['imageData'];
+    $imageData = str_replace('data:image/png;base64,', '', $imageData);
+    $decodedData = base64_decode($imageData);
+    // Generate a unique filename
+    $filename = time() . '.png';
+
+    // Specify the file path to save the image on the server
+    $filepath = '../img/custom/' . $filename;
+   
+    // Save the image to the server
+    if (file_put_contents($filepath, $decodedData)) {
+        // Image saved successfully
+        $member_name = $_SESSION['username'];
+        $member = $_SESSION['userdetail'];
+        $memberID = $member['id'];
+
+        // Establish your database connection
+        // for fix bug sometime don't connect DB
+        $con = mysqli_connect('localhost', 'oclockne', 'Thongsongsom@1', 'oclockne_Webtest');
+
+        // Check the connection
+        if (!$con) {
+            die('Could not connect to the database: ' . mysqli_connect_error());
+        }
+
+        // Prepare and execute the SQL insertion
+        $sql = "INSERT INTO orders_custom (M_id, member_name, image_path) VALUES ('$memberID', '$member_name', '$filepath')";
+        sleep(1);
+        mysqli_query($con, $sql);
+        // header('Location: ./Cartafterlogin.php?member='+$memberID);
+        // Close the database connection
+    } else {
+        echo 'Error saving image to the server.';
+    }
+} 
+if (isset($_GET["member"])) {
+    
+    $member = $_SESSION['userdetail'];
+    $memberID = $member['id'];
+    // echo $memberID;
+    $sql = "SELECT * FROM orders_custom WHERE M_Id = '$memberID' ";
+    $result = $con->query($sql);
+        
+        while($res = mysqli_fetch_assoc($result)){
+        if(!isset($_SESSION['cart'])){
+			$_SESSION['cart']=array();
+		}
+        $cart_item = array(
+            'pid' => $res["C_id"],
+            'pname' => "custom Shirt",
+            'price' => "1500",
+            'qty' => "1",
+            'img' => $res["image_path"]
+        );
+
+        // ถ้ายังไม่มีสินค้าใดๆในรถเข็น
+        $product_id = $cart_item['pid'];
+        if(empty($_SESSION['cart'])){
+            $_SESSION['cart'] = array();
+        }
+        
+    
+        // ถ้ามีสินค้านั้นอยู่แล้วให้บวกเพิ่ม
+        if(array_key_exists($product_id, $_SESSION['cart'])){
+            $_SESSION['cart'][$product_id]['qty'] += $_GET["qty"];
+        }
+            
+        // หากยังไม่เคยเลือกสินค้นนั้นจะ
+        else{
+            $_SESSION['cart'][$product_id] = $cart_item;
+        }
+    }
+} 
+    
 ?>
 
 <!DOCTYPE html>
@@ -58,6 +137,7 @@ if (isset($_SESSION['user_login'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/stylecart2.css">
+    <link rel="stylesheet" href="../css/style.css">
     <title>Document</title>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -83,7 +163,16 @@ if (isset($_SESSION['user_login'])) {
         <div class="menu-right">
             <input type="search" class="searchbox" placeholder="Search Products" >
             <a href="#"><img src="../img/cart.png" class="cart"></a>
-            <a href="./login.php"><img src="../img/Login.png" class="login"> </a>
+            <div class="dropdown">
+                    <img src="../img/Login.png" class="login" alt="Login Icon">
+
+                    <div class="dropdown-content" style="left: 1px;">
+
+                        <a href="./profile.php">PROFILE</a>
+                        <a href="./logout.php">LOGOUT</a>
+                    </div>
+                    <p style="text-align: center;">Hi <?php echo $_SESSION['username']; ?></p>
+                </div>
         </div>
     </nav>
   </div>
@@ -121,7 +210,7 @@ if (isset($_SESSION['user_login'])) {
                 <div class = "numberlist-text">
                     
                     <p class = "numberlist-name"><?=$item["pname"]?></p>
-                    <!-- <p class = "numberlist-des">BEN10</p> -->
+                    
                 </div>
                 <div class ="quantity">
                     
