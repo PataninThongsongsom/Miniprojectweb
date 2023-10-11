@@ -57,6 +57,13 @@ if (isset($_SESSION['username'])) { // ถ้าlogin ไว้แล้ว
                 <button class="Button-Paragraph" onclick="window.location.href='./html/uploadfile.html'">ทดลองใช้</button>
             </div>
         </div>
+        <!-- Detail -->
+        <div class="Detail-area">
+            <div class="Detail-grid">
+                <div class="Copyright">
+                    <h4 class="Copyright-detail" style="color:white;">Copyright © 2023 O'Clock. All Rights Reserved.</h4>
+            </div>
+        </div>
         
     </body>
 </html>
