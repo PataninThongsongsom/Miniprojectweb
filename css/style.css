@@ -328,8 +328,21 @@ h4.Copyright-detail
 }
 
 
-@media(max-width:1065px)
+@media (max-width:1065px)
 {
+    .top-menu
+    {
+        display: none ;
+    }
+
+    .top-menu {
+        visibility: visible;
+    }
+
+    .main-nav{
+        display:none;
+        height: ;
+    }
 
     .Recommand{
         display: flex;
