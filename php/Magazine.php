@@ -33,8 +33,13 @@ $user = $_SESSION['user_login'];
             </div> -->
             <div class="menu-right">
                 <!-- <input type="search" class="searchbox" placeholder="Search Products" > -->
-                <a href="./html/Cart.html"><img src="../img/cart.png" class="cart"></a>
+                <a href="./Cartafterlogin.php"><img src="../img/cart.png" class="cart"></a>
                 <a href="./html/Login.html"><img src="../img/Login.png" class="login"> </a>
+                <div class="dropdown-content" style="left: 1px;">
+                            
+                            <a href="./profile.php">PROFILE</a>
+                            <a href="./logout.php">LOGOUT</a>
+                        </div>
             </div>
         </nav>
     </div> 
