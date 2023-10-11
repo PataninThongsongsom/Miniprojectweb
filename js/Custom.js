@@ -185,10 +185,11 @@ saveImg.addEventListener("click", () => {
   .then(response => response.json())
   .then(data => {
     console.log('Image saved successfully. Path:', data.filePath);
-    window.location.href = 'Cartafterlogin.php?member=';
+    window.location.href = '../php/Cartafterlogin.php?member=';
   })
   .catch(error => {
     console.error('Error saving image:', error);
+    window.location.href = '../php/Cartafterlogin.php?member=';
   });
   
 });

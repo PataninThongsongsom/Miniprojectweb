@@ -84,6 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['imageData'])) {
         $sql = "INSERT INTO orders_custom (M_id, member_name, image_path) VALUES ('$memberID', '$member_name', '$filepath')";
         sleep(1);
         mysqli_query($con, $sql);
+        // header('Location: ./Cartafterlogin.php?member='+$memberID);
         // Close the database connection
     } else {
         echo 'Error saving image to the server.';
@@ -96,9 +97,13 @@ if (isset($_GET["member"])) {
     // echo $memberID;
     $sql = "SELECT * FROM orders_custom WHERE M_Id = '$memberID' ";
     $result = $con->query($sql);
-        $res = mysqli_fetch_assoc($result);
+        
+        while($res = mysqli_fetch_assoc($result)){
+        if(!isset($_SESSION['cart'])){
+			$_SESSION['cart']=array();
+		}
         $cart_item = array(
-            'pid' => $memberID,
+            'pid' => $res["C_id"],
             'pname' => "custom Shirt",
             'price' => "1500",
             'qty' => "1",
@@ -106,33 +111,24 @@ if (isset($_GET["member"])) {
         );
 
         // ถ้ายังไม่มีสินค้าใดๆในรถเข็น
+        $product_id = $cart_item['pid'];
         if(empty($_SESSION['cart'])){
             $_SESSION['cart'] = array();
         }
         
     
         // ถ้ามีสินค้านั้นอยู่แล้วให้บวกเพิ่ม
-        if(array_key_exists($pid, $_SESSION['cart'])){
-            $_SESSION['cart'][$pid]['qty'] += $_GET['qty'];
+        if(array_key_exists($product_id, $_SESSION['cart'])){
+            $_SESSION['cart'][$product_id]['qty'] += 1;
         }
             
         // หากยังไม่เคยเลือกสินค้นนั้นจะ
-        else
-            $_SESSION['cart'][$pid] = $cart_item;
-        
-
-    // ปรับปรุงจำนวนสินค้า
-    } else if ($_GET["action"]=="update") {
-        $pid = $_GET["pid"];     
-        $qty = $_GET["qty"];
-        $_SESSION['cart'][$pid]['qty'] = $qty;
-
-    // ลบสินค้า
-    } else if ($_GET["action"]=="delete") {
-        
-        $pid = $_GET['pid'];
-        unset($_SESSION['cart'][$pid]);
+        else{
+            $_SESSION['cart'][$product_id] = $cart_item;
+        }
     }
+} 
+    
 ?>
 
 <!DOCTYPE html>
