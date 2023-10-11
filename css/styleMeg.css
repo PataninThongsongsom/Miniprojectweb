@@ -62,3 +62,10 @@ div.blur-gradient
     -webkit-mask: linear-gradient{black 30%,transparent};
 
 }
+
+/* MagazineSection */
+
+section.Magazine-Section
+{
+    background-image: url(../img/Magazine/Creatorbg.png);
+}

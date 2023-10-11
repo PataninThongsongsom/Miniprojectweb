@@ -16,6 +16,10 @@
     height: 100%;
 }
 
+
+
+/* สไตล์
+
 /* Customize menu */
 .main-nav
 {
@@ -78,6 +82,26 @@ input[type=search]
     padding: 12px 12px;
     font-size: 15px;
     
+}
+/* สไตล์สำหรับเมนูแบบดรอปดาวน์ */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    left: 1px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.614);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    left: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
 }
 
 /* Shop */
