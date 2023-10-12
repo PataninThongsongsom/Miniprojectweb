@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 05, 2023 at 05:27 PM
+-- Generation Time: Oct 11, 2023 at 05:58 PM
 -- Server version: 10.4.21-MariaDB-log
 -- PHP Version: 7.4.23
 
@@ -520,6 +520,19 @@ CREATE TABLE `orders` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `orders_custom`
+--
+
+CREATE TABLE `orders_custom` (
+  `C_id` int(11) NOT NULL,
+  `M_Id` int(255) NOT NULL,
+  `member_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image_path` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `order_detail`
 --
 
@@ -985,6 +998,13 @@ ALTER TABLE `orders`
   ADD KEY `Account_ID` (`ID`);
 
 --
+-- Indexes for table `orders_custom`
+--
+ALTER TABLE `orders_custom`
+  ADD PRIMARY KEY (`C_id`),
+  ADD KEY `M_Id` (`M_Id`) USING BTREE;
+
+--
 -- Indexes for table `order_detail`
 --
 ALTER TABLE `order_detail`
@@ -1034,6 +1054,12 @@ ALTER TABLE `orders`
   MODIFY `OID` int(255) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `orders_custom`
+--
+ALTER TABLE `orders_custom`
+  MODIFY `C_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+
+--
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
@@ -1054,6 +1080,12 @@ ALTER TABLE `member_account`
 --
 ALTER TABLE `orders`
   ADD CONSTRAINT `Account_ID` FOREIGN KEY (`ID`) REFERENCES `member_account` (`Id`);
+
+--
+-- Constraints for table `orders_custom`
+--
+ALTER TABLE `orders_custom`
+  ADD CONSTRAINT `orders_custom_ibfk_1` FOREIGN KEY (`M_Id`) REFERENCES `member_detail` (`Id`);
 
 --
 -- Constraints for table `order_detail`
