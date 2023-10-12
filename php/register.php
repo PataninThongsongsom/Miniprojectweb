@@ -72,6 +72,7 @@ if(isset($_POST['Submit']))
             var xmlHttp;
 
             function checkUsername() {
+                console.log("hi");
                 document.getElementById("username").className = "thinking";
                 
                 xmlHttp = new XMLHttpRequest();

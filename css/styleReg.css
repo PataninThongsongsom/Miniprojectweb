@@ -68,17 +68,17 @@ body{
   }
   
   .thinking { 
-      background: white url("img/checking.gif") no-repeat; 
-      background-position: 150px 1px;   
+      background: white url("../img/reg_img/checking.gif") no-repeat; 
+      background-position: 100% 50%;   
   }
   
   .approved { 
-      background: white url("img/true.gif") no-repeat; 
-      background-position: 150px 1px;   
+      background: white url("../img/reg_img/true.gif") no-repeat; 
+      background-position: 100% 50%;   
   }
   
   .denied { 
-      background: #FF8282 url("img/false.gif") no-repeat; 
-      background-position: 150px 1px;   
+      background: #FF8282 url("../img/reg_img/false.gif") no-repeat; 
+      background-position: 100% 50%;   
   }
   
