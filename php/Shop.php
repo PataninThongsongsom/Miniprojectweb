@@ -26,12 +26,12 @@ $sql2 = "SELECT image_path FROM images JOIN products ON images.IMG_ID=products.I
 $sql3 = "SELECT image_path FROM images JOIN products ON images.IMG_ID=products.IMG_ID ORDER BY products.price ASC LIMIT $offset, $itemsPerPage;";
 
 
-
-if (isset($_POST['submit-fitler'])|| !empty($_GET['category'])) {
+//if have sort , filter , next
+if (isset($_POST['submit-fitler'])|| !empty($_GET['category']) || isset($_POST['SortBT']) || isset($_POST['SortBTASC'])) {
     if (isset($_POST['category'])) {
-        $category = $_POST['category'];
+        $category = (array)$_POST['category'];
     }else if(isset($_GET['category'])){
-        $category = $_GET['category'];
+        $category = (array)$_GET['category'];
     } 
     else {
         // Handle the case where 'category' is not set, e.g., when no checkboxes are selected
@@ -50,7 +50,7 @@ if (isset($_POST['submit-fitler'])|| !empty($_GET['category'])) {
         foreach ($category as $cat) {
             if ($cat === 'shirt') {
                 $categoryFilters[] = "products.CID = 1"; // Shirt category ID
-            } elseif ($cat === 'Jeans') {
+            } else if ($cat === 'Jeans') {
                 $categoryFilters[] = "products.CID = 2"; // Jeans category ID
             }
         }
@@ -66,22 +66,40 @@ if (isset($_POST['submit-fitler'])|| !empty($_GET['category'])) {
     }
 
     // Sort the results based on price
-    $sql .= " ORDER BY products.price DESC LIMIT $offset, $itemsPerPage";
-
+    if (isset($_POST['SortBT'])) {
+        $sql .= " ORDER BY products.price DESC";
+    } else if (isset($_POST['SortBTASC'])) {
+        $sql .= " ORDER BY products.price ASC";
+    }
+    $sql .= " LIMIT $offset, $itemsPerPage";
+    if (isset($_GET["keyword"])) {
+        $keyword = $_GET["keyword"];
+        $sql .= " WHERE products.product_name LIKE '%" . $keyword . "%'";
+    }    
+    // echo $sql;
     // Execute the modified SQL query
     $result = $con->query($sql);
-} else {
-    // Default query without filtering
-    // $result = $con->query($sql);
+} else {//next , normal
     if(isset($_POST['SortBT'])){
+        if (isset($_GET["keyword"])) {
+            $keyword = $_GET["keyword"];
+            $sql2 .= " WHERE products.product_name LIKE '%" . $keyword . "%'";
+        }
         $result = $con->query($sql2);
     }else if(isset($_POST['SortBTASC'])){
+        if (isset($_GET["keyword"])) {
+            $keyword = $_GET["keyword"];
+            $sql3 .= " WHERE products.product_name LIKE '%" . $keyword . "%'";
+        }
         $result = $con->query($sql3);
     }else{
+        if (isset($_GET["keyword"])) {
+            $keyword = $_GET["keyword"];
+            $sql .= " WHERE products.product_name LIKE '%" . $keyword . "%'";
+        }
         $result = $con->query($sql);
     }
 }
-
 
 $imagePaths = []; // An array to store the image paths
 
@@ -99,24 +117,7 @@ $categoryFilter = isset($_POST['category']) ? implode(",", $_POST['category']) :
 $categoryFilter2 = isset($_GET['category']) ? $_GET['category'] : $categoryFilter;
 $maxPriceFilter = isset($_POST['max-price']) ? $_POST['max-price'] : '';
 $minPriceFilter = isset($_POST['min-price']) ? $_POST['min-price'] : '';
-// Construct the URL for Next and Previous links
-$nextPageURL = "?page=" . ($page + 1);
-$prevPageURL = "?page=" . ($page - 1);
-$nextPageURL .= "&category=" . $categoryFilter2;
-$prevPageURL .= "&category=" . $categoryFilter2;
-// Include filter parameters in the URLs if they are set
-// if (!empty($categoryFilter)) {
-//     $nextPageURL .= "&category=" . $categoryFilter;
-//     $prevPageURL .= "&category=" . $categoryFilter;
-// }
-if (!empty($maxPriceFilter)) {
-    $nextPageURL .= "&max-price=" . $maxPriceFilter;
-    $prevPageURL .= "&max-price=" . $maxPriceFilter;
-}
-if (!empty($minPriceFilter)) {
-    $nextPageURL .= "&min-price=" . $minPriceFilter;
-    $prevPageURL .= "&min-price=" . $minPriceFilter;
-}
+
 
 ?>
 <!DOCTYPE html>
@@ -133,6 +134,23 @@ if (!empty($minPriceFilter)) {
     <link rel="stylesheet" href="../css/style.css">
     <script src="https://kit.fontawesome.com/e08e147dde.js" crossorigin="anonymous"></script>
     <script src="../js/Shop.js"></script>
+    <script>
+        function send() {
+            console.log("kuy");
+        request = new XMLHttpRequest();
+        request.onreadystatechange = showResult;
+        var keyword = document.getElementById("keyword").value;
+        var url= "search.php?keyword=" + keyword;
+        request.open("GET", url, true);
+        request.send(null);
+        }
+        function showResult() {
+            if (request.readyState == 4) {
+                if (request.status == 200)
+                    document.getElementById("image-container").innerHTML = request.responseText;
+                }
+        }
+    </script>
 </head>
 
 <body>
@@ -172,7 +190,7 @@ if (!empty($minPriceFilter)) {
                 <li><a class="Custom" href="./Custom.php">CUSTOM YOUR OWN</a></li>
             </ul>
             <div class="menu-right">
-                <input type="search" class="searchbox" placeholder="Search Products">
+                <input type="text" class="searchbox" placeholder="Search Products" name="keyword" id="keyword" onkeyup="send()">
                 <a href="./Cartafterlogin.php"><img src="../img/cart.png" class="cart"></a>
                 <div class="dropdown">
                     <img src="../img/Login.png" class="login" alt="Login Icon">
@@ -194,17 +212,32 @@ if (!empty($minPriceFilter)) {
         <button id="filterBT" class="filterBT">Filter</button>
         <form action="./Shop.php" method="post">
             <div class="dropdown">
-                <button class="SortBT" name="SortBT">Sort by Feature</button>
+                <button disabled class="SortBT" name="SortBT">Sort by Feature</button>
                 <div class="dropdown-content" style="left: 1px;">
                     <button class="SortBT" name="SortBT">Sort by MAX</button>
                     <button class="SortBT" name="SortBTASC">Sort by MIN</button>
                 </div>
             </div>
+            <?php
+        // Add hidden input fields to preserve filter parameters in the form
+        if (!empty($_POST['category'])) {
+            foreach ($_POST['category'] as $selectedCategory) {
+                echo '<input type="hidden" name="category[]" value="' . $selectedCategory . '">';
+            }
+        }
+        if (!empty($_POST['max-price'])) {
+            echo '<input type="hidden" name="max-price" value="' . $_POST['max-price'] . '">';
+        }
+        if (!empty($_POST['min-price'])) {
+            echo '<input type="hidden" name="min-price" value="' . $_POST['min-price'] . '">';
+        }
+        //add price letter**********************
+        ?>
         </form>
     </div>
 
     <div id="image-container">
-        
+
         <!-- Loop through the image paths and display the images -->
         <?php
         foreach ($imagePaths as $imagePath) {
@@ -226,21 +259,64 @@ if (!empty($minPriceFilter)) {
         ?>
     </div>
 
-    <!-- Next-pic buttons (Next and Previous) -->
     <div class="Next-pic">
         <?php
         $totalPages = ceil($totalImages / $itemsPerPage);
+        $maxPagesToShow = 10; // Number of pages to display at once
+        $halfMax = floor($maxPagesToShow / 2);
+
         if ($page > 1) {
-            echo '<a href="' . $prevPageURL . '">Previous</a>';
+            $prevPageURL = "?page=" . ($page - 1);
+            $prevPageURL .= "&category=" . $categoryFilter2;
+            $prevPageURL .= "&SortBT=1";
+            $prevPageURL .= "&SortBTASC=1";
+            if (!empty($maxPriceFilter)) {
+                $prevPageURL .= "&max-price=" . $maxPriceFilter;
+            }
+            if (!empty($minPriceFilter)) {
+                $prevPageURL .= "&min-price=" . $minPriceFilter;
+            }
+            echo '<a class="Next-pic-bt" href="' . $prevPageURL . '">Previous</a>';
         }
-        
+
+        // Calculate the start and end page numbers to display
+        $startPage = max(1, $page - $halfMax);
+        $endPage = min($totalPages, $startPage + $maxPagesToShow - 1);
+
+        // Display page numbers
+        for ($i = $startPage; $i <= $endPage; $i++) {
+            $pageURL = "?page=" . $i;
+            $pageURL .= "&category=" . $categoryFilter2;
+            $pageURL .= "&SortBT=1";
+            $pageURL .= "&SortBTASC=1";
+
+            if (!empty($maxPriceFilter)) {
+                $pageURL .= "&max-price=" . $maxPriceFilter;
+            }
+            if (!empty($minPriceFilter)) {
+                $pageURL .= "&min-price=" . $minPriceFilter;
+            }
+
+            // Highlight the current page
+            $pageClass = ($i == $page) ? 'active-page' : '';
+
+            echo '<a href="' . $pageURL . '" class="page-number-' . $pageClass . '">' . $i . '</a>';
+        }
+
         // Next button
         if ($page < $totalPages) {
-            echo '<a href="' . $nextPageURL . '">Next</a>';
+            $nextPageURL = "?page=" . ($page + 1);
+            $nextPageURL .= "&category=" . $categoryFilter2;
+            $nextPageURL .= "&SortBT=1";
+            $nextPageURL .= "&SortBTASC=1";
+
+            echo '<a class="Next-pic-bt" href="' . $nextPageURL . '">Next</a>';
         }
-        
         ?>
     </div>
+    <div id="result"></div>
+
+
 
 </body>
 
