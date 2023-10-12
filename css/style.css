@@ -368,6 +368,11 @@ h4.Copyright-detail
 
     }
 
+    .Rec-image
+    {
+        /* width: 100%; */
+    }
+
     .top-menu
     {
         visibility: visible;
