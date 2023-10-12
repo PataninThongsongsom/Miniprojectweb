@@ -37,7 +37,7 @@ if(isset($_POST['Submit']))
 
         if($rs2)
         {
-            
+
             header("Location: ./login.php");
             exit();
             
@@ -58,12 +58,6 @@ if(isset($_POST['Submit']))
         </script>";
     }
 }
-// else
-// {
-//     echo "<script type='text/javascript'>alert('what do you do????'); 
-//             window.location = '../html/Login.html'
-//         </script>";
-// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -74,12 +68,40 @@ if(isset($_POST['Submit']))
         <link rel="icon" type="image/x-icon" href="../img/logo.png">
         <link rel="stylesheet" href="../css/styleReg.css">
         <script src="../js/regscript.js"></script>
+        <script>
+            var xmlHttp;
+
+            function checkUsername() {
+                document.getElementById("username").className = "thinking";
+                
+                xmlHttp = new XMLHttpRequest();
+                xmlHttp.onreadystatechange = showUsernameStatus;
+                
+                var username = document.getElementById("username").value;
+                var url = "Checkname.php?username=" + username;
+                xmlHttp.open("GET", url);
+                xmlHttp.send();
+            }
+
+            function showUsernameStatus() {
+                if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                    if (xmlHttp.responseText == "okay") {
+                        document.getElementById("username").className = "approved";
+
+                    } else {
+                        document.getElementById("username").className = "denied";
+                        document.getElementById("username").focus();
+                        document.getElementById("username").select();
+                    }
+                }
+            }
+        </script>
 </head>
 <body>
     <form id="Regform" method="post" action="../php/register.php">
         <h1 class="Reg_Header">Create Account</h1>
         <p>Username:</p>
-        <input type="text" pattern="[A-Za-z0-9]{3,20}" id="username" name="Username" required>
+        <input type="text" pattern="[A-Za-z0-9]{3,20}" id="username" name="Username" onblur="checkUsername()" required>
         <p>Password:</p>
         <input type="password" id="pass1" pattern="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z]).{8,}$" title="password ต้องมี8ตัว ตัวใหญ่ 1 ตัวเล็ก 1 ตัวเลข1" required name="Password">
         <p>ConfPass:</p>
