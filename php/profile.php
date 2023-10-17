@@ -111,6 +111,11 @@ if(isset($_POST['Submit2'])){
         transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
         transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
     }
+
+    .col-xxl-6
+    {
+        margin-top: 15px;
+    }
 </style>
 <div class="container">
 <div class="row">

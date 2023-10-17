@@ -9,16 +9,18 @@ $user = $_SESSION['user_login'];
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Magazine</title>
     <link rel="stylesheet" href="../css/style-magazine.css">
     <link rel="javascript" href="../js/app-magazine.js">
 </head>
 <body>
-
+    <div class="blur-effect">
+        <div class="blur-gradient"></div>
+    </div>  
     <!-- Menu -->
     <div class="top-menu"> 
-        <!-- <img src="../img/Shadow.png" class="Shadow" title="Shadow"> -->
+         
         <nav class="main-nav">
             <ul class="menu-left">
                 <li><a href="./Shop.php"class="Shop" href="">SHOP</a></li>
@@ -31,8 +33,13 @@ $user = $_SESSION['user_login'];
             </div> -->
             <div class="menu-right">
                 <!-- <input type="search" class="searchbox" placeholder="Search Products" > -->
-                <a href="./html/Cart.html"><img src="../img/cart.png" class="cart"></a>
+                <a href="./Cartafterlogin.php"><img src="../img/cart.png" class="cart"></a>
                 <a href="./html/Login.html"><img src="../img/Login.png" class="login"> </a>
+                <div class="dropdown-content" style="left: 1px;">
+                            
+                            <a href="./profile.php">PROFILE</a>
+                            <a href="./logout.php">LOGOUT</a>
+                        </div>
             </div>
         </nav>
     </div> 

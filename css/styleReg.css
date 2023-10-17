@@ -63,3 +63,22 @@ body{
     background-repeat:no-repeat ;
     background-size: cover ;
 }
+#username { 
+    padding: 0 20px 0 2px; 
+  }
+  
+  .thinking { 
+      background: white url("../img/reg_img/checking.gif") no-repeat; 
+      background-position: 100% 50%;   
+  }
+  
+  .approved { 
+      background: white url("../img/reg_img/true.gif") no-repeat; 
+      background-position: 100% 50%;   
+  }
+  
+  .denied { 
+      background: #FF8282 url("../img/reg_img/false.gif") no-repeat; 
+      background-position: 100% 50%;   
+  }
+  

@@ -68,6 +68,13 @@ if (!isset($_SESSION['username'])) { // ถ้าไม่ได้เข้า�
                 </p>
                 <button class="Button-Paragraph" onclick="window.location.href='../html/uploadfile.html'">ทดลองใช้</button>
             </div>
+            
+        </div>
+        <div class="Detail-area">
+            <div class="Detail-grid">
+                <div class="Copyright">
+                    <h4 class="Copyright-detail" style="color:white;">Copyright © 2023 O'Clock. All Rights Reserved.</h4>
+            </div>
         </div>
         
     </body>
