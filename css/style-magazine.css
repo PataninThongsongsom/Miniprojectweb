@@ -139,6 +139,15 @@ body{
 }
 /* Customize menu */
 
+.blur-effect
+{
+    display:block;
+    width: 100%;
+    position: fixed ;
+    z-index: 5;
+    top:0%;
+}
+
 .main-nav
 {
     margin-top: 1rem;
