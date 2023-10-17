@@ -23,12 +23,7 @@ $user = $_SESSION['user_login'];
             <h1>Test</h1>
         </div>
     <div class="top-menu"> 
-<<<<<<< Updated upstream
          
-=======
-        
-        <!-- <img src="../img/Shadow.png" class="Shadow" title="Shadow"> -->
->>>>>>> Stashed changes
         <nav class="main-nav">
             <ul class="menu-left">
                 <li><a href="./Shop.php"class="Shop" href="">SHOP</a></li>
@@ -62,7 +57,6 @@ $user = $_SESSION['user_login'];
         </div>
     </section>
     <section class="Magazine-Section">
-<<<<<<< Updated upstream
         <header class="header-magazine">Magazine</header>
         <div class="detail-magazine">
             <div class="detail-image-magazine">
@@ -70,12 +64,6 @@ $user = $_SESSION['user_login'];
                 <img scr="">
                 <img scr="">
         </div>
-=======
-        <header class="header-magazine">Mine</header>
-        <p class="detail"> 
-            
-        </p>
->>>>>>> Stashed changes
     </section>
     
 
