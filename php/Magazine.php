@@ -56,9 +56,12 @@ $user = $_SESSION['user_login'];
     </section>
     <section class="Magazine-Section">
         <header class="header-magazine">Magazine</header>
-        <p class="detail"> 
-            
-        </p>
+        <div class="detail-magazine">
+            <div class="detail-image-magazine">
+                <img scr="">
+                <img scr="">
+                <img scr="">
+        </div>
     </section>
     
 
