@@ -193,14 +193,81 @@ a.Custom
    justify-content: center;
 }
 
-.checkout {
-    background-color: black; /* Set the background color to black */
-    color: white; /* Set the text color to white */
-}
 table {
-    border: 1px solid white; /* Set the table border to white */
+    border: 0; 
+    width: 50%; /* Adjust the width of the table as needed */
+    margin: 0 auto; /* Center the table horizontally */
+    border-collapse: collapse;
+    background-color: #ffffff;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+td {
+    border: none;
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;    ;
+
 }
 th{
-    background-color: black; /* Set the background color of th and td to black */
-    color: white; /* Set the text color of th and td to white */
+    border: none;
+    background-color: black;
+    color:white;
+    padding: 30px;
+}
+
+form {
+    background-color: #fff; /* สีพื้นหลังฟอร์ม */
+    padding: 20px;
+    border: 1px solid #000; /* เส้นขอบฟอร์ม */
+    width: 300px;
+    margin: 0 auto;
+}
+
+label, input {
+    display: block;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #000; /* สีปุ่ม */
+    color: #fff; /* สีข้อความปุ่ม */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+
+tr.head th {
+    font-size: 1.2em; /* เพิ่มขนาดของข้อความใน th */
+    font-weight: bold; /* ทำให้ข้อความใน th หนาขึ้น (ตัวหนา) */
+}
+
+.summary {
+    display: block;
+    padding-right: 40px;
+    text-align: right;
+    font-weight: bold;
+}
+.submit  input{
+    display: block; /* Make the image a block-level element */
+    margin: 0 auto; /* Center the image horizontally by setting left and right margins to "auto" */
+    background-color: black;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.productname{
+    padding: 30px;
+}
+
+.checkout img{
+    max-width: 100px; /* Set the maximum width for the images to make them smaller */
+    height: auto; /* Maintain the aspect ratio when resizing */
+}
+
+.myform{
+    border: 0;
 }

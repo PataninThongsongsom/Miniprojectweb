@@ -77,13 +77,12 @@ include './connect.php';
     <div class = "checkout">
     <h1>CHECKOUT</h1>
     
-    <h2>order ของคุณ</h2>
+    <h2>YOUR ORDERS</h2>
     <table border="1">
-        <tr>
-            <th>IMG</th>
-            <th>PRODUCT</th>
+        <tr class ="head">
+        <th colspan="2">PRODUCT</th>
+            <th>QUANTITY</th>
             <th>PRICE</th>
-            <th>quantity</th>
         </tr>
         <?php 
              foreach ($_SESSION["cart"] as $item){
@@ -92,16 +91,20 @@ include './connect.php';
         <tr>
             <td><img src = "<?=$item["img"]?>" class ="numberlist-img"></td>
             <td><?=$item["pname"]?></td>
-            <td><?=$item["price"]?></td>
-            <td><?=$item["qty"]?></td>
+            <td><?=$item["qty"]?> ตัว</td>
+            <td><?=$item["price"]?> BATH</td>
         </tr>
        <?php } ?> 
-        <!-- เพิ่มรายการสินค้าเพิ่มเติมตรงนี้ -->
+       <td colspan="4">
+            <div class="summary">
+                <p>SUBTOTAL: <?=$sum?> BATH</p>
+            </div>
+        </td>
     </table>
-    
-        ราคารวม <?=$sum?>
-        <form method="post" action="./checkout.php">
-            <input type="submit" value="ชำระเงิน" name="Submit">
+    <br>
+
+        <form method="post" action="./checkout.php" class = "myform">
+        <div class ="submit"><input type="submit" value="CONFIRM YOUR ORDERS" name="Submit"></div>
         </form>
              </div>
         
