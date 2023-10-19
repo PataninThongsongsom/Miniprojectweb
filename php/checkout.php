@@ -46,6 +46,32 @@ include './connect.php';
     
 </head>
 <body>
+<div class="top-menu"> 
+    <img src="../img/Shadow.png" class="Shadow" title="Shadow">
+    <nav class="main-nav">
+        <ul class="menu-left">
+            <a href="./afterlogin.php"><img src="../img/logo.png"class="logo"></a>
+            <li><a href="./Shop.php"class="Shop" href="">SHOP</a></li>
+            <li><a href="./Magazine.php" class="Magazine" href="">MAGAZINE</a></li>
+            <li><a class="Custom" href="./Custom.php">CUSTOM YOUR OWN</a></li>
+        </ul>
+        <div class="menu-right">
+            <input type="search" class="searchbox" placeholder="Search Products" >
+            <a href="#"><img src="../img/cart.png" class="cart"></a>
+            <div class="dropdown">
+                    <img src="../img/Login.png" class="login" alt="Login Icon">
+
+                    <div class="dropdown-content" style="left: 1px;">
+
+                        <a href="./profile.php">PROFILE</a>
+                        <a href="./logout.php">LOGOUT</a>
+                    </div>
+                    <p style="text-align: center;">Hi <?php echo $_SESSION['username']; ?></p>
+                </div>
+        </div>
+    </nav>
+  </div>
+    <br><br><br><br><br>
     
 <h1>Check Out</h1>
     
