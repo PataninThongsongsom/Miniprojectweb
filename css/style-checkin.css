@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2; /* สีพื้นหลัง */
+    color: #333; /* สีข้อความหลัก */
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2 {
+    color: #000; /* สีข้อความหัวเรื่อง */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff; /* สีพื้นหลังตาราง */
+}
+
+th, td {
+    border: 1px solid #000; /* เส้นขอบตาราง */
+    padding: 8px;
+    text-align: left;
+}
+
+form {
+    background-color: #fff; /* สีพื้นหลังฟอร์ม */
+    padding: 20px;
+    border: 1px solid #000; /* เส้นขอบฟอร์ม */
+    width: 300px;
+    margin: 0 auto;
+}
+
+label, input {
+    display: block;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #000; /* สีปุ่ม */
+    color: #fff; /* สีข้อความปุ่ม */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
