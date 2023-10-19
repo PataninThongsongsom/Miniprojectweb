@@ -49,12 +49,16 @@ if (isset($_SESSION['username'])) { // ถ้าlogin ไว้แล้ว
             <div class="Rec-paragraph">
                 <h1 class="Rec-paragraph-Headers">Custom Your Own!</h1>
                 <p class="Rec-paragraph-Paragraph">
-                    เปิดตัว เว็บแรกของโลกที่สามารถเอารูป ควาย
-                    เข้าไปในเสื้อของคุณได้ ไม่มีเว็บไหนที่มีเทคโนโลยีที่
-                    ทำได้ขนาดนี้มาก่อน! โดยเทคโนโลยีนี้ได้รับแรงบันดาลใจ
-                    ต่อยอดมาจากเสื้อผ้ายอดฮิตจาก อภิชาติฟาร์ม
+                    สร้างเสื้อตามใจคุณ - แสดงตัวตนด้วยสไตล์ที่ท่ามกลางคนเดียวของคุณ!
                 </p>
                 <button class="Button-Paragraph" onclick="window.location.href='./html/uploadfile.html'">ทดลองใช้</button>
+            </div>
+        </div>
+        <!-- Detail -->
+        <div class="Detail-area">
+            <div class="Detail-grid">
+                <div class="Copyright">
+                    <h4 class="Copyright-detail" style="color:white;">Copyright © 2023 O'Clock. All Rights Reserved.</h4>
             </div>
         </div>
         

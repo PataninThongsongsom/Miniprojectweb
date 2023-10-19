@@ -99,8 +99,9 @@ if (!isset($_SESSION['username'])) { // ถ้าไม่ได้เข้า�
         </div>
         <div class="row buttons">
           <button class="clear-canvas">Clear Canvas</button>
-          <button class="save-img">Save As Image</button>
-          <a href="./afterlogin.php" class="backhome" id="bkh">Back to home</a>
+          <button class="save-img">Add to cart</button>
+          <a href="./afterlogin.php" class="backhome" id="bkh">Back to home</a><br>
+          <!-- <a href="./Cartafterlogin.php?addtocart=" class="backhome">Add to cart </a> -->
         </div>
       </section>
       <section class="drawing-board" >

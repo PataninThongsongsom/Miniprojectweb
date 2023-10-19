@@ -174,10 +174,24 @@ clearCanvas.addEventListener("click", () => {
 });
 
 saveImg.addEventListener("click", () => {
-  const link = document.createElement("a");
-  link.download = `${Date.now()}.jpg`;
-  link.href = canvas.toDataURL();
-  link.click();
+  const imageData = canvas.toDataURL('image/png'); // Save as PNG
+  const formData = new FormData();
+  formData.append('imageData', imageData);
+
+  fetch('../php/Cartafterlogin.php', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log('Image saved successfully. Path:', data.filePath);
+    window.location.href = '../php/Cartafterlogin.php?member=';
+  })
+  .catch(error => {
+    console.error('Error saving image:', error);
+    window.location.href = '../php/Cartafterlogin.php?member=';
+  });
+  
 });
 
 const drawImages = () => {
