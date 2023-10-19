@@ -1,9 +1,10 @@
 <?php
+session_start();
 include './connect.php';
     if(isset($_POST['Submit'])&&isset($_SESSION['cart'])){
         $member = $_SESSION['userdetail'];
         $memberID = $member['id'];
-        $sql = "INSERT INTO orders ('Date','TIME','M_ID')value(CURDATE(),CURTIME(),'$memberID')";
+        $sql = "INSERT INTO orders ('Date','TIME','M_ID') VALUES (CURDATE(),CURTIME(),'$memberID')";
         $rs = mysqli_query($con, $sql);
         if($rs)
         {
@@ -11,7 +12,7 @@ include './connect.php';
             foreach ($_SESSION["cart"] as $item){
                $pid=$item["pid"];
                $qty=$item["qty"];
-               $sql2 = "INSERT INTO `order_detail` (`PID`, `OID`, `Amount`) VALUES ('$pid', '$qty', '$mdId')"; 
+               $sql2 = "INSERT INTO order_detail ('PID', 'OID', 'Amount') VALUES ('$pid', ' $mdId', '$qty')"; 
                $rs2 = mysqli_query($con, $sql2);
                
             }
@@ -21,6 +22,10 @@ include './connect.php';
             unset($_SESSION['cart']);
             echo "<script type='text/javascript'>alert('Sent your order to shop now'); 
                 window.location = './Shop.php'
+            </script>";
+        }else{
+            echo "<script type='text/javascript'>alert('Error.....'); 
+                window.location = './Cartafterlogin.php'
             </script>";
         }
     }
@@ -45,25 +50,32 @@ include './connect.php';
 <h1>Check Out</h1>
     
     <h2>รายการสินค้า</h2>
-    <table>
+    <table border="1">
         <tr>
+            <th>IMG</th>
             <th>PRODUCT</th>
             <th>PRICE</th>
+            <th>quantity</th>
         </tr>
+        <?php 
+             foreach ($_SESSION["cart"] as $item){
+                $sum += $item["price"] * $item["qty"];
+            ?>
         <tr>
-            <td>สินค้าที่ 1</td>
-            <td>$10.00</td>
+            <td><img src = "<?=$item["img"]?>" class ="numberlist-img"></td>
+            <td><?=$item["pname"]?></td>
+            <td><?=$item["price"]?></td>
+            <td><?=$item["qty"]?></td>
         </tr>
-        <tr>
-            <td>สินค้าที่ 2</td>
-            <td>$15.00</td>
-        </tr>
+       <?php } ?> 
         <!-- เพิ่มรายการสินค้าเพิ่มเติมตรงนี้ -->
     </table>
     
-    
-        <button type="submit">ชำระเงิน</button>
-    </form>
+        ราคารวม <?=$sum?>
+        <form method="post" action="./checkout.php">
+            <input type="submit" value="ชำระเงิน" name="Submit">
+        </form>
+        
 
         </body>
 </html>

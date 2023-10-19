@@ -150,7 +150,7 @@ $user = $_SESSION['user_login'];
             <h1 class = "text">YOUR TOTAL</h1>
             <h2 class = "subtotalprice"><?=$sum?> ฿</h2>
             <form action="./checkout.php" method="post">
-                <input type="submit" value="BUY NOW!" name="Submit" class = "subtotal-btn">
+                <input type="submit" value="BUY NOW!" name="Sbmit" class = "subtotal-btn">
             </form>
             <!-- <a href="#" class="subtotal-btn">BUY NOW!</a> -->
         </div>
