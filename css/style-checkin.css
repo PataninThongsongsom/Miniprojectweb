@@ -1,44 +1,206 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2; /* สีพื้นหลัง */
-    color: #333; /* สีข้อความหลัก */
-    margin: 0;
-    padding: 0;
+*
+{
+    margin: 0%;
+    padding: 0%;
+    scroll-behavior: smooth;
 }
 
-h1, h2 {
-    color: #000; /* สีข้อความหัวเรื่อง */
+* { 
+    font-family: "Segoe UI", Arial, sans-serif;
 }
 
-table {
+.WelcomePage
+{
     width: 100%;
-    border-collapse: collapse;
-    background-color: #fff; /* สีพื้นหลังตาราง */
+    height: 100%;
 }
 
-th, td {
-    border: 1px solid #000; /* เส้นขอบตาราง */
-    padding: 8px;
-    text-align: left;
+/* Customize menu */
+.main-nav
+{
+    -webkit-backdrop-filter:blur(10px);
+    backdrop-filter: blur(10px);    
+    background-color: rgba(255, 255, 255, 0.614);
+    margin-top: 1rem;
+    margin-inline: 2rem;
+    border-radius: 6px;
+    box-shadow: 0px 4px 10px 0px rgb(0, 0, 0,0.25);
+    z-index: 7 ;
+    top: 0%;
+    display: flex;
+    position: fixed;
+    width: 90%;
+    margin-right: 5%;
+    margin-left: 5%;
 }
 
-form {
-    background-color: #fff; /* สีพื้นหลังฟอร์ม */
-    padding: 20px;
-    border: 1px solid #000; /* เส้นขอบฟอร์ม */
-    width: 300px;
+
+ul.menu-left
+{
+    align-items: center;
+    font-size: 14px;
+    padding-left: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    display: inline-flex;
+    z-index: 6;
+}
+
+div.menu-right
+{
+    display: flex;
+    z-index: 6;
+    align-items: center;
+    margin-left: auto;
+    padding-right: 2rem;
+}
+
+li
+{
+    padding-right: 50px;
+    list-style-type: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.searchbox
+{
+    border-radius: 15px;
+    border:0cm;
+    height: 24px;
+    width: 16rem;
+    margin-right: 1rem;
+}
+
+input[type=search]
+{
+    outline: none;
+    padding: 12px 12px;
+    font-size: 15px;
+    
+}
+
+/* Shop */
+a.Shop
+{
+    text-decoration:none;
+    color: rgb(68, 68, 68);
+}
+
+/* Magazine */
+a.Magazine
+{
+    text-decoration: none;
+    color: rgb(68, 68, 68);
+}
+
+/* CustomYourOwn */
+a.Custom
+{
+    text-decoration: none;
+    color: rgb(68, 68, 68);
+}
+
+/* Logo */
+.logo
+{
+    margin-right: 70px;    
+    height: 20px;
+    width: 20px;
+    padding-left: 1px;
+ 
+}
+
+.login
+{
+    height: 40px;
+}
+
+.cart
+{
+    height: 40px;
+    margin-right: 10px;
+}
+
+.Shadow
+{
+    display:block;
+    width: 100%;
+    position: fixed ;
+    z-index: 5;
+    top:0%;
+
+}
+
+.img-title
+{
+    width: 100%;
+    display: block;
+}
+
+.dropdown-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* กำหนดความสูงให้เท่ากับความสูงของหน้าจอ */
+    
+}
+
+/* สไตล์สำหรับเมนูแบบดรอปดาวน์ */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    left: 1px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.614);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    left: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* สไตล์สำหรับรูปภาพในเมนูแบบดรอปดาวน์ */
+.dropdown-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
     margin: 0 auto;
 }
 
-label, input {
+/* สไตล์สำหรับตัวเลือกในเมนูแบบดรอปดาวน์ */
+.dropdown-content a {
+    color: black;
+    padding: 15px 16px;
+    text-decoration: none;
     display: block;
-    margin-bottom: 10px;
+    text-align: center;
 }
 
-button {
-    background-color: #000; /* สีปุ่ม */
-    color: #fff; /* สีข้อความปุ่ม */
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
+.dropdown-content a:hover {
+    background-color: rgba(0, 0, 0);
+    color: white;
+}
+
+.checkout h1,h2{
+    text-align: center;
+   justify-content: center;
+}
+
+.checkout {
+    background-color: black; /* Set the background color to black */
+    color: white; /* Set the text color to white */
+}
+table {
+    border: 1px solid white; /* Set the table border to white */
+}
+th{
+    background-color: black; /* Set the background color of th and td to black */
+    color: white; /* Set the text color of th and td to white */
 }
