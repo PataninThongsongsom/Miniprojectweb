@@ -4,7 +4,7 @@ include './connect.php';
     if(isset($_POST['Submit'])&&isset($_SESSION['cart'])){
         $member = $_SESSION['userdetail'];
         $memberID = $member['id'];
-        $sql = "INSERT INTO orders ('Date','TIME','M_ID') VALUES (CURDATE(),CURTIME(),'$memberID')";
+        $sql = "INSERT INTO orders (`DATE`, `TIME`, `M_ID`) VALUES (CURRENT_DATE,CURRENT_TIME, '$memberID')";
         $rs = mysqli_query($con, $sql);
         if($rs)
         {
@@ -12,22 +12,22 @@ include './connect.php';
             foreach ($_SESSION["cart"] as $item){
                $pid=$item["pid"];
                $qty=$item["qty"];
-               $sql2 = "INSERT INTO order_detail ('PID', 'OID', 'Amount') VALUES ('$pid', ' $mdId', '$qty')"; 
+               $sql2 = "INSERT INTO order_detail (`PID`, `OID`, `Amount`) VALUES ('$pid', '$mdId', '$qty')";
                $rs2 = mysqli_query($con, $sql2);
                
             }
-           
+            
         }
-        if ($rs&&$rs2) {
-            unset($_SESSION['cart']);
-            echo "<script type='text/javascript'>alert('Sent your order to shop now'); 
-                window.location = './Shop.php'
-            </script>";
-        }else{
-            echo "<script type='text/javascript'>alert('Error.....'); 
-                window.location = './Cartafterlogin.php'
-            </script>";
-        }
+        if ($rs2&&$rs) {
+                unset($_SESSION['cart']);
+                echo "<script type='text/javascript'>alert('Sent your order to shop now'); 
+                    window.location = './Shop.php'
+                </script>";
+            }else{
+                echo "<script type='text/javascript'>alert('Error.....'); 
+                    window.location = './Cartafterlogin.php'
+                </script>";
+            }
     }
 ?>
 
