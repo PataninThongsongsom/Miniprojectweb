@@ -14,6 +14,7 @@ if (isset($_SESSION['username'])) { // ถ้าlogin ไว้แล้ว
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="./css/style-dropbar.css">
         <script src="../js/app.js"></script>
         
         
