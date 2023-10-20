@@ -1,7 +1,13 @@
 <?php
 session_start();
 include './connect.php';
+    if(empty($_SESSION['cart'])&&isset($_SESSION['cart'])){
+        echo "<script type='text/javascript'>alert('กรุณาใส่ของลงตระกร้าก่อนชำระเงิน'); 
+                window.location = './Shop.php'
+            </script>";
+    }
     if(isset($_POST['Submit'])&&isset($_SESSION['cart'])){
+        
         $member = $_SESSION['userdetail'];
         $memberID = $member['id'];
         $sql = "INSERT INTO orders (`DATE`, `TIME`, `M_ID`) VALUES (CURRENT_DATE,CURRENT_TIME, '$memberID')";
