@@ -133,6 +133,7 @@ if (isset($_GET["member"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/stylecart2.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="./css/style-dropbar.css">
     <title>Document</title>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
