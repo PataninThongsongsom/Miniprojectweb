@@ -21,7 +21,7 @@
     margin: 0%;
     text-align: center;
 }
-#Regform input,select {
+#Regform input,select,textarea {
     margin: 1em;
     padding: 1em;
     grid-column-start: 2;

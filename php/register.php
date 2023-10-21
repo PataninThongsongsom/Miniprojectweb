@@ -15,7 +15,6 @@ if(isset($_POST['Submit']))
     $txtEmail = $_POST['txtEmail'];
     $txtPhone = $_POST['txtPhone'];
     $txtAddress = $_POST['txtAddress'];
-
     $txtUsername = $_POST['Username'];
     $txtPassword = $_POST['Password'];
 
@@ -116,9 +115,26 @@ if(isset($_POST['Submit']))
         <p>Tel:</p>
         <input type="text" name="txtPhone" id="txtPhone" pattern="^(\+66|0)[0-9]{1,2}[0-9]{3}[0-9]{4,5}$" placeholder="phone" required>
         <p>Address:</p>
-        <select name="txtAddress" id="txtAddress">
+        <select id="province" required>
+            <option value="" disabled selected>Select a Province</option>
             <!-- API  -->
         </select>
+        <select id="amphure">
+            <option value="" disabled selected>Select a District</option>
+            <!-- API  -->
+        </select>
+        <select id="tambon">
+            <option value="" disabled selected>Select a Sub-district</option>
+            <!-- API  -->
+        </select>
+        <select id="zipcode">
+            <option value="" disabled selected>Select a zipcode</option>
+            <!-- API  -->
+        </select>
+
+        <!-- <input type="text" id="txtAddress" name="txtAddress" readonly> -->
+        <textarea name="txtAddress" id="txtAddress" cols="30" rows="10" readonly></textarea>
+
         <a href="../index.php">Home </a>
         <input type="submit" name="Submit" id="btnreg" value="Register">
         <!-- <button type="button" id="btnreg">Register</button> -->
