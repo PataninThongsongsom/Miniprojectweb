@@ -118,6 +118,22 @@ function checkPattern(){
     
 
 }
+async function getDataFromAPI() {
+    debugger;
+    console.log("API");
+    let response = await fetch('https://raw.githubusercontent.com/kongvut/thai-province-data/master/api_province_with_amphure_tambon.json')
+    let rawData = await response.text() // อ่านผลลพธั ์
+    let objectData = JSON.parse(rawData) // แปลผลลพธั ์เป็น object
+    let result = document.getElementById('txtAddress') // ดงึ <select> เพื่อใช้ในการเพมแท ิ่ ก็ <option>มาจดรปแบ
+    for (let i = 0; i < objectData.features.length; i++) {
+        let content = objectData.features[i].properties.name  // ดงขึ ้อมูลจาก object
+        content += objectData.features[i].properties.name
+        let option = document.createElement('option') // สร้างแทก็ <li>
+        option.innerHTML = content // นําข้อมูลทจีดแลวมาไว้ในแทกก็ < li >
+        result.appendChild(option) // เพมแท ิ่ ก็ <li> ใหม่
+    }
+}
+
 window.onload = function(){
     let regbtn = document.getElementById("btnreg");
     regbtn.onclick = checkPattern;

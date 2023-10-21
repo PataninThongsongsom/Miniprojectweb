@@ -72,7 +72,7 @@ if(isset($_POST['Submit']))
             var xmlHttp;
 
             function checkUsername() {
-                console.log("hi");
+                // console.log("hi");
                 document.getElementById("username").className = "thinking";
                 
                 xmlHttp = new XMLHttpRequest();
@@ -116,7 +116,9 @@ if(isset($_POST['Submit']))
         <p>Tel:</p>
         <input type="text" name="txtPhone" id="txtPhone" pattern="^(\+66|0)[0-9]{1,2}[0-9]{3}[0-9]{4,5}$" placeholder="phone" required>
         <p>Address:</p>
-        <textarea name="txtAddress" id="txtAddress"></textarea>
+        <select name="txtAddress" id="txtAddress">
+            <!-- API  -->
+        </select>
         <a href="../index.php">Home </a>
         <input type="submit" name="Submit" id="btnreg" value="Register">
         <!-- <button type="button" id="btnreg">Register</button> -->
