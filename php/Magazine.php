@@ -20,7 +20,7 @@ $user = $_SESSION['user_login'];
     </div>  
     <!-- Menu -->
     <div class="blur-effect">
-            <h1>Test</h1>
+
         </div>
     <div class="top-menu"> 
          
@@ -28,7 +28,7 @@ $user = $_SESSION['user_login'];
             <ul class="menu-left">
                 <li><a href="./Shop.php"class="Shop" href="">SHOP</a></li>
                 <li><a href="./Magazine.html" class="Magazine" href="">MAGAZINE</a></li>
-                <li><a class="Custom" href="./Custom.php">CUSTOM YOUR OWN</a></li>\
+                <li><a class="Custom" href="./Custom.php">CUSTOM YOUR OWN</a></li>
             </ul>
             <!-- <div class="menu-middle">
                 <a href="index.html"><img src="../img/logo.png"class="logo"></a>

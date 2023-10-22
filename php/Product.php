@@ -40,20 +40,13 @@ $user = $_SESSION['user_login'];
         <div class="Product-box">
             <div class="leave-area"></div>
             <section class="Image-area">
-                <img src="../img/Clothes/Pant/5.1.png" class="product-image">
+                <img src="../img/Clothes/Pant/8.1.png" class="product-image">
             </section>
     <!-- Detail เสื้อผ้า -->
             <section class="Detail-area">
-                <h2 class="product-name">PRODUCT NAME</h2>
+                <h2 class="product-name">Crepe Couture mini dress</h2>
                 <div class="product-detail">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                    Pariatur, unde fugiat dolorem impedit obcaecati neque 
-                    reiciendis ea amet ipsum fugit. Corporis cupiditate qui 
-                    praesentium? Rerum, quae. Itaque ipsa iste quaerat iusto 
-                    nesciunt, quasi debitis obcaecati facere maxime ipsum, 
-                    pariatur voluptatum at magni culpa fugit dolorum delectus! 
-                    Natus, odit unde. Quo eius pariatur non quasi porro vel 
-                    ipsam amet nulla et.
+                Valentino Garavani’s minidress is crafted to form the shape of a layered combination shirt and sweatshirt. Crafted in Italy
                 </div>
                 
                 <div class="size">
