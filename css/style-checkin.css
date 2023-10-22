@@ -271,3 +271,7 @@ tr.head th {
 .myform{
     border: 0;
 }
+
+.mysubtotal{
+    border: 1px;
+}

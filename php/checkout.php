@@ -101,7 +101,7 @@ include './connect.php';
             <td><?=$item["price"]?> BATH</td>
         </tr>
        <?php } ?> 
-       <td colspan="4">
+       <td colspan="4" class = "mysubtotal">
             <div class="summary">
                 <p>SUBTOTAL: <?=$sum?> BATH</p>
             </div>
