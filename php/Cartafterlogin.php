@@ -177,6 +177,7 @@ if (isset($_GET["member"])) {
 
 
   <div class="cart-content">
+    <br><br>
     <h1>SHOPPING CART</h1>
     
     </div>

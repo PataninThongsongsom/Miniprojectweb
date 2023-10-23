@@ -363,10 +363,29 @@ height:30px;
 
 }
 
+
+
+
+
+
+
+
+
+
   
    /* Add responsive CSS for screens with a maximum width of 601px */
 /* Add responsive CSS for screens with a maximum width of 601px */
 @media (max-width: 601px) {
+    *
+{
+    margin: 0%;
+    padding: 0%;
+    scroll-behavior: smooth;
+}
+
+* { 
+    font-family: "Segoe UI", Arial, sans-serif;
+}
     .empty-cart {
         font-size: 10px;
         font-weight: bold;
@@ -395,7 +414,8 @@ height:30px;
     .cart-content h1 {
         font-size: 40px; /* ขนาดตัวอักษรสำหรับ <h1> */
         margin-bottom: 10px; /* เพิ่มระยะห่างด้านล่าง 10px */
-        
+        background: none;
+        background-color: transparent;
     }
     .cart-content ion-icon {
         font-size: 240px;
@@ -413,7 +433,7 @@ height:30px;
     
     
         
-    .cart-content .mytext {
+    .cart-content .detailbeforeshop {
         color: #6e6e6e; /* สีเทา */
        
     }
@@ -421,7 +441,6 @@ height:30px;
     .cart-content {
         text-align: center;
         justify-content: center;
-        background-color: white; /* White theme */
         display: grid;
         grid-template-rows: auto 1fr auto; /* สร้างสามแถว, แถวแรกและแถวสามเป็นแบบอัตโนมัติ */
         align-items: center; /* จัดให้อยู่ตรงกลางแนวดิสเพลย์ */
@@ -432,14 +451,22 @@ height:30px;
       margin: 0 auto;
       padding: 10px;
       
+
+      
+    }
+
+    .listcart{
+        background-color: white;    
+        box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        display: flex;
+      flex-direction: column;
+      align-items: center;
     }
   
     .numberlist {
       display: flex;
       flex-direction: column;
       align-items: center;
-      background-color: white; /* White theme */
-      box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
       margin-top: 30px;
     }
   
@@ -501,13 +528,14 @@ height:30px;
         font-weight: bold; /* ตัวหนา */
         background-color: #000; /* สีพื้นหลังดำสำหรับปุ่ม */
         color: #fff; /* สีตัวอักษรขาวสำหรับปุ่ม */
-        width: 15%;
+        width: 35%;
         border-radius: 5px; /* รอบมุมของปุ่ม */
-        padding: 10px 10px;
+        padding: 20px 30px;
         display: grid;
         align-items: center;
         justify-content: center;
         margin: 0 auto; /* จัดกลางตามแนวนอน */
+        margin-bottom: 10px;
         
     }
     

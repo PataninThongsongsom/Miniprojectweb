@@ -57,7 +57,7 @@ include './connect.php';
         <nav class="main-nav" style="display: relative; position: absolute;">
             <ul class="menu-left">
                 <a href="afterlogin.php"><img src="../img/logo.png" class="logo"></a>
-                <li><a class="Shop" href="">SHOP</a></li>
+                <li><a class="Shop" href="./Shop.php">SHOP</a></li>
                 <li><a href="./Magazine.php" class="Magazine" href="">MAGAZINE</a></li>
                 <li><a class="Custom" href="./Custom.php">CUSTOM YOUR OWN</a></li>
             </ul>
