@@ -137,55 +137,9 @@ a.Custom
     display: block;
 }
 
-.dropdown-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* กำหนดความสูงให้เท่ากับความสูงของหน้าจอ */
-    
-}
-
-/* สไตล์สำหรับเมนูแบบดรอปดาวน์ */
-.dropdown {
-    position: relative;
-    display: inline-block;
-    left: 1px;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: rgba(255, 255, 255, 0.614);
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    left: 1;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-/* สไตล์สำหรับรูปภาพในเมนูแบบดรอปดาวน์ */
-.dropdown-content img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-
-/* สไตล์สำหรับตัวเลือกในเมนูแบบดรอปดาวน์ */
-.dropdown-content a {
-    color: black;
-    padding: 15px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: center;
-}
-
-.dropdown-content a:hover {
-    background-color: rgba(0, 0, 0);
-    color: white;
+.empty-cart {
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .login-link {
@@ -210,21 +164,21 @@ ion-icon[name="trash-sharp"] {
 }
 
 .mycart {
-    width: 100%;
     padding: 20px 10vw;
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
 }
 
 .product{
     width:50%;
 }
 .listcart{
-    width:100%;
+    width:140%;
     background-color: white;    
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     padding: 20px;
     margin-bottom: 50px;
+    flex: 1;
 }
 .numberlist{
     width: 100%;
@@ -303,8 +257,7 @@ height:30px;
 
     .subtotal{
         width:20%;
-        margin-right: 370px;
-    }
+        }
 
     .subtotal-box{
         width:100%;
@@ -313,6 +266,7 @@ height:30px;
         color:white;
         box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         padding: 50px;
+        margin-left: 300px;
     }
 
     .text{
@@ -396,97 +350,64 @@ height:30px;
         color: #000; /* สีตัวอักษรดำเมื่อเมาส์ชี้ที่ปุ่ม */
     }
 
-    /* Your existing CSS code */
 
-/* For screens with a maximum width of 600px */
-@media screen and (max-width: 600px) {
-    * {
-        margin: 0;
-        padding: 0;
-    }
-
-    .WelcomePage {
-        width: 100%;
-        height: 100%;
-    }
-
-    .main-nav {
-        margin-top: 1rem;
-        margin-inline: 2rem;
-        width: 100%;
-        margin-right: 0;
-        margin-left: 0;
-    }
-
-    ul.menu-left {
-        font-size: 12px; /* Decrease font size for smaller screens */
-    }
-
-    div.menu-right {
-        padding-right: 1rem; /* Adjust padding for smaller screens */
-    }
-
-    li {
-        padding-right: 20px; /* Adjust padding for smaller screens */
-    }
-
-    .searchbox {
-        width: 100%; /* Make the search box full width */
-        margin: 0.5rem 0; /* Adjust margin for smaller screens */
-    }
-
-    /* Adjust font size for various links */
-    a.Shop, a.Magazine, a.Custom {
-        font-size: 14px;
-    }
-
-    .logo {
-        margin-right: 30px; /* Adjust margin for smaller screens */
-        height: 16px; /* Decrease the size for smaller screens */
-        width: 16px; /* Decrease the size for smaller screens */
-    }
-
-    .login, .cart {
-        height: 30px; /* Decrease the size for smaller screens */
-    }
-
-    .Shadow {
-        top: 0;
-    }
-
-    /* Modify styles for dropdown menus */
-    .dropdown {
-        display: block;
-        margin: 10px 0; /* Adjust spacing for smaller screens */
-    }
-
-    .dropdown-content {
-        min-width: 120px; /* Decrease the width for smaller screens */
-    }
-
-    .dropdown-content a {
-        padding: 10px 12px; /* Adjust padding for smaller screens */
-    }
-
+/* Add responsive CSS for screens with a maximum width of 601px */
+@media (max-width: 601px) {
     .cart-content {
-        margin-top: 80px; /* Adjust margin for smaller screens */
+      text-align: center;
+      justify-content: center;
+      background-color: white; /* White theme */
     }
+  
+    .mycart {
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      padding: 10px;
+      background-color: white; /* White theme */
+    }
+  
+    .numberlist {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .numberlist-img {
+      width: 5%;
+    }
+  
+    .numberlist-text {
+      text-align: center;
+    }
+  
+    .numberlist-name {
+      font-size: 1.2em;
+    }
+  
+    .quantity {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .item-quantity {
+      width: 40px;
+    }
+  
+    .numberlist-price {
+      font-size: 1.2em;
+    }
+  
+    .subtotal-box {
+      text-align: center;
+     
+    }
+  }
+  
+ 
+  
 
-    .cart-content ion-icon {
-        font-size: 100px; /* Decrease the size for smaller screens */
-        margin-right: 10px; /* Adjust margin for smaller screens */
-    }
-    
-    .cart-content p {
-        font-size: 16px; /* Decrease the font size for smaller screens */
-    }
-    
-    .cart-content h1 {
-        font-size: 28px; /* Decrease the font size for smaller screens */
-    }
 
-    .cart-content .shop-now {
-        font-size: 16px; /* Decrease font size for smaller screens */
-        padding: 8px 8px; /* Adjust padding for smaller screens */
-    }
-}
+
+  
