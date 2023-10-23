@@ -21,7 +21,7 @@
     margin: 0%;
     text-align: center;
 }
-#Regform input,textarea {
+#Regform input,select,textarea {
     margin: 1em;
     padding: 1em;
     grid-column-start: 2;
@@ -59,7 +59,7 @@ a{
 }
 
 body{
-    background-image: url(/img/Background.jpeg);
+    background-image: url("../img/Background.jpeg");
     background-repeat:no-repeat ;
     background-size: cover ;
 }
