@@ -177,7 +177,6 @@ if (isset($_GET["member"])) {
 
 
   <div class="cart-content">
-    <br><br>
     <h1>SHOPPING CART</h1>
     
     </div>
@@ -215,7 +214,7 @@ if (isset($_GET["member"])) {
                     
                     
                     <input class ="item-quantity" type="number" id="<?=$item["pid"]?>" value="<?=$item["qty"]?>" min="1" max="9">
-			        <a href="#" onclick="update(<?=$item["pid"]?>)">แก้ไข</a>
+			        <a href="#" class ="update" onclick="update(<?=$item["pid"]?>)"><p>Update</p></a>
                     
                 </div>
                 <h2 class = "numberlist-price"><?=$item["price"]?> ฿</h2>
