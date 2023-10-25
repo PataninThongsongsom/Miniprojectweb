@@ -201,6 +201,17 @@ h1
     position: absolute;
 }
 
+.mouse-scroll
+{
+    width: 100%;
+    position: relative;
+}
+
+.mouse
+{
+    position: absolute;
+}
+
 /* Recommand */
 .Recommand
 {
