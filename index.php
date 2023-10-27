@@ -59,12 +59,12 @@ if (isset($_SESSION['username'])) { // ถ้าlogin ไว้แล้ว
         <!-- Recommand -->
         <div class="Recommand">
             <div class="Rec-image">
-                <img src="./img/Customyourown-new.png" class="cyo" title="cyo">
+                <img src="./img/Customyourown-neww.png" class="cyo" title="cyo">
             </div>
             <div class="Rec-paragraph">
                 <h1 class="Rec-paragraph-Headers">Custom Your Own!</h1>
                 <p class="Rec-paragraph-Paragraph">
-                    สร้างเสื้อตามใจคุณ - แสดงตัวตนด้วยสไตล์ที่ท่ามกลางคนเดียวของคุณ!
+                สร้างสไตล์ของคุณเอง! เลือกผ้าที่คุณชื่นชอบ ทำให้เสื้อของคุณไม่เหมือนใคร! เริ่มต้นที่ O'Clock และเป็นส่วนหนึ่งของการสร้างสรรค์แฟชั่นของคุณได้เลย!
                 </p>
                 <button class="Button-Paragraph" onclick="window.location.href='./html/uploadfile.html'">ทดลองใช้</button>
             </div>
