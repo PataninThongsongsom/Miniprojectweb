@@ -376,6 +376,81 @@ height:30px;
    /* Add responsive CSS for screens with a maximum width of 601px */
 /* Add responsive CSS for screens with a maximum width of 601px */
 @media (max-width: 601px) {
+
+    .top-menu
+    {
+        display: none ;
+    }
+    .menu__btn
+    {
+        /* height: 50%; */
+        top: 50px;
+        position: fixed;
+        width: 50px !important; /* Set a fixed width */
+        height: 120px ;
+
+    }
+        .main-nav{
+            display:none;
+        }
+    
+        .Recommand{
+            display: flex;
+            flex-direction: column;
+            height: 1000px;
+          
+        }
+    
+        .Rec-image{
+            display: flex;
+            padding-inline: 3rem;
+            flex: 0;
+            justify-content: center;
+            margin-bottom: 15%;
+        }
+    
+        .cyo
+        {
+            left: 0;
+        }
+    
+        .Rec-paragraph
+        {
+            padding-top: 0;
+    
+        }
+    
+        .Rec-image
+        {
+            /* width: 100%; */
+        }
+    
+        .top-menu
+        {
+            visibility: visible;
+            
+        }
+    
+        .hamburger-menu
+        {
+            position: absolute;
+            z-index: 997;
+            display:block;
+        }
+        .menu__item {
+            display: block;
+            padding: 34px 24px;
+            color: #333;
+            font-family: 'Roboto', sans-serif;
+            font-size: 72px;
+            font-weight: 600;
+            text-decoration: none;
+            transition-duration: .25s;
+        }
+        .menu__box
+        {
+            padding: 230px 0px;
+        }
     *
 {
     margin: 0%;

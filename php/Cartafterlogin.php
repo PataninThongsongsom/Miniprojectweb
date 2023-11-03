@@ -146,6 +146,20 @@ if (isset($_GET["member"])) {
 	}</script>
 
 <body>
+    <!-- Menu Herizon -->
+    <div class="hamburger-menu">
+            <input id="menu__toggle" type="checkbox" />
+            <label class="menu__btn" for="menu__toggle">
+                <span></span>
+            </label>
+            <ul class="menu__box">
+            <li><a class="menu__item" href="index.php">Home</a></li>
+                    <li><a class="menu__item" href="./php/Shop.php">Shop</a></li>
+                    <li><a class="menu__item" href="./php/Magazine.php">Magazine</a></li>
+                    <li><a class="menu__item" href="./php/Custom.php">Custom Your Own</a></li>
+                    <li><a class="menu__item" href="./php/login.php">Login</a></li>
+            </ul>
+        </div>
    
 <div class="top-menu">
         <img src="../img/Shadow.png" class="Shadow">
