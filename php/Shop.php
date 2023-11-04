@@ -190,6 +190,7 @@ $minPriceFilter = isset($_POST['min-price']) ? $_POST['min-price'] : '';
                     <li><a class="menu__item" href="./Shop.php">Shop</a></li>
                     <li><a class="menu__item" href="./Magazine.php">Magazine</a></li>
                     <li><a class="menu__item" href="./Custom.php">Custom Your Own</a></li>
+                    <li><a class="menu__item" href="./Cartafterlogin.php">Cart</a></li>
                     <li><a class="menu__item" href="./profile.php">PROFILE</a></li>
                     <li><a class="menu__item" href="./logout.php">LOGOUT</a></li>
             </ul>

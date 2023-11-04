@@ -153,22 +153,13 @@ if (isset($_GET["member"])) {
                 <span></span>
             </label>
             <ul class="menu__box">
-            <li><a class="menu__item" href="index.php">Home</a></li>
-                    <li><a class="menu__item" href="./php/Shop.php">Shop</a></li>
-                    <li><a class="menu__item" href="./php/Magazine.php">Magazine</a></li>
-                    <li><a class="menu__item" href="./php/Custom.php">Custom Your Own</a></li>
-                    <li><a class="menu__item" href="./php/login.php">Login</a></li>
-            </ul>
-        </div>
-   
-<div class="top-menu">
-        <img src="../img/Shadow.png" class="Shadow">
-        <nav class="main-nav" style="display: relative; position: absolute;">
-            <ul class="menu-left">
-                <a href="afterlogin.php"><img src="../img/logo.png" class="logo"></a>
-                <li><a class="Shop" href="./Shop.php">SHOP</a></li>
-                <li><a href="./Magazine.php" class="Magazine" href="">MAGAZINE</a></li>
-                <li><a class="Custom" href="./Custom.php">CUSTOM YOUR OWN</a></li>
+            <li><a class="menu__item" href="./afterlogin.php">Home</a></li>
+                    <li><a class="menu__item" href="./Shop.php">Shop</a></li>
+                    <li><a class="menu__item" href="./Magazine.php">Magazine</a></li>
+                    <li><a class="menu__item" href="./Custom.php">Custom Your Own</a></li>
+                    <li><a class="menu__item" href="./Cartafterlogin.php">Cart</a></li>
+                    <li><a class="menu__item" href="./profile.php">PROFILE</a></li>
+                    <li><a class="menu__item" href="./logout.php">LOGOUT</a></li>
             </ul>
         </div>
         <!-- Menu Verticle-->
