@@ -206,7 +206,7 @@ $minPriceFilter = isset($_POST['min-price']) ? $_POST['min-price'] : '';
                     <li><a class="Custom" href="./Custom.php">CUSTOM YOUR OWN</a></li>
                 </ul>
                 <div class="menu-right">
-                    <input type="text" class="searchbox" placeholder="Search Products" >
+                    <input type="text" class="searchbox" placeholder="Search Products" name="keyword" id="keyword" onkeyup="send()" >
                     <a href="./Cartafterlogin.php"><img src="../img/cart.png" class="cart"></a>
                     <div class="dropdown">
                     <img src="../img/Login.png" class="login" alt="Login Icon">
