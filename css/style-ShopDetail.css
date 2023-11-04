@@ -68,6 +68,7 @@ input::-webkit-inner-spin-button {
     font-weight: bold;
     border-radius: 5px;
 }
+}
 
 
 @media (max-width: 780px) {
