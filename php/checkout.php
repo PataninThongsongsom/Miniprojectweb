@@ -13,7 +13,7 @@ include './connect.php';
         $sql = "INSERT INTO orders (`DATE`, `TIME`, `M_ID`) VALUES (CURRENT_DATE,CURRENT_TIME, '$memberID')";
         $rs = mysqli_query($con, $sql);
         if($rs)
-        {
+        {   $_SESSION['Customstatus'] = true;
             $mdId = mysqli_insert_id($con);
             foreach ($_SESSION["cart"] as $item){
                $pid=$item["pid"];
