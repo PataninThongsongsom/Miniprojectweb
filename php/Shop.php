@@ -214,6 +214,7 @@ $minPriceFilter = isset($_POST['min-price']) ? $_POST['min-price'] : '';
                     <div class="dropdown-content" style="left: 1px;">
 
                         <a href="./profile.php">PROFILE</a>
+                        <a href="./orderdetails.php">ORDER HISTROY</a>
                         <a href="./logout.php">LOGOUT</a>
                     </div>
                         <p style="text-align: center;">Hi <?php echo $_SESSION['username']; ?></p>
