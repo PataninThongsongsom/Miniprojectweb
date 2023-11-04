@@ -172,7 +172,7 @@ if (isset($_GET["member"])) {
                 </ul>
                 <div class="menu-right">
                     <input type="search" class="searchbox" placeholder="Search Products" >
-                    <a href="./Cartbeforelogin.php"><img src="../img/cart.png" class="cart"></a>
+                    <a href="./Cartafterlogin.php"><img src="../img/cart.png" class="cart"></a>
                     <div class="dropdown">
                     <img src="../img/Login.png" class="login" alt="Login Icon">
 
@@ -187,31 +187,6 @@ if (isset($_GET["member"])) {
             </nav>
             
         </div> 
-<!-- <div class="top-menu">
-        <img src="../img/Shadow.png" class="Shadow">
-        <nav class="main-nav" style="display: relative; position: absolute;">
-            <ul class="menu-left">
-                <a href="afterlogin.php"><img src="../img/logo.png" class="logo"></a>
-                <li><a class="Shop" href="./Shop.php">SHOP</a></li>
-                <li><a href="./Magazine.php" class="Magazine" href="">MAGAZINE</a></li>
-                <li><a class="Custom" href="./Custom.php">CUSTOM YOUR OWN</a></li>
-            </ul>
-            <div class="menu-right">
-                <input type="text" class="searchbox" placeholder="Search Products" name="keyword" id="keyword" onkeyup="send()">
-                <a href="./Cartafterlogin.php"><img src="../img/cart.png" class="cart"></a>
-                <div class="dropdown">
-                    <img src="../img/Login.png" class="login" alt="Login Icon">
-
-                    <div class="dropdown-content" style="left: 1px;">
-
-                        <a href="./profile.php">PROFILE</a>
-                        <a href="./logout.php">LOGOUT</a>
-                    </div>
-                    <p style="text-align: center;">Hi <?php echo $_SESSION['username']; ?></p>
-                </div>
-            </div>
-        </nav>
-</div> -->
  <br><br><br><br>
 
 
