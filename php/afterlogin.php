@@ -57,7 +57,7 @@ if (!isset($_SESSION['username'])) { // ถ้าไม่ได้เข้า�
         <!-- Recommand -->
         <div class="Recommand">
             <div class="Rec-image">
-                <img src="./img/Customyourown-neww.png" class="cyo" title="cyo">
+                <img src="../img/Customyourown-neww.png" class="cyo" title="cyo">
             </div>
             <div class="Rec-paragraph">
                 <h1 class="Rec-paragraph-Headers">Custom Your Own!</h1>
