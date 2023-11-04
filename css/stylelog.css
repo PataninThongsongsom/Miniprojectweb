@@ -11,110 +11,126 @@
 
 
 
+/* pc */
+@media (min-width:1065px){
+    .Login-page{
+        background-image: url('../img/bg-blur.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center; 
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
-.Login-page{
-    background-image: url('../img/bg-blur.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center; 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        
     
-   
-}
+    }
 
-.mybox{
-    width:400px;
-    background-color: rgba(255, 251, 251, 0.40);
-    color: #000;
-    padding: 25px 35px;
-}
-
-
-
-.Logintext{
-   width: 50%;
-   margin-left:102px;
-   margin-top: 10px;
-   margin-bottom: 10px;
-}
-
-
-.myinput{
-    width: 85%;
-    height: 30px; 
-    margin: 5px 40px;
-}
-
-.myinput input{
-    width: 90%;
-    height: 90%;
-    margin-left: 24px;
-    padding: 3px 0px 3px 9px;
-}
-.btn{
-    width: 45%;
-    height: 45px;
-    margin-left: 140px;
-    background-color: black;
-    color:white;
-    font-weight: bold;
-    
-}
-.btnlogin{
-    text-decoration: none;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    margin-left: 140px;
-    margin-top: -10px;
-    padding: 15px;
-    width: 30%;
-    background-color: black;
-    font-weight: bold;
-    color: white;
-}
-.btnback{
-    text-decoration: none;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    margin-left: 155px;
-    margin-top: 5px;
-    padding: 5px;
-    width: 20%;
-    background-color: white;
-    font-weight: bold;
-    color: black;
-    text-decoration:none;
-}
+    .mybox{
+        width:400px;
+        background-color: rgba(255, 251, 251, 0.40);
+        color: #000;
+        padding: 25px 35px;
+    }
 
 
 
-.myinput ion-icon{
-    position: relative;
-    margin-left: -30px;
+    .Logintext{
+    width: 50%;
+    margin-left:102px;
     margin-top: 10px;
-    font-size: 25px;
-}
+    margin-bottom: 10px;
+    }
 
-.mybox .Remember{
-    display: flex;
-    margin-left: 140px;
-    font-size: 14px;
-    font-weight: bold;
-}
 
-.mybox .Register{
-    display: flex;
-    margin-left: 60px;
-    font-size: 14px;
-    font-weight: bold;
+    .myinput{
+        width: 85%;
+        height: 30px; 
+        margin: 5px 40px;
+    }
+
+    .myinput input{
+        width: 90%;
+        height: 90%;
+        margin-left: 24px;
+        padding: 3px 0px 3px 9px;
+    }
+    .btn{
+        width: 45%;
+        height: 45px;
+        margin-left: 140px;
+        background-color: black;
+        color:white;
+        font-weight: bold;
+        
+    }
+    .btnlogin{
+        text-decoration: none;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        margin-left: 140px;
+        margin-top: -10px;
+        padding: 15px;
+        width: 30%;
+        background-color: black;
+        font-weight: bold;
+        color: white;
+    }
+    .btnback{
+        text-decoration: none;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        margin-left: 155px;
+        margin-top: 5px;
+        padding: 5px;
+        width: 20%;
+        background-color: white;
+        font-weight: bold;
+        color: black;
+        text-decoration:none;
+    }
+
+
+
+    .myinput ion-icon{
+        position: relative;
+        margin-left: -30px;
+        margin-top: 10px;
+        font-size: 25px;
+    }
+
+    .mybox .Remember{
+        display: flex;
+        margin-left: 140px;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .mybox .Register{
+        display: flex;
+        margin-left: 60px;
+        font-size: 14px;
+        font-weight: bold;
+    }
+    .Register a{
+        color:BLACK;
+    }
 }
-.Register a{
-    color:BLACK;
+/* Tablet */
+@media (min-width:781px) and (max-width:1065px){
+    .Login-page{
+        background-image: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+}
+/* Mobile */
+@media (max-width:780px){
+
 }
