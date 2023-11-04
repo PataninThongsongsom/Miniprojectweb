@@ -125,6 +125,7 @@ $minPriceFilter = isset($_POST['min-price']) ? $_POST['min-price'] : '';
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>O'clock Shop</title>
     <link rel="icon" type="image/x-icon" href="./img/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -172,9 +173,9 @@ $minPriceFilter = isset($_POST['min-price']) ? $_POST['min-price'] : '';
 
             <h1>Price</h1>
             <label for="max-price">Max Price : </label>
-            <input type="number" name="max-price" placeholder="1000" value="<?php echo (isset($_POST['max-price']) && is_numeric($_POST['max-price'])) ? $_POST['max-price'] : '1000'; ?>"><br>
+            <input type="number" name="max-price" placeholder="1000" value="<?php echo (isset($_POST['max-price']) && is_numeric($_POST['max-price'])) ? $_POST['max-price'] : '1000'; ?>">
             <label for="max-price">Min Price : </label>
-            <input type="number" name="min-price" min="100" placeholder="100" value="<?php echo (isset($_POST['min-price']) && is_numeric($_POST['min-price'])) ? $_POST['min-price'] : '100'; ?>"><br>
+            <input type="number" name="min-price" min="100" placeholder="100" value="<?php echo (isset($_POST['min-price']) && is_numeric($_POST['min-price'])) ? $_POST['min-price'] : '100'; ?>">
             <input type="submit" name="submit-fitler" id="submit-filter">
         </form>
 
