@@ -11,14 +11,16 @@
 
 
 /* pc */
-@media (min-width:1065px) {
+@media (min-width:1025px) {
+    *{
+        font-size: 1em;
+    }
     .Login-page {
         background-image: url('../img/bg-blur.png');
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
         display: flex;
         justify-content: center;
         align-items: center;
@@ -33,7 +35,7 @@
         gap: 10px;
         margin: 5% 5% 5%;
         border-radius: 10px;
-        min-height: 100vh;
+        min-height: 90vh;
         min-width: 80vh;
 
     }
@@ -119,7 +121,7 @@
 }
 
 /* Tablet */
-@media (min-width:781px) and (max-width:1065px) {
+@media (min-width:481px) and (max-width:1024px) {
     *{
         font-size: 1.1em;
     }
@@ -215,9 +217,9 @@
 }
 
 /* Mobile */
-@media (max-width:780px)  {
+@media (max-width:480px)  {
     *{
-        font-size: 1.2em;
+        font-size: 1.05em;
     }
     .Loginform{
         display:grid;
