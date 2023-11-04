@@ -144,7 +144,7 @@ input::-webkit-inner-spin-button {
     
 }
 
-@media (min-width:781px) and (max-width:1065px){
+@media (min-width:781px) and (max-width:1084px){
     .top-menu
     {
         display: none;
