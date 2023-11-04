@@ -133,8 +133,8 @@ if (isset($_GET["member"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/stylecart2.css">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="./css/style-dropbar.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="../css/style-dropbar.css">
+    <title>Cart</title>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <!-- <script src = "../js/cart2.js"></script> -->
@@ -146,33 +146,53 @@ if (isset($_GET["member"])) {
 	}</script>
 
 <body>
-   
-<div class="top-menu">
-        <img src="../img/Shadow.png" class="Shadow">
-        <nav class="main-nav" style="display: relative; position: absolute;">
-            <ul class="menu-left">
-                <a href="afterlogin.php"><img src="../img/logo.png" class="logo"></a>
-                <li><a class="Shop" href="./Shop.php">SHOP</a></li>
-                <li><a href="./Magazine.php" class="Magazine" href="">MAGAZINE</a></li>
-                <li><a class="Custom" href="./Custom.php">CUSTOM YOUR OWN</a></li>
+    <!-- Menu Herizon -->
+    <div class="hamburger-menu">
+            <input id="menu__toggle" type="checkbox" />
+            <label class="menu__btn" for="menu__toggle">
+                <span></span>
+            </label>
+            <ul class="menu__box">
+            <li><a class="menu__item" href="./afterlogin.php">Home</a></li>
+                    <li><a class="menu__item" href="./Shop.php">Shop</a></li>
+                    <li><a class="menu__item" href="./Magazine.php">Magazine</a></li>
+                    <li><a class="menu__item" href="./Custom.php">Custom Your Own</a></li>
+                    <li><a class="menu__item" href="./Cartafterlogin.php">Cart</a></li>
+                    <li><a class="menu__item" href="./profile.php">PROFILE</a></li>
+                    <li><a class="menu__item" href="./logout.php">LOGOUT</a></li>
             </ul>
-            <div class="menu-right">
-                <input type="text" class="searchbox" placeholder="Search Products" name="keyword" id="keyword" onkeyup="send()">
-                <a href="./Cartafterlogin.php"><img src="../img/cart.png" class="cart"></a>
-                <div class="dropdown">
+        </div>
+        <!-- Menu Verticle-->
+        <div class="top-menu"> 
+            <img src="../img/Shadow.png" class="Shadow" title="Shadow">
+            <nav class="main-nav">
+                <ul class="menu-left">
+                    <a href="./afterlogin.php"><img src="../img/logo.png"class="logo"></a>
+                    <li><a href="./Shop.php"class="Shop" href="">SHOP</a></li>
+                    <li><a href="./Magazine.php" class="Magazine" href="">MAGAZINE</a></li>
+                    <li><a class="Custom" href="./Custom.php">CUSTOM YOUR OWN</a></li>
+                </ul>
+                <div class="menu-right">
+                    <input type="search" class="searchbox" placeholder="Search Products" >
+                    <a href="./Cartafterlogin.php"><img src="../img/cart.png" class="cart"></a>
+                    <div class="dropdown">
                     <img src="../img/Login.png" class="login" alt="Login Icon">
 
                     <div class="dropdown-content" style="left: 1px;">
-
+                        <?php if($_SESSION['username']=== 'admin'){ ?>
+                            <a href="./listorder.php">LIST OF ORDER</a>
+                        <?php }?>
                         <a href="./profile.php">PROFILE</a>
+                        <a href="./HistoryOforder.php">ORDER HISTROY</a>
                         <a href="./logout.php">LOGOUT</a>
+                        
                     </div>
-                    <p style="text-align: center;">Hi <?php echo $_SESSION['username']; ?></p>
+                        <p style="text-align: center;">Hi <?php echo $_SESSION['username']; ?></p>
+                    </div>
                 </div>
-                <!-- <a href="Login.php"><img src="../img/Login.png" class="login"> </a> -->
-            </div>
-        </nav>
-    </div>
+            </nav>
+            
+        </div> 
  <br><br><br><br>
 
 
@@ -193,7 +213,7 @@ if (isset($_GET["member"])) {
             <p>STATUS: EMPTY</p>
             <ion-icon name="cart-sharp"></ion-icon>
             <br>
-            <p class ="detailbeforeshop">ถ้าคุณอดใจไม่ไหวที่จะซื้อสินค้าของเราและต้องการละลายทรัพย์กับสินค้าที่เราหลอกขาย(ต้นทุน50ร้านเราขาย5000 หวานเจี๊ยบบบบบ)โปรดกดปุ่ม</p>
+            <p class ="detailbeforeshop">หากคุณสนใจที่จะสั่งซื้อสินค้าของเรากรุณากดปุ่ม</p>
             <br>
             <a href="../php/Shop.php" class="shop-now">SHOP NOW</a>
 

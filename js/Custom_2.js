@@ -23,15 +23,12 @@ let isDragging = false,
   ismoveing = false,
   offsetY = 0;
   
-  function setCanvasSize() {
-    canvas.width = window.innerWidth; // Adjust as needed
-    canvas.height = window.innerHeight; // Adjust as needed
-    setCanvasBackground();
-  }
-  
+
 bgImage.src = '../img/t-shirt-template-white.png';
-bgImage.onload = setCanvasSize;
-window.addEventListener("resize", setCanvasSize);
+bgImage.onload = () => {
+  setCanvasBackground();
+};
+
 let prevMouseX, prevMouseY, snapshot,
   isDrawing = false,
   selectedTool = "brush",
@@ -40,22 +37,8 @@ let prevMouseX, prevMouseY, snapshot,
 
   const setCanvasBackground = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(bgImage, 0, 0, canvas.width, canvas.height);
   
-    const aspectRatio = bgImage.width / bgImage.height;
-    const canvasAspectRatio = canvas.width / canvas.height;
-  
-    if (aspectRatio > canvasAspectRatio) {
-      const scaledWidth = canvas.width;
-      const scaledHeight = canvas.width / aspectRatio;
-      const yOffset = (canvas.height - scaledHeight) / 2;
-      ctx.drawImage(bgImage, 0, yOffset, scaledWidth, scaledHeight);
-    } else {
-      const scaledHeight = canvas.height;
-      const scaledWidth = canvas.height * aspectRatio;
-      const xOffset = (canvas.width - scaledWidth) / 2;
-      ctx.drawImage(bgImage, xOffset, 0, scaledWidth, scaledHeight);
-    }
-    
     for (const image of images) {
         ctx.drawImage(image.img, (image.x), (image.y), image.width, image.height);
       }
