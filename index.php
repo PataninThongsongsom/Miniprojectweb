@@ -67,7 +67,7 @@ if (isset($_SESSION['username'])) { // ถ้าlogin ไว้แล้ว
                 <p class="Rec-paragraph-Paragraph">
                 สร้างสไตล์ของคุณเอง! เลือกผ้าที่คุณชื่นชอบ ทำให้เสื้อของคุณไม่เหมือนใคร! เริ่มต้นที่ O'Clock และเป็นส่วนหนึ่งของการสร้างสรรค์แฟชั่นของคุณได้เลย!
                 </p>
-                <button class="Button-Paragraph" onclick="window.location.href='./html/uploadfile.html'">ทดลองใช้</button>
+                <button class="Button-Paragraph" onclick="window.location.href='../php/Custom.php'">ทดลองใช้</button>
             </div>
         </div>
         <!-- Detail -->

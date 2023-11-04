@@ -125,7 +125,7 @@ $minPriceFilter = isset($_POST['min-price']) ? $_POST['min-price'] : '';
 
 <head>
     <meta charset="utf-8">
-    <title>O'clock</title>
+    <title>O'clock Shop</title>
     <link rel="icon" type="image/x-icon" href="./img/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

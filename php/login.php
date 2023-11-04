@@ -61,7 +61,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>O'clock</title>
+        <title>O'clock Login</title>
         <link rel="icon" type="image/x-icon" href="../Miniprojectweb/img/logo.png">
         <link rel="stylesheet" href="../css/stylelog.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
