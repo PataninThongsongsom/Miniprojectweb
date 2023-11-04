@@ -76,6 +76,7 @@ $pid = $row["PID"];
             </nav>
             
         </div>
+        <br><br>
     <div class="content">
     <div class="img-detail">
         <?php
@@ -98,7 +99,7 @@ $pid = $row["PID"];
                                 <input type="number" id="quantity" name="qty" value="1">
                             <button type="button" onclick="incrementQuantity()">+</button>
                         </div>
-                        <input type="submit" value="ADD TO CART">
+                        <input type="submit" value="ADD TO CART" class="addtocart">
                     </form>
                     <a href="Shop.php">
                         <button>BACK</button>
