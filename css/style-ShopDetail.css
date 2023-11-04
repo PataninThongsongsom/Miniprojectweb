@@ -36,11 +36,19 @@
 .quantity button{
     padding: 0.5em;
     margin: 1em 0em 1em 0em;
+    color: white;
+       background-color: black;
 }
 .quantity input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+.addtocart{
+    color: white;
+    background-color: black;
+    font-weight: bold;
+    border-radius: 5px;
 }
 .quantity input{
     padding: 0em;
@@ -55,4 +63,61 @@ input::-webkit-inner-spin-button {
 .detail a button{
     margin: 1em 0em 1em 0em;
     padding: 0.5em 3em;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+
+@media (max-width: 780px) {
+    .content {
+        margin: 2em; /* Adjusted margin for smaller screens */
+        flex-direction: column; /* Stack items in a column on smaller screens */
+    }
+
+    .img-detail img {
+        margin: 2em; /* Adjusted margin for smaller screens */
+        display: block;
+    }
+
+    .detail {
+        flex-direction: column; /* Stack columns in a column on smaller screens */
+        align-items: center; /* Center columns vertically */
+        margin: -1em 0; 
+        text-align: center;
+    }
+
+    .quantity {
+        align-items: center; /* Center columns vertically */
+        justify-content: center;
+    }
+
+    .quantity button {
+       color: white;
+       background-color: black;
+       border-radius: 2px;
+       margin: 1em 0;
+
+    }
+    .quantity input{
+        border-radius: 2px;
+        margin: 1em 0;
+        height: 30px;
+    }
+    
+    .detail input{
+        width: 100%; /* Make input elements fill the available width */
+        
+    }
+    .addtocart{
+        color: white;
+        background-color: black;
+        font-weight: bold;
+        border-radius: 5px;
+    }
+    
+    .detail a button{
+        margin: 0em 0em 3em 0em;
+        font-weight: bold;
+        border-radius: 5px;
+    }
 }

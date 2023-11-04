@@ -1,4 +1,4 @@
-@media (min-width: 602px) {
+@media (min-width: 781px) {
 *
 {
     margin: 0%;
@@ -336,9 +336,8 @@ height:30px;
         font-weight: bold; /* ตัวหนา */
         background-color: #000; /* สีพื้นหลังดำสำหรับปุ่ม */
         color: #fff; /* สีตัวอักษรขาวสำหรับปุ่ม */
-        width: 15%;
         border-radius: 5px; /* รอบมุมของปุ่ม */
-        padding: 10px 10px;
+        padding: 20px 60px;
         display: grid;
         align-items: center;
         justify-content: center;
@@ -375,7 +374,7 @@ height:30px;
   
    /* Add responsive CSS for screens with a maximum width of 601px */
 /* Add responsive CSS for screens with a maximum width of 601px */
-@media (max-width: 601px) {
+@media (max-width: 780px) {
 
     .top-menu
     {
@@ -583,10 +582,10 @@ height:30px;
     .subtotal-box {
         text-align: center;
         background-color: black;
-        padding: 80px;
+        padding: 40px;
         color: white;
         font-weight: bold;
-        font-size: 40px
+        font-size: 20px
       }
 
     .subtotal-btn{
