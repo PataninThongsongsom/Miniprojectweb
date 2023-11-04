@@ -66,7 +66,10 @@ $pid = $row["PID"];
                     <img src="../img/Login.png" class="login" alt="Login Icon">
 
                     <div class="dropdown-content" style="left: 1px;">
-
+                    <?php if($_SESSION['username']=== 'admin'){ ?>
+                            <a href="./listorder.php">LIST OF ORDER</a>
+                        <?php }?>
+                        <a href="./HistoryOforder.php">ORDER HISTROY</a>
                         <a href="./profile.php">PROFILE</a>
                         <a href="./logout.php">LOGOUT</a>
                     </div>

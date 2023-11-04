@@ -99,17 +99,16 @@ include './connect.php';
                     
                      $sum =0;
                      $id=$_SESSION['userdetail']['id'];
-                     $sql = "SELECT order_detail.OID,images.Image_path,products.product_name,products.price,order_detail.Amount,orders.DATE FROM `order_detail` JOIN  `orders`ON order_detail.OID=orders.OID JOIN products ON order_detail.PID=products.PID JOIN images ON products.IMG_ID=images.IMG_ID WHERE `M_id` = '$id'";
+                     $sql = "SELECT * FROM `order_detail` JOIN  `orders`ON order_detail.OID=orders.OID JOIN products ON order_detail.PID=products.PID JOIN images ON products.IMG_ID=images.IMG_ID WHERE `M_id` = '$id'";
                      $result = $con->query($sql);
-                     $row = $result->fetch_assoc();
-                     $rowCount = $row['count'];
-                     if ($rowCount === 0) {
+                     if ($result->num_rows === 0){
+                        
                         echo "<script type='text/javascript'>alert('คุณยังไม่เคยสั่งซื้อสินค้ากับเรา ลองดูสิ!'); 
                             window.location = './Shop.php'
                         </script>";
                     } else {
                      while ($row = $result->fetch_assoc()) {
-                        $sum += $row["price"];
+                     $sum += $row["price"];
                     
                     ?>
                 <div class="card shadow-0 border mb-4">
