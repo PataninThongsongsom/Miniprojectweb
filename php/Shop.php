@@ -160,7 +160,7 @@ $minPriceFilter = isset($_POST['min-price']) ? $_POST['min-price'] : '';
         </div> -->
     <!-- Menu -->
 
-    <nav id="side">
+    <nav id="side" style="display: none;">
         <h1 id="closeFilter">CLOSE</h1>
         <form action="Shop.php" method="post" onsubmit="return validatePrice()">
             <h1>Category</h1>
