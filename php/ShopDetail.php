@@ -34,30 +34,48 @@ $pid = $row["PID"];
 </head>
 
 <body>
-    <div class="top-menu">
-        <img src="../img/Shadow.png" class="Shadow">
-        <nav class="main-nav" style="display: relative; position: absolute;">
-            <ul class="menu-left">
-                <a href="afterlogin.php"><img src="../img/logo.png" class="logo"></a>
-                <li><a class="Shop" href="">SHOP</a></li>
-                <li><a href="./Magazine.php" class="Magazine" href="">MAGAZINE</a></li>
-                <li><a class="Custom" href="./Custom.php">CUSTOM YOUR OWN</a></li>
+<div class="hamburger-menu">
+            <input id="menu__toggle" type="checkbox" />
+            <label class="menu__btn" for="menu__toggle">
+                <span></span>
+            </label>
+            <ul class="menu__box">
+            <li><a class="menu__item" href="./afterlogin.php">Home</a></li>
+                    <li><a class="menu__item" href="./Shop.php">Shop</a></li>
+                    <li><a class="menu__item" href="./Magazine.php">Magazine</a></li>
+                    <li><a class="menu__item" href="./Custom.php">Custom Your Own</a></li>
+                    <li><a class="menu__item" href="./Cartafterlogin.php">Cart</a></li>
+                    <li><a class="menu__item" href="./profile.php">PROFILE</a></li>
+                    <li><a class="menu__item" href="./logout.php">LOGOUT</a></li>
             </ul>
-            <div class="menu-right">
-                <input type="search" class="searchbox" placeholder="Search Products">
-                <a href="./Cartafterlogin.php"><img src="../img/cart.png" class="cart"></a>
-                <div class="dropdown">
+        </div>
+        <!-- Menu Verticle-->
+        <div class="top-menu"> 
+            <img src="../img/Shadow.png" class="Shadow" title="Shadow">
+            <nav class="main-nav">
+                <ul class="menu-left">
+                    <a href="./afterlogin.php"><img src="../img/logo.png"class="logo"></a>
+                    <li><a href="./Shop.php"class="Shop" href="">SHOP</a></li>
+                    <li><a href="./Magazine.php" class="Magazine" href="">MAGAZINE</a></li>
+                    <li><a class="Custom" href="./Custom.php">CUSTOM YOUR OWN</a></li>
+                </ul>
+                <div class="menu-right">
+                    <input type="search" class="searchbox" placeholder="Search Products" >
+                    <a href="./Cartafterlogin.php"><img src="../img/cart.png" class="cart"></a>
+                    <div class="dropdown">
                     <img src="../img/Login.png" class="login" alt="Login Icon">
 
                     <div class="dropdown-content" style="left: 1px;">
+
                         <a href="./profile.php">PROFILE</a>
                         <a href="./logout.php">LOGOUT</a>
                     </div>
-                    <p style="text-align: center;">Hi <?php echo $_SESSION['username']; ?></p>
+                        <p style="text-align: center;">Hi <?php echo $_SESSION['username']; ?></p>
+                    </div>
                 </div>
-            </div>
-        </nav>
-    </div> 
+            </nav>
+            
+        </div>
     <div class="content">
     <div class="img-detail">
         <?php
