@@ -125,7 +125,7 @@ $minPriceFilter = isset($_POST['min-price']) ? $_POST['min-price'] : '';
 
 <head>
     <meta charset="utf-8">
-    <title>O'clock</title>
+    <title>O'clock Shop</title>
     <link rel="icon" type="image/x-icon" href="./img/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -180,19 +180,34 @@ $minPriceFilter = isset($_POST['min-price']) ? $_POST['min-price'] : '';
 
     </nav>
 
-    <div class="top-menu">
-        <img src="../img/Shadow.png" class="Shadow">
-        <nav class="main-nav" style="display: relative; position: absolute;">
-            <ul class="menu-left">
-                <a href="afterlogin.php"><img src="../img/logo.png" class="logo"></a>
-                <li><a class="Shop" href="">SHOP</a></li>
-                <li><a href="./Magazine.php" class="Magazine" href="">MAGAZINE</a></li>
-                <li><a class="Custom" href="./Custom.php">CUSTOM YOUR OWN</a></li>
+    <div class="hamburger-menu">
+            <input id="menu__toggle" type="checkbox" />
+            <label class="menu__btn" for="menu__toggle">
+                <span></span>
+            </label>
+            <ul class="menu__box">
+            <li><a class="menu__item" href="./afterlogin.php">Home</a></li>
+                    <li><a class="menu__item" href="./Shop.php">Shop</a></li>
+                    <li><a class="menu__item" href="./Magazine.php">Magazine</a></li>
+                    <li><a class="menu__item" href="./Custom.php">Custom Your Own</a></li>
+                    <li><a class="menu__item" href="./profile.php">PROFILE</a></li>
+                    <li><a class="menu__item" href="./logout.php">LOGOUT</a></li>
             </ul>
-            <div class="menu-right">
-                <input type="text" class="searchbox" placeholder="Search Products" name="keyword" id="keyword" onkeyup="send()">
-                <a href="./Cartafterlogin.php"><img src="../img/cart.png" class="cart"></a>
-                <div class="dropdown">
+        </div>
+        <!-- Menu Verticle-->
+        <div class="top-menu"> 
+            <img src="../img/Shadow.png" class="Shadow" title="Shadow">
+            <nav class="main-nav">
+                <ul class="menu-left">
+                    <a href="./afterlogin.php"><img src="../img/logo.png"class="logo"></a>
+                    <li><a href="./Shop.php"class="Shop" href="">SHOP</a></li>
+                    <li><a href="./Magazine.php" class="Magazine" href="">MAGAZINE</a></li>
+                    <li><a class="Custom" href="./Custom.php">CUSTOM YOUR OWN</a></li>
+                </ul>
+                <div class="menu-right">
+                    <input type="search" class="searchbox" placeholder="Search Products" >
+                    <a href="./Cartafterlogin.php"><img src="../img/cart.png" class="cart"></a>
+                    <div class="dropdown">
                     <img src="../img/Login.png" class="login" alt="Login Icon">
 
                     <div class="dropdown-content" style="left: 1px;">
@@ -200,13 +215,12 @@ $minPriceFilter = isset($_POST['min-price']) ? $_POST['min-price'] : '';
                         <a href="./profile.php">PROFILE</a>
                         <a href="./logout.php">LOGOUT</a>
                     </div>
-                    <p style="text-align: center;">Hi <?php echo $_SESSION['username']; ?></p>
+                        <p style="text-align: center;">Hi <?php echo $_SESSION['username']; ?></p>
+                    </div>
                 </div>
-                <!-- <a href="Login.php"><img src="../img/Login.png" class="login"> </a> -->
-            </div>
-        </nav>
-    </div>
-    <!-- <img class="shop-top-bg" src="../img/shop_img/bg-top2_small.jpg" alt=""> -->
+            </nav>
+            
+        </div>
 
     <div class="Shop-filter">
         <button id="filterBT" class="filterBT">Filter</button>
