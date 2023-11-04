@@ -96,7 +96,7 @@ include './connect.php';
                 <?php
                     
                      $sum =0;
-                     $sql = "SELECT orders.M_id, order_detail.OID,images.Image_path,products.product_name,products.price,order_detail.Amount,orders.DATE ,member_detail.Name,member_detail.Surname,member_detail.Address,member_detail.tel FROM `order_detail` JOIN  `orders`ON order_detail.OID=orders.OID JOIN products ON order_detail.PID=products.PID JOIN images ON products.IMG_ID=images.IMG_ID JOIN member_detail ON member_detail.Id=orders.M_ID;";
+                     $sql = "SELECT order_detail.OID,images.Image_path,products.product_name,products.price,order_detail.Amount,orders.DATE ,member_detail.Name,member_detail.Surname,member_detail.Address,member_detail.tel FROM `order_detail` JOIN  `orders`ON order_detail.OID=orders.OID JOIN products ON order_detail.PID=products.PID JOIN images ON products.IMG_ID=images.IMG_ID JOIN member_detail ON member_detail.Id=orders.M_ID;";
                      $result = $con->query($sql);
                      $row = $result->fetch_assoc();
                      $rowCount = $row['count'];
@@ -126,34 +126,25 @@ include './connect.php';
                     <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
                         <p class="text-muted mb-0 small"><?=$row["price"]?> ฿</p>
                     </div>
+                    <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                        <p class="text-muted mb-0"><?=$row["Name"]?></p>
+                    </div>
+                    <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                        <p class="text-muted mb-0"><?=$row["Address"]?> <?=$row["tel"]?></p>
+                    </div>
                     </div>
                     <hr class="mb-4" style="background-color: #e0e0e0; opacity: 1;">
                     <div class="d-flex justify-content-around mb-1">
                     <p class="text-muted mt-1 mb-0 small ms-xl-5">OrderDate: </p>
                       <p class="text-muted mt-1 mb-0 small ms-xl-5"><?=$row["DATE"]?></p>
                     </div>
+                    
+                    
                 </div>
                 </div>
                 <?php } }?> 
 
-                <div class="d-flex justify-content-between pt-2">
-                <p class="fw-bold mb-0">Order Details</p>
-                <p class="text-muted mb-0"><span class="fw-bold me-4">Total</span> <?=$sum?> ฿</p>
-                </div>
-                <div class="d-flex justify-content-between">
-                <p class="text-muted mb-0">Invoice Date : 22 Dec,2019</p>
-                </div>
-
-                <div class="d-flex justify-content-between mb-5">
-                <p class="text-muted mb-0"><span class="fw-bold me-4">Delivery Charges</span> Free</p>
-                </div>
-            </div>
-            <div class="card-footer border-0 px-4 py-5"
-                style="background-color: black; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
-                <h5 class="d-flex align-items-center justify-content-end text-white text-uppercase mb-0">Total
-                paid: <span class="h2 mb-0 ms-2"><?=$sum?> ฿</span></h5>
-            </div>
-            </div>
+                
         </div>
         </div>
     </div>

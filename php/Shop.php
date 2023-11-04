@@ -212,7 +212,9 @@ $minPriceFilter = isset($_POST['min-price']) ? $_POST['min-price'] : '';
                     <img src="../img/Login.png" class="login" alt="Login Icon">
 
                     <div class="dropdown-content" style="left: 1px;">
-
+                    <?php if($_SESSION['username']=== 'admin'){ ?>
+                            <a href="./listorder.php">LIST OF ORDER</a>
+                        <?php }?>
                         <a href="./profile.php">PROFILE</a>
                         <a href="./orderdetails.php">ORDER HISTROY</a>
                         <a href="./logout.php">LOGOUT</a>
