@@ -38,7 +38,7 @@ if (!isset($_SESSION['username'])) { // ถ้าไม่ได้เข้า�
                   <a class="nav-link" href="./Cartafterlogin.php">Cart</a>
                 </li>
                 <hr><br>
-                <h3>Option</h3>
+                <h3>Let Custom!</h3>
               </ul>
               <section class="tools-board">
                 <div class="row">
@@ -68,11 +68,11 @@ if (!isset($_SESSION['username'])) { // ถ้าไม่ได้เข้า�
                     <li class="option active tool" id="brush">
                       <img src="../img/icons/brush.svg" alt="">
                       <span>Brush</span>
-                    </li>
+                    </li><br>
                     <li class="option tool" id="eraser">
                       <img src="../img/icons/eraser.svg" alt="">
                       <span>Eraser</span>
-                    </li>
+                    </li><br>
                     
                     <li class="option">
                       <input type="range" id="size-slider" min="1" max="30" value="5">
