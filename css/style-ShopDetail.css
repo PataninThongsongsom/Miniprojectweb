@@ -56,3 +56,15 @@ input::-webkit-inner-spin-button {
     margin: 1em 0em 1em 0em;
     padding: 0.5em 3em;
 }
+
+
+@media (max-width: 780px){
+    .content {
+        margin: 5em;
+    }
+
+    .detail {
+        margin: 5em;
+    }
+    
+}
