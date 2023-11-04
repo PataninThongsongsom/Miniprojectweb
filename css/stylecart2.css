@@ -1,4 +1,4 @@
-@media (min-width: 781px) {
+@media (min-width: 1085px) {
 *
 {
     margin: 0%;
@@ -631,3 +631,291 @@ height:30px;
         display:flex;
     }
   }
+
+  @media (min-width:781px) and (max-width:1065px)
+{
+    .top-menu
+    {
+        display: none;
+    }
+
+    .top-menu {
+        visibility: visible;
+    }
+
+    .main-nav{
+        display:none;
+    }
+
+    .Rec-image{
+        /* padding-inline: 3rem; */
+    
+    }
+    .Rec-paragraph
+    {
+        padding-top: 0;
+
+    }
+
+    .Rec-image
+    {
+        /* width: 100%; */
+    }
+
+    /* Hamburger */
+    .hamburger-menu
+    {
+        position: fixed;
+        z-index: 997;
+        font-size: 90%;
+    }
+
+#menu__toggle {
+    opacity: 0;
+  }
+  #menu__toggle:checked + .menu__btn > span {
+    transform: rotate(45deg);
+  }
+  #menu__toggle:checked + .menu__btn > span::before {
+    top: 0;
+    transform: rotate(0deg);
+  }
+  #menu__toggle:checked + .menu__btn > span::after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+  #menu__toggle:checked ~ .menu__box {
+    left: 0 !important;
+  }
+  .menu__btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 26px !important;
+    height: 26px !important;
+    cursor: pointer;
+    z-index: 1;
+  }
+  .menu__btn > span,
+  .menu__btn > span::before,
+  .menu__btn > span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #616161;
+    transition-duration: .25s;
+  }
+  .menu__btn > span::before {
+    content: '';
+    top: -8px;
+  }
+  .menu__btn > span::after {
+    content: '';
+    top: 8px;
+  }
+  .menu__box {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 600px;
+    height: 100%;
+    margin: 0;
+    padding: 80px 0;
+    list-style: none;
+    background-color: #eceff180;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, .4);
+    transition-duration: .25s;
+  }
+  .menu__item {
+    display: block;
+    padding: 32px 24px;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    text-decoration: none;
+    transition-duration: .25s;
+  }
+  .menu__item:hover {
+    background-color: #CFD8DC;
+  }
+
+  * { 
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+    .empty-cart {
+        font-size: 10px;
+        font-weight: bold;
+    }
+    
+    .login-link {
+        display: block;
+        margin-top: 10px;
+        color: #000; /* สีลิงก์ดำ */
+        text-decoration: underline;
+        
+    }
+    
+    
+    ion-icon[name="trash-sharp"] {
+        color: #ffffff; /* Red color for the trash icon */
+        background-color: black;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    
+    .cart-content {
+        position: relative; /* เพิ่มบรรทัดนี้ */
+        text-align: center;
+    }
+    .cart-content h1 {
+        font-size: 40px; /* ขนาดตัวอักษรสำหรับ <h1> */
+        margin-bottom: 10px; /* เพิ่มระยะห่างด้านล่าง 10px */
+        background: none;
+        background-color: transparent;
+    }
+    .cart-content ion-icon {
+        font-size: 240px;
+        margin: 0 auto;
+    }
+    
+    p {
+        font-size: 18px; /* ขนาดตัวอักษรสำหรับ <p> */
+        font-weight: bold;
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto; /* จัดกลางตามแนวนอน */
+    }
+    
+    
+        
+    .cart-content .detailbeforeshop {
+        color: #6e6e6e; /* สีเทา */
+       
+    }
+    
+    .cart-content {
+        text-align: center;
+        justify-content: center;
+        display: grid;
+        grid-template-rows: auto 1fr auto; /* สร้างสามแถว, แถวแรกและแถวสามเป็นแบบอัตโนมัติ */
+        align-items: center; /* จัดให้อยู่ตรงกลางแนวดิสเพลย์ */
+      }
+    .mycart {
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      padding: 10px;
+      
+
+      
+    }
+
+    .listcart{
+        background-color: white;    
+        box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .numberlist {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 30px;
+    }
+  
+    .numberlist-img {
+      width: 50%;
+    }
+  
+    .numberlist-text {
+      text-align: center;
+      font-size: 30px;
+      font-weight: bold;
+    }
+  
+    .numberlist-name {
+      font-size: 1.2em;
+    }
+  
+    .quantity {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+    }
+  
+    .item-quantity {
+      width: 40px;
+    }
+  
+    .numberlist-price {
+      font-size: 1.2em;
+    }
+  
+    .subtotal{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+    }
+    .subtotal-box {
+        text-align: center;
+        background-color: black;
+        padding: 40px;
+        color: white;
+        font-weight: bold;
+        font-size: 20px
+      }
+
+    .subtotal-btn{
+        font-size: 20px;
+        padding: 10px;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    
+    .cart-content .shop-now {
+        text-decoration: none;
+        color: #000; /* สีลิงก์ดำ */
+        font-weight: bold; /* ตัวหนา */
+        background-color: #000; /* สีพื้นหลังดำสำหรับปุ่ม */
+        color: #fff; /* สีตัวอักษรขาวสำหรับปุ่ม */
+        width: 35%;
+        border-radius: 5px; /* รอบมุมของปุ่ม */
+        padding: 20px 30px;
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto; /* จัดกลางตามแนวนอน */
+        margin-bottom: 10px;
+        
+    }
+    
+    .cart-content .shop-now:hover {
+        background-color: rgba(54, 54, 54, 0.614);
+        color: #000; /* สีตัวอักษรดำเมื่อเมาส์ชี้ที่ปุ่ม */
+    }
+
+    .quantity .update{
+        background-color: rgb(0, 0, 0);
+        color: white;
+        text-decoration: none;
+        padding: 5px;
+        border-radius: 5px;
+    }
+    .quantity{
+        width:200px;
+        height:30px;
+        display:flex;
+    }
+
+}
