@@ -61,12 +61,25 @@ input::-webkit-inner-spin-button {
 }
 
 @media (max-width: 780px){
-    .img-detail img{
-        align-items: center;
-        justify-content: center;
-        border-radius: 10px; 
-        max-height: 500px;
-        width: auto;
+    .content {
+        margin: 2em; /* Adjusted margin for smaller screens */
+        flex-direction: column; /* Stack items in a column on smaller screens */
+    }
+
+    .img-detail img {
+        margin: 2em; /* Adjusted margin for smaller screens */
+    }
+
+    .detail {
+        margin: 2em; /* Adjusted margin for smaller screens */
+    }
+
+    .quantity {
+        flex-direction: column; /* Stack quantity elements in a column on smaller screens */
+    }
+
+    .quantity button {
+        margin: 1em 0; /* Adjusted margin for smaller screens */
     }
     
 }
