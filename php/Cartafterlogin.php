@@ -146,7 +146,8 @@ if (isset($_GET["member"])) {
 	}</script>
 
 <body>
-<div class="hamburger-menu">
+    <!-- Menu Herizon -->
+    <div class="hamburger-menu">
             <input id="menu__toggle" type="checkbox" />
             <label class="menu__btn" for="menu__toggle">
                 <span></span>
@@ -208,7 +209,7 @@ if (isset($_GET["member"])) {
             <p>STATUS: EMPTY</p>
             <ion-icon name="cart-sharp"></ion-icon>
             <br>
-            <p class ="detailbeforeshop">ถ้าคุณอดใจไม่ไหวที่จะซื้อสินค้าของเราและต้องการละลายทรัพย์กับสินค้าที่เราหลอกขาย(ต้นทุน50ร้านเราขาย5000 หวานเจี๊ยบบบบบ)โปรดกดปุ่ม</p>
+            <p class ="detailbeforeshop">หากคุณสนใจที่จะสั่งซื้อสินค้าของเรากรุณากดปุ่ม</p>
             <br>
             <a href="../php/Shop.php" class="shop-now">SHOP NOW</a>
 
