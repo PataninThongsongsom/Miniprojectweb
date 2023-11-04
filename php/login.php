@@ -25,6 +25,7 @@
         if ($result && mysqli_num_rows($result) > 0) {
             // Login successful
             $_SESSION['username'] = $username; // Store username in session for future use
+            
             $_SESSION['userdetail'] = array(
                 'name' => $res['Name'],
                 'surname' => $res['Surname'],
@@ -34,8 +35,7 @@
                 'pass' => $res['Password'],
                 'id' => $res['MD_Id']
             );
-            // echo "<div class='menu-right'> $username</div>";
-            // echo "Ez";
+           
             echo "<script type='text/javascript'>alert('Login Complete'); 
                 window.location = './afterlogin.php'
 
