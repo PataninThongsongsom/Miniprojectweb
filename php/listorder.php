@@ -68,9 +68,11 @@ include './connect.php';
                     <img src="../img/Login.png" class="login" alt="Login Icon">
 
                     <div class="dropdown-content" style="left: 1px;">
-
+                    <?php if($_SESSION['username']=== 'admin'){ ?>
+                            <a href="./listorder.php">LIST OF ORDER</a>
+                        <?php }?>
                         <a href="./profile.php">PROFILE</a>
-                        <a href="./orderdetails.php">ORDER HISTROY</a>
+                        <a href="./HistoryOforder.php">ORDER HISTROY</a>
                         <a href="./logout.php">LOGOUT</a>
                     </div>
                         <p style="text-align: center;">Hi <?php echo $_SESSION['username']; ?></p>
@@ -100,11 +102,7 @@ include './connect.php';
                      $result = $con->query($sql);
                      $row = $result->fetch_assoc();
                      $rowCount = $row['count'];
-                     if ($rowCount === 0) {
-                        echo "<script type='text/javascript'>alert('คุณยังไม่เคยสั่งซื้อสินค้ากับเรา ลองดูสิ!'); 
-                            window.location = './Shop.php'
-                        </script>";
-                    } else {
+                     
                      while ($row = $result->fetch_assoc()) {
                         $sum += $row["price"];
                     
@@ -142,7 +140,7 @@ include './connect.php';
                     
                 </div>
                 </div>
-                <?php } }?> 
+                <?php } ?> 
 
                 
         </div>

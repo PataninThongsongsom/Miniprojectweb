@@ -72,7 +72,7 @@ include './connect.php';
                             <a href="./listorder.php">LIST OF ORDER</a>
                         <?php }?>
                         <a href="./profile.php">PROFILE</a>
-                        <a href="./orderdetails.php">ORDER HISTROY</a>
+                        <a href="./HistoryOforder.php">ORDER HISTROY</a>
                         <a href="./logout.php">LOGOUT</a>
                     </div>
                     <p style="text-align: center;">Hi <?php echo $_SESSION['username']; ?></p>
