@@ -7,7 +7,7 @@ if (isset($_SESSION['username'])) { // ถ้าlogin ไว้แล้ว
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>O'clock</title>
         <link rel="icon" type="image/x-icon" href="./img/logo.png">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
