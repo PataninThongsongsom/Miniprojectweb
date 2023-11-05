@@ -66,7 +66,7 @@ $user = $_SESSION['user_login'];
                 <div class="img-box"><h3>Fashion Show Dior 2021</h3></div>
                 <div class="img-box"><h3>O'Clock x HarryPotter</h3></div>
                 <div class="img-box"><h3>Thai Fashion festival 2022</h3></div>
-                <div class="img-box"><h3>Pic4</h3></div>
+                <div class="img-box"><h3>Thai Fashion festival 2023</h3></div>
 
         </div>
     </section>
