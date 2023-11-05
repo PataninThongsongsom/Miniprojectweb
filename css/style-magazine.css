@@ -428,11 +428,80 @@ img.shadow
   padding-bottom: 60px;
 }
 
+/* Container */
 .detail-magazine
 {
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 400px;
   padding-left: 20px;
   padding-right: 20px;
   display: flex;
+ 
+}
+
+/* Gallery */
+.detail-image-magazine 
+{
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-box
+{
+  width: 100px;
+  height: 300px;
+  margin: 10px;
+  border-radius: 50px ;
+  background: url(../img/Magazine/1.png);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  transition: width 0.5s;
+  opacity: 0.5;
+}
+
+.img-box:nth-child(2)
+{
+  background:url(../img/Magazine/2.png);
+  background-size: cover;
+  background-position: center;
+}
+
+.img-box:nth-child(3)
+{
+  background:url(../img/Magazine/3.png);
+  background-size: cover;
+  background-position: center;
+}
+
+.img-box:nth-child(4)
+{
+  background:url(../img/Magazine/4.png);
+  background-size: cover;
+  background-position: center;
+}
+.img-box h3
+{
+  color: #fff;
+  position: absolute;
+  bottom:  0px;
+  left: 30px;
+  opacity: 0;
+  transition: bottom 0.5s, opacity 1.5s;
+}
+
+.img-box:hover
+{
+  width: 300px;
+  cursor: pointer;
+  opacity: 1;
+}
+
+.img-box:hover h3
+{
+  opacity: 1;
 }
