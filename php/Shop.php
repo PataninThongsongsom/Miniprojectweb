@@ -125,7 +125,8 @@ $minPriceFilter = isset($_POST['min-price']) ? $_POST['min-price'] : '';
 
 <head>
     <meta charset="utf-8">
-    <title>O'clock</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O'clock Shop</title>
     <link rel="icon" type="image/x-icon" href="./img/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -136,7 +137,6 @@ $minPriceFilter = isset($_POST['min-price']) ? $_POST['min-price'] : '';
     <script src="../js/Shop.js"></script>
     <script>
         function send() {
-            console.log("kuy");
         request = new XMLHttpRequest();
         request.onreadystatechange = showResult;
         var keyword = document.getElementById("keyword").value;
@@ -159,7 +159,7 @@ $minPriceFilter = isset($_POST['min-price']) ? $_POST['min-price'] : '';
         </div> -->
     <!-- Menu -->
 
-    <nav id="side">
+    <nav id="side" style="display: none;">
         <h1 id="closeFilter">CLOSE</h1>
         <form action="Shop.php" method="post" onsubmit="return validatePrice()">
             <h1>Category</h1>
@@ -172,41 +172,59 @@ $minPriceFilter = isset($_POST['min-price']) ? $_POST['min-price'] : '';
 
             <h1>Price</h1>
             <label for="max-price">Max Price : </label>
-            <input type="number" name="max-price" placeholder="1000" value="<?php echo isset($_POST['max-price']) ? $_POST['max-price'] : ''; ?>"><br>
+            <input type="number" name="max-price" placeholder="1000" value="<?php echo (isset($_POST['max-price']) && is_numeric($_POST['max-price'])) ? $_POST['max-price'] : '1000'; ?>">
             <label for="max-price">Min Price : </label>
-            <input type="number" name="min-price" min="100" placeholder="100" value="<?php echo isset($_POST['min-price']) ? $_POST['min-price'] : ''; ?>"><br>
+            <input type="number" name="min-price" min="100" placeholder="100" value="<?php echo (isset($_POST['min-price']) && is_numeric($_POST['min-price'])) ? $_POST['min-price'] : '100'; ?>">
             <input type="submit" name="submit-fitler" id="submit-filter">
         </form>
 
     </nav>
 
-    <div class="top-menu">
-        <img src="../img/Shadow.png" class="Shadow">
-        <nav class="main-nav" style="display: relative; position: absolute;">
-            <ul class="menu-left">
-                <a href="afterlogin.php"><img src="../img/logo.png" class="logo"></a>
-                <li><a class="Shop" href="">SHOP</a></li>
-                <li><a href="./Magazine.php" class="Magazine" href="">MAGAZINE</a></li>
-                <li><a class="Custom" href="./Custom.php">CUSTOM YOUR OWN</a></li>
+    <div class="hamburger-menu">
+            <input id="menu__toggle" type="checkbox" />
+            <label class="menu__btn" for="menu__toggle">
+                <span></span>
+            </label>
+            <ul class="menu__box">
+            <li><a class="menu__item" href="./afterlogin.php">Home</a></li>
+                    <li><a class="menu__item" href="./Shop.php">Shop</a></li>
+                    <li><a class="menu__item" href="./Magazine.php">Magazine</a></li>
+                    <li><a class="menu__item" href="./Custom.php">Custom Your Own</a></li>
+                    <li><a class="menu__item" href="./Cartafterlogin.php">Cart</a></li>
+                    <li><a class="menu__item" href="./profile.php">PROFILE</a></li>
+                    <li><a class="menu__item" href="./logout.php">LOGOUT</a></li>
             </ul>
-            <div class="menu-right">
-                <input type="text" class="searchbox" placeholder="Search Products" name="keyword" id="keyword" onkeyup="send()">
-                <a href="./Cartafterlogin.php"><img src="../img/cart.png" class="cart"></a>
-                <div class="dropdown">
+        </div>
+        <!-- Menu Verticle-->
+        <div class="top-menu"> 
+            <img src="../img/Shadow.png" class="Shadow" title="Shadow">
+            <nav class="main-nav">
+                <ul class="menu-left">
+                    <a href="./afterlogin.php"><img src="../img/logo.png"class="logo"></a>
+                    <li><a href="./Shop.php"class="Shop" href="">SHOP</a></li>
+                    <li><a href="./Magazine.php" class="Magazine" href="">MAGAZINE</a></li>
+                    <li><a class="Custom" href="./Custom.php">CUSTOM YOUR OWN</a></li>
+                </ul>
+                <div class="menu-right">
+                    <input type="text" class="searchbox" placeholder="Search Products" name="keyword" id="keyword" onkeyup="send()" >
+                    <a href="./Cartafterlogin.php"><img src="../img/cart.png" class="cart"></a>
+                    <div class="dropdown">
                     <img src="../img/Login.png" class="login" alt="Login Icon">
 
                     <div class="dropdown-content" style="left: 1px;">
-
+                    <?php if($_SESSION['username']=== 'admin'){ ?>
+                            <a href="./listorder.php">LIST OF ORDER</a>
+                        <?php }?>
                         <a href="./profile.php">PROFILE</a>
+                        <a href="./HistoryOforder.php">ORDER HISTROY</a>
                         <a href="./logout.php">LOGOUT</a>
                     </div>
-                    <p style="text-align: center;">Hi <?php echo $_SESSION['username']; ?></p>
+                        <p style="text-align: center;">Hi <?php echo $_SESSION['username']; ?></p>
+                    </div>
                 </div>
-                <!-- <a href="Login.php"><img src="../img/Login.png" class="login"> </a> -->
-            </div>
-        </nav>
-    </div>
-    <!-- <img class="shop-top-bg" src="../img/shop_img/bg-top2_small.jpg" alt=""> -->
+            </nav>
+            
+        </div>
 
     <div class="Shop-filter">
         <button id="filterBT" class="filterBT">Filter</button>

@@ -10,6 +10,7 @@ if (isset($_SESSION['username'])) { // ถ้าlogin ไว้แล้ว
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>O'clock</title>
         <link rel="icon" type="image/x-icon" href="./img/logo.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;700&display=swap" rel="stylesheet">
@@ -66,7 +67,7 @@ if (isset($_SESSION['username'])) { // ถ้าlogin ไว้แล้ว
                 <p class="Rec-paragraph-Paragraph">
                 สร้างสไตล์ของคุณเอง! เลือกผ้าที่คุณชื่นชอบ ทำให้เสื้อของคุณไม่เหมือนใคร! เริ่มต้นที่ O'Clock และเป็นส่วนหนึ่งของการสร้างสรรค์แฟชั่นของคุณได้เลย!
                 </p>
-                <button class="Button-Paragraph" onclick="window.location.href='./html/uploadfile.html'">ทดลองใช้</button>
+                <button class="Button-Paragraph" onclick="window.location.href='../php/Custom.php'">ทดลองใช้</button>
             </div>
         </div>
         <!-- Detail -->

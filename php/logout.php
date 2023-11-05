@@ -5,7 +5,7 @@ $member = $_SESSION['userdetail'];
 $memberID = $member['id'];
 $sql = "SELECT * FROM orders_custom WHERE M_Id = '$memberID' ";
 $result = $con->query($sql);
-if ($result) {
+if ($result && !isset($_SESSION['Customstatus'])) {
     while ($row = mysqli_fetch_assoc($result)) {
         $imageId = $row['M_Id'];
 
@@ -16,6 +16,7 @@ if ($result) {
         }
 
         // Delete the record from the database (adjust your database deletion logic)
+
         $deleteSql = "DELETE FROM orders_custom WHERE M_Id = '$memberID' ";
         // Execute the SQL query and handle any errors
         mysqli_query($con, $deleteSql);

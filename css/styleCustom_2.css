@@ -144,5 +144,6 @@ section{
 .drawing-board{
   flex: 1;
   overflow: hidden;
+  
 }
 

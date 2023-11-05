@@ -13,7 +13,7 @@ include './connect.php';
         $sql = "INSERT INTO orders (`DATE`, `TIME`, `M_ID`) VALUES (CURRENT_DATE,CURRENT_TIME, '$memberID')";
         $rs = mysqli_query($con, $sql);
         if($rs)
-        {
+        {   $_SESSION['Customstatus'] = true;
             $mdId = mysqli_insert_id($con);
             foreach ($_SESSION["cart"] as $item){
                $pid=$item["pid"];
@@ -68,8 +68,11 @@ include './connect.php';
                     <img src="../img/Login.png" class="login" alt="Login Icon">
 
                     <div class="dropdown-content" style="left: 1px;">
-
+                    <?php if($_SESSION['username']=== 'admin'){ ?>
+                            <a href="./listorder.php">LIST OF ORDER</a>
+                        <?php }?>
                         <a href="./profile.php">PROFILE</a>
+                        <a href="./HistoryOforder.php">ORDER HISTROY</a>
                         <a href="./logout.php">LOGOUT</a>
                     </div>
                     <p style="text-align: center;">Hi <?php echo $_SESSION['username']; ?></p>

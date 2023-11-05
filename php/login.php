@@ -25,6 +25,7 @@
         if ($result && mysqli_num_rows($result) > 0) {
             // Login successful
             $_SESSION['username'] = $username; // Store username in session for future use
+            
             $_SESSION['userdetail'] = array(
                 'name' => $res['Name'],
                 'surname' => $res['Surname'],
@@ -34,8 +35,7 @@
                 'pass' => $res['Password'],
                 'id' => $res['MD_Id']
             );
-            // echo "<div class='menu-right'> $username</div>";
-            // echo "Ez";
+           
             echo "<script type='text/javascript'>alert('Login Complete'); 
                 window.location = './afterlogin.php'
 
@@ -62,6 +62,7 @@
     <head>
         <meta charset="utf-8">
         <title>O'clock</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/x-icon" href="../Miniprojectweb/img/logo.png">
         <link rel="stylesheet" href="../css/stylelog.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -78,15 +79,14 @@
         <form class="Loginform" action="./login.php" method="post">
             
             <div class="Logintext"><img src ="../img/Loginlogo.png"></div>
-            <div class = "myinput"><ion-icon name="person"></ion-icon><input type="text" placeholder="USERNAME" name="username"></div><br>
+            <div class = "myinput"><ion-icon name="person"></ion-icon><input type="text" placeholder="USERNAME" name="username"></div>
 
-            <div class ="myinput"><ion-icon name="lock-closed"></ion-icon><input type="password" placeholder="PASSWORD" name="password"></div><br><br>
+            <div class ="myinput"><ion-icon name="lock-closed"></ion-icon><input type="password" placeholder="PASSWORD" name="password"></div>
             <div class ="Remember"><p><input type ="checkbox" value="Remember">
                 REMEMBER ME!</p></div>
-            <br>
             <input type="submit" value="Login" class="btnlogin">
             <!-- <a href="../html/afterlogin.html" class = "btnlogin">LOGIN</a> -->
-            <a href="../index.php" class ="btnback">BACK</a><br>
+            <a href="../index.php" class ="btnback">BACK</a>
 
             <div class ="Register">
             <p>IF YOU DON'T HAVE AN ACCOUNT <a href="./register.php">Register</a></p>
