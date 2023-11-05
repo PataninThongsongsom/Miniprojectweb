@@ -137,7 +137,6 @@ $minPriceFilter = isset($_POST['min-price']) ? $_POST['min-price'] : '';
     <script src="../js/Shop.js"></script>
     <script>
         function send() {
-            console.log("kuy");
         request = new XMLHttpRequest();
         request.onreadystatechange = showResult;
         var keyword = document.getElementById("keyword").value;
@@ -207,7 +206,7 @@ $minPriceFilter = isset($_POST['min-price']) ? $_POST['min-price'] : '';
                     <li><a class="Custom" href="./Custom.php">CUSTOM YOUR OWN</a></li>
                 </ul>
                 <div class="menu-right">
-                    <input type="search" class="searchbox" placeholder="Search Products" >
+                    <input type="text" class="searchbox" placeholder="Search Products" name="keyword" id="keyword" onkeyup="send()" >
                     <a href="./Cartafterlogin.php"><img src="../img/cart.png" class="cart"></a>
                     <div class="dropdown">
                     <img src="../img/Login.png" class="login" alt="Login Icon">
