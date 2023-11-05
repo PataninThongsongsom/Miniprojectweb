@@ -10,6 +10,9 @@ $user = $_SESSION['user_login'];
 <head>
     <meta charset="UTF-8">
     <meta meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Della+Respira&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100&display=swap" rel="stylesheet">
     <title>Magazine</title>
     <link rel="stylesheet" href="../css/style-magazine.css">
     <link rel="javascript" href="../js/app-magazine.js">
@@ -60,9 +63,11 @@ $user = $_SESSION['user_login'];
         <header class="header-magazine">Magazine</header>
         <div class="detail-magazine">
             <div class="detail-image-magazine">
-                <img scr="">
-                <img scr="">
-                <img scr="">
+                <div class="img-box"><h3>Fashion Show Dior 2021</h3></div>
+                <div class="img-box"><h3>O'Clock x HarryPotter</h3></div>
+                <div class="img-box"><h3>Thai Fashion festival 2022</h3></div>
+                <div class="img-box"><h3>Pic4</h3></div>
+
         </div>
     </section>
     
